@@ -1,0 +1,111 @@
+@startuml
+'https://plantuml.com/state-diagram
+
+scale 350 width
+[*] --> RegionSelectionState
+
+RegionSelectionState --> MainMenuState : region chosen
+MainMenuState --> OwnerLoginState : user entered "2" or "3"
+MainMenuState --> InfoMenuState : user entered "4"
+MainMenuState --> [*] : user entered "0"
+
+OwnerLoginState --> BuildingRegistrationMenuState : user logged in and entered "3" in MainMenuState
+OwnerLoginState --> LandPlotRegistrationMenuState : user logged in and entered "2" in MainMenuState
+OwnerLoginState --> OwnerDocumentsState : user logged in and entered "3" in InfoMenuState
+OwnerLoginState --> OwnerRegistrationConfirmationState : owner doesn't exist
+
+OwnerRegistrationConfirmationState --> OwnerRegistrationState : user entered "Y"
+OwnerRegistrationConfirmationState -->  MainMenuState: user entered "N"
+OwnerRegistrationConfirmationState --> OwnerRegistrationConfirmationState: user invalid input
+
+OwnerRegistrationState --> LandPlotRegistrationMenuState : user entered "2" in MainMenuState
+OwnerRegistrationState --> BuildingRegistrationMenuState : user entered "3" in MainMenuState
+OwnerRegistrationState --> OwnerDocumentsState : user entered "3" in InfoMenuState
+
+LandPlotRegistrationMenuState --> LandPlotRegistrationState : user entered "1"
+LandPlotRegistrationState --> LandPlotRegistrationMenuState : land plot registered
+LandPlotRegistrationMenuState --> LandPlotUnregState : user entered "2"
+LandPlotRegistrationMenuState --> PickLandPlotState : user entered "3"
+LandPlotRegistrationMenuState --> MainMenuState : user entered "0"
+LandPlotRegistrationMenuState --> LandPlotRegistrationMenuState : user invalid input
+
+BuildingRegistrationMenuState --> BuildingRegistrationState : user entered "1"
+BuildingRegistrationMenuState --> BuildingUnregState : user entered "2"
+BuildingRegistrationMenuState --> MainMenuState : user entered "0"
+BuildingRegistrationMenuState --> BuildingRegistrationMenuState : user invalid input
+
+InfoMenuState --> ShowLandPlotsState : user entered "1"
+ShowLandPlotsState --> InfoMenuState
+InfoMenuState --> ShowBuildingsState : user entered "2"
+ShowBuildingsState --> InfoMenuState
+InfoMenuState --> OwnerLoginState : user entered "3"
+InfoMenuState --> MainMenuState : user entered "0"
+InfoMenuState --> InfoMenuState : user invalid input
+
+state OwnerDocumentsState {
+  [*] -> DocumentSelectionState
+  DocumentSelectionState --> DocumentSelectionState : user invalid input
+  DocumentSelectionState --> [*] : user entered "0"
+  DocumentSelectionState --> FullDocumentPresentationState : user chose document
+  FullDocumentPresentationState --> DocumentSelectionState : entered anything or "0" to update document
+}
+OwnerDocumentsState --> InfoMenuState
+
+state BuildingUnregState {
+  [*] --> BuildingSelectionState
+  BuildingSelectionState --> BuildingSelectionState : user invalid input
+  BuildingSelectionState --> [*] : user entered "0" or chose the building
+}
+BuildingUnregState --> BuildingRegistrationMenuState : "0" in BuildingSelectionState of building unregistered
+
+state BuildingRegistrationState {
+  [*] --> BuildLandPlotSelectionState
+  BuildLandPlotSelectionState --> [*] : user entered "0"
+  BuildLandPlotSelectionState --> BuildingNameRegistrationState : land plot selected
+  BuildingNameRegistrationState --> DateRegistrationState : user entered name
+  DateRegistrationState --> DateRegistrationState : user entered invalid date
+  DateRegistrationState --> BuildingAreaRegistrationState : user entered date
+  BuildingAreaRegistrationState --> [*] : user entered invalid area
+  BuildingAreaRegistrationState --> FloorsRegistrationState : user entered area
+  FloorsRegistrationState --> FloorsRegistrationState : user entered invalid floors
+  FloorsRegistrationState --> [*] : user entered floors
+}
+BuildingRegistrationState --> BuildingRegistrationMenuState : building registered or invalid input
+state PickLandPlotState {
+  [*] --> UnownedLandPlotSelectionState
+  UnownedLandPlotSelectionState --> [*] : user entered "0"
+  UnownedLandPlotSelectionState  --> UnownedLandPlotSelectionState  : chosen land_plot owned
+}
+PickLandPlotState--> LandPlotRegistrationMenuState : user entered "0" in UnownedLandPlotSelectionState
+
+state LandPlotUnregState {
+  [*] --> LandPlotSelectionState
+  LandPlotSelectionState --> [*] : user entered "0"
+  LandPlotSelectionState --> LandPlotSelectionState : chosen land_plot unregistered
+}
+LandPlotUnregState --> LandPlotRegistrationMenuState : user entered "0" in LandPlotSelectionState
+
+state LandPlotRegistrationState {
+  [*] --> CoordinatesRegistrationState
+  CoordinatesRegistrationState --> CoordinatesRegistrationState : user entered invalid coordinates
+  CoordinatesRegistrationState --> LandAreaRegistrationState : user entered coordinates
+  LandAreaRegistrationState --> LandAreaRegistrationState : user entered invalid area
+  LandAreaRegistrationState --> FuncPurposeRegistrationState : user entered area
+  FuncPurposeRegistrationState --> TerrBlockNumRegistrationState : user entered func_purpose
+  TerrBlockNumRegistrationState --> LandPlotNumRegistrationState : user entered terr_block_num
+  LandPlotNumRegistrationState --> [*] : user entered land_plot_num
+  LandPlotNumRegistrationState --> TerrBlockNumRegistrationState : user entered invalid terr_block or land_plot num
+}
+
+state OwnerRegistrationState {
+  [*] --> PassportIDRegistrationState
+  PassportIDRegistrationState --> PassportIDRegistrationState : user entered invalid ID
+  PassportIDRegistrationState --> OwnerNameRegistrationState : user entered ID
+  OwnerNameRegistrationState --> OwnerNameRegistrationState : user entered invalid name
+  OwnerNameRegistrationState --> OwnerSurnameRegistrationState : user entered name
+  OwnerSurnameRegistrationState --> OwnerSurnameRegistrationState : user entered invalid surname
+  OwnerSurnameRegistrationState --> [*] : user entered surname
+}
+
+
+@enduml

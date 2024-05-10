@@ -1,0 +1,288 @@
+@startuml
+!define ABC abstract
+!define property {field}
+!define setter {method}
+!define abstract {abstract method}
+
+class Building {
+    - __name: str
+    - __land_plot: LandPlot
+    - __date_of_building: struct_time
+    - __area_in_square_meters: float
+    - __floors: int
+
+    + init(name: str, land_plot: LandPlot = None, date_of_building: struct_time = None, area_in_square_meters: float = 0.0, floors: int = 1)
+    + name: str
+    + land_plot: LandPlot
+    + date_of_building: struct_time
+    + area_in_square_meters: float
+    + floors: int
+    + __str__(): str
+    + __eq__(other: object): bool
+}
+
+class LandPlot {
+    - __cadastral_number: str
+    - __coordinates: tuple[float, float]
+    - __area_in_hectares: float
+    - __functional_purpose: str
+
+    + __init__(coordinates: tuple[float, float] = tuple[0.0, 0.0], area_in_hectares: float = 0.0, functional_purpose: str = "")
+    + cadastral_number: str
+    + coordinates: tuple[float, float]
+    + area_in_hectares: float
+    + functional_purpose: str
+    + __str__(): str
+    + __eq__(other: object): bool
+}
+
+class CadastralNumber {
+    - __terr_unit_region: Region
+    - __terr_unit_code: int
+    - __cadastral_block_number: str
+    - __land_plot_number: str
+    - LAND_PLOT_NUMBER_LENGTH: int
+
+    + __init__(terr_unit_region: Region = Region.DEFAULT, land_plot_number: int = 0)
+    + cadastral_block_number: int
+    + land_plot_number: str
+    + terr_unit_code: int
+    + __str__(): str
+    + __eq__(other: object): bool
+    + __verify_land_plot_number(number: int): str
+}
+
+class Owner {
+    - __passport_id: str
+    - __first_name: str
+    - __last_name: str
+
+    + __init__(passport_id: str, first_name: str, last_name: str)
+    + passport_id: str
+    + first_name: str
+    + last_name: str
+    + __str__(): str
+    + __eq__(other: object): bool
+}
+
+class RegistrationDocument<<ABC>> {
+    {field} - _owner: Owner
+    {field} - _registration_date: date
+
+    {method} + __init__(owner: Owner, registration_date: date)
+    {method} + __str__(): str
+    {method} + owner: Owner
+    {method} + update(): void
+    {method} + __eq__(other: object): bool
+    {abstract} + short_desc(): str
+}
+
+class LandRegistrationDocument {
+    - __land_plot: LandPlot
+
+    + __init__(owner: Owner, registration_date: date, land_plot: LandPlot)
+    + short_desc(): str
+    + land_plot: LandPlot
+    + __str__(): str
+    + __eq__(other: object): bool
+}
+
+class BuildingRegistrationDocument {
+    - __building: Building
+
+    + __init__(owner: Owner, registration_date: date, building: Building)
+    + short_desc(): str
+    + building: Building
+    + __str__(): str
+    + __eq__(other: object): bool
+}
+
+enum Region {
+    DEFAULT
+    GRODNO
+    MINSK
+    MINSK_RG
+    GOMEL
+    VITEBSK
+    MOGILEV
+    BREST
+}
+
+class CadastralAgency {
+    - __serializer: ShelveSerializer
+    - __documents: List[RegistrationDocument]
+    - __registered_owners: List[Owner]
+    - __registered_buildings: List[Building]
+    - __registered_land_plots: List[LandPlot]
+    - __unregistered_land_plots: List[LandPlot]
+
+    + documents: List[RegistrationDocument]
+    + registered_owners: List[Owner]
+    + registered_buildings: List[Building]
+    + registered_land_plots: List[LandPlot]
+    + unregistered_land_plots: List[LandPlot]
+    + register_land_plot(valid_land: LandPlot, land_owner: Owner): void
+    + unregister_land_plot(document: LandRegistrationDocument): void
+    + register_building(valid_building: Building, building_owner: Owner): void
+    + unregister_building(document: BuildingRegistrationDocument): void
+    + register_owner(valid_owner: Owner): Owner
+    + get_land_plot_left_area(land_plot: LandPlot): float
+    + load(file_path: str = ""): void
+    + save_all(file_path: str = ""): void
+    + get_owner_land_documents(valid_owner: Owner): list[LandRegistrationDocument]
+    + get_owner_building_documents(valid_owner: Owner): list[BuildingRegistrationDocument]
+    + get_owner_documents(valid_owner: Owner): list[RegistrationDocument]
+    - __clear_building_registrations(land_plot: LandPlot): void
+}
+
+class CadastralAgencyMeta {
+    - _instances: dict
+
+    + __call__(cls, *args, **kwargs): object
+}
+
+class ShelveSerializer {
+    - __save_file_path: str
+
+    + __init__(save_file_path: str = "model/serialize/files/db")
+    + save_file_path: str
+    + serialize(**kwargs): void
+    + deserialize(): dict
+}
+
+
+class CadastralAgencyController {
+    - _service: CadastralAgency
+    - _owner_controller: OwnerController
+    - _land_controller: LandController
+    - _document_controller: DocumentController
+    - _building_controller: BuildingController
+
+    + __init__(service: CadastralAgency = CadastralAgency(), owner_controller: OwnerController = OwnerController(), land_controller: LandController = LandController(), document_controller: DocumentController = DocumentController(), building_controller: BuildingController = BuildingController())
+    + select_region(current_region: Region): Region
+    + land_plot_registration(current_region: Region): void
+    + building_registration(): void
+    + information_presentation(): void
+    + save_all(): void
+    + load(): void
+}
+
+class BuildingController {
+    - _service: CadastralAgency
+    - _building_validator: BuildingValidator
+    - _document_controller: DocumentController
+
+    + register_building(valid_owner: Owner): void
+    + unregister_building(valid_owner: Owner): void
+    + get_all_buildings(): void
+    - __get_time(input_: str): struct_time
+    - __get_area(land_plot: LandPlot): float
+}
+
+class DocumentController {
+    - _service: CadastralAgency
+
+    + choose_land_plot_document(valid_owner: Owner, menu_context: str): LandRegistrationDocument
+    + choose_building_document(valid_owner: Owner, menu_context: str): BuildingRegistrationDocument
+    + get_all_documents_of_owner(valid_owner: Owner): void
+    - __show_full_document(doc: RegistrationDocument): void
+}
+
+class OwnerController {
+    - _service: CadastralAgency
+    - _validator: OwnerValidator
+
+    + check_owner(): Owner | None
+    + register_owner(): Owner
+}
+
+class LandController {
+    - _service: CadastralAgency
+    - _land_validator: LandPlotValidator
+    - _document_controller: DocumentController
+
+    + register_land_plot(valid_owner: Owner, current_region: Region): void
+    + unregister_land_plot(valid_owner: Owner): void
+    + own_land_plot(valid_owner: Owner): void
+    + get_all_land_plots(): void
+    - __get_purpose(): str
+    - __give_cadastral_number(valid_land: LandPlot, current_region: Region): LandPlot
+    - __get_land_plot_num(): str
+    - __get_cad_block_num(current_region: Region): str
+}
+
+class OwnerValidator {
+    - _service: CadastralAgency
+
+    + validate_passport_id(passport_id: str): str
+    + validate_name_or_surname(name_or_surname: str): str
+}
+
+class BuildingValidator {
+    - _service: CadastralAgency
+
+    + validate_building_name(name: str): str
+    + validate_area_in_square_meters(str_area: str, land_plot: LandPlot): float
+    + validate_floors(str_floors: str): int
+}
+
+class LandPlotValidator {
+    - _service: CadastralAgency
+
+    + validate_coordinates(str_coordinates: str): tuple[float, float]
+    + validate_area(area: str): float
+    + validate_cadastral_number(cad_number: CadastralNumber, cad_block_num: int): str
+}
+
+class Menu {
+    + print_menu(context: str, actions: dict[str | tuple[int, str], Callable]): void
+    + get_entry(callback: Callable[[Any], Any], context: str = ""): Any
+    + show_list(list_: list[Any], context: str = ""): void
+    + show_error(error_msg: str): void
+    - __get_menu_input(*points): Callable
+}
+
+class BackException
+
+CadastralAgencyController "1" *-- "1" CadastralAgency
+CadastralAgencyController "1" *-- "1" OwnerController
+CadastralAgencyController "1" *-- "1" LandController
+CadastralAgencyController "1" *-- "1" DocumentController
+CadastralAgencyController "1" *-- "1" BuildingController
+
+BuildingController "1" *-- "1" CadastralAgency
+BuildingController "1" o-- "1" BuildingValidator
+BuildingController "1" *-- "1" DocumentController
+
+DocumentController "1" *-- "1" CadastralAgency
+
+RegistrationDocument <|-- LandRegistrationDocument
+RegistrationDocument <|-- BuildingRegistrationDocument
+
+OwnerController "1" *-- "1" CadastralAgency
+OwnerController "1" o-- "1" OwnerValidator
+
+LandController "1" *-- "1" CadastralAgency
+LandController "1" *-- "1" LandPlotValidator
+LandController "1" *-- "1" DocumentController
+
+OwnerValidator "1" *-- "1" CadastralAgency
+BuildingValidator "1" *-- "1" CadastralAgency
+LandPlotValidator "1" *-- "1" CadastralAgency
+
+CadastralNumber "1" *-- "1" Region
+Building "1" *-- "1" LandPlot
+LandPlot "1" *-- "1" CadastralNumber
+
+BuildingRegistrationDocument "1" o-- "1" Building
+LandRegistrationDocument "1" o-- "1" LandPlot
+RegistrationDocument "1" o-- "*" Owner
+
+CadastralAgency "1" *-- "*" RegistrationDocument
+CadastralAgency "1" *-- "*" Owner
+CadastralAgency "1" *-- "*" Building
+CadastralAgency "1" *-- "*" LandPlot
+CadastralAgency "1" *-- "1" ShelveSerializer
+
+CadastralAgency <-- CadastralAgencyMeta
+@enduml
