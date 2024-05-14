@@ -168,14 +168,13 @@ __Операции:__ операция размещения лота, опера
 Класс, который отвечает за ввод и ввывод информации для пользователя, а также обработку исключительных ситуаций.
 
 ##### Методы:
+Все методы в данном классе статические.
 
-* @staticmethod
-    def print_info_of_auction(count_lots, count_participants, time)
+* def print_info_of_auction(count_lots, count_participants, time)
 
 Функция, которая выводит на экран информацию о текущей подготовке к аукциону: количество зарегистрированных лотов, количество зарегистрированных участников, время отведенное для проведения аукциона.
 
-* @staticmethod
-    def display_lot(lot_name, lot_price, lot_bid)
+* def display_lot(lot_name, lot_price, lot_bid)
 
 Функция, которая выводит на экран информацию об определенном лоте: название лота, начальную цену и ставку.
 
@@ -183,33 +182,27 @@ __Операции:__ операция размещения лота, опера
 
 Функция, которая выводит подробную информацию о всех учатниках, которые были зарегистрированы.
 
-* @staticmethod
-    def find_participants_for_bidding(participants, price)
+* def find_participants_for_bidding(participants, price)
 
 Функуция, которая выводит на экран информацию об участниках, которые могут поучаствовать в торгах за определнный лот с текущей ценой. На экран выводится номер участника, имя и сумма денег.
 
-* @staticmethod
-    def winner_announcement(winner_index, lot_index, lot_name)
+* def winner_announcement(winner_index, lot_index, lot_name)
 
 Функция, которая выводит на экран номер участника, победившего в торгах за лот под определенным номером и названием.
 
-*  @staticmethod
-    def winner_paid(winner_name, winner_money)
+*  def winner_paid(winner_name, winner_money)
 
 Функция, выводящая на экран сообщение об оплате участником-победителем конкретной суммы.
 
-*  @staticmethod
-    def numbers_input_check(input_message, min_value, max_value)
+*  def numbers_input_check(input_message, min_value, max_value)
 
 Функция для проверки ввода целого числа, который находится в определенном диапазоне чисел.
 
-* @staticmethod
-    def string_input_check()
+* def string_input_check()
 
 Функция для проверки строки на содержание символов, отличных от букв.
 
-* @staticmethod
-    def find_participant(participant_number, count_participants)
+* def find_participant(participant_number, count_participants)
 
 Функция для проверки выбора существующего участника аукциона.
 
