@@ -7,3 +7,22 @@ Super Mario Bros - копия оригинального пиксельного 
 ## Демонстрация работы
 
 - Главное меню
+![](https://github.com/oden73/ppois-2-2024/blob/%D0%9A%D0%B0%D1%80%D0%BF%D1%83%D0%BA_%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC_%D0%92%D0%B8%D1%82%D0%B0%D0%BB%D1%8C%D0%B5%D0%B2%D0%B8%D1%87/lw3/report_img/main_menu.png)
+
+- Таблица рекордов
+![](https://github.com/oden73/ppois-2-2024/blob/%D0%9A%D0%B0%D1%80%D0%BF%D1%83%D0%BA_%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC_%D0%92%D0%B8%D1%82%D0%B0%D0%BB%D1%8C%D0%B5%D0%B2%D0%B8%D1%87/lw3/report_img/scoreboard.png)
+
+- Справка
+![](https://github.com/oden73/ppois-2-2024/blob/%D0%9A%D0%B0%D1%80%D0%BF%D1%83%D0%BA_%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC_%D0%92%D0%B8%D1%82%D0%B0%D0%BB%D1%8C%D0%B5%D0%B2%D0%B8%D1%87/lw3/report_img/reference.png)
+
+- Игровой процесс
+![](https://github.com/oden73/ppois-2-2024/blob/%D0%9A%D0%B0%D1%80%D0%BF%D1%83%D0%BA_%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC_%D0%92%D0%B8%D1%82%D0%B0%D0%BB%D1%8C%D0%B5%D0%B2%D0%B8%D1%87/lw3/report_img/game.png)
+
+- Сохранение рекорда
+![](https://github.com/oden73/ppois-2-2024/blob/%D0%9A%D0%B0%D1%80%D0%BF%D1%83%D0%BA_%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC_%D0%92%D0%B8%D1%82%D0%B0%D0%BB%D1%8C%D0%B5%D0%B2%D0%B8%D1%87/lw3/report_img/new_record.png)
+
+## Архитектура приложения
+
+Приложение было написано с использованием библиотеки pygame-ce и pytmx.
+
+Первая библиотека была использована для отображения уровня и объектов, вторая для обработки карты в .tmx формате. Карта уровня хранится в отдельном файле, она разбита на отдельные плитки, каждая плитка представляет из себя отдельный объект. В json файле хранится конфигурация карты, а именно: цвет неба, расположение труб; расположение мобов и позиция игрока, когда их необходимо создать.   
