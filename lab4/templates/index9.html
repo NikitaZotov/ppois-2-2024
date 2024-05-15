@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Data</title>
+</head>
+<body>
+    <h1>Technical Data</h1>
+    <ul>
+        {% for technical_info in technical_data %}
+            <li>Screen diagonal: {{ technical_info[0] }}, Screen resolution: {{ technical_info[1] }}, Matrix type: {{ technical_info[2] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

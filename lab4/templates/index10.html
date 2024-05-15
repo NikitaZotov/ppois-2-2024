@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphical Data</title>
+</head>
+<body>
+    <h1>Graphical Data</h1>
+    <ul>
+        {% for graphical_info in graphical_data %}
+            <li>Britness: {{ graphical_info[0] }}, Contrast: {{ graphical_info[1] }}, Saturation: {{ graphical_info[2] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
