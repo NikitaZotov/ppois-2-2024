@@ -14,7 +14,7 @@
 
 ### Добавление питомца
 Для добавления питомца необходимо нажать `Add Pet`. Открывается окно, в котором пользователь может ввести данные о питомце.
-![image]([https://github.com/abushkevicaleksej/ppois-2-2024/assets/112658913/a48f44ee-8228-4bc0-a285-9416be2d0bad](https://github.com/Mariannnnaaaaa/ppois-2-2024/blob/%D0%AE%D1%80%D0%BA%D0%B5%D0%B2%D0%B8%D1%87_%D0%9C%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D0%BD%D0%B0_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B5%D0%B2%D0%BD%D0%B0/LW_2/pics/add_pet.png))
+![image]([[https://github.com/abushkevicaleksej/ppois-2-2024/assets/112658913/a48f44ee-8228-4bc0-a285-9416be2d0bad](https://github.com/Mariannnnaaaaa/ppois-2-2024/blob/%D0%AE%D1%80%D0%BA%D0%B5%D0%B2%D0%B8%D1%87_%D0%9C%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D0%BD%D0%B0_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B5%D0%B2%D0%BD%D0%B0/LW_2/pics/add_pet.png)](https://github.com/Mariannnnaaaaa/ppois-2-2024/blob/%D0%AE%D1%80%D0%BA%D0%B5%D0%B2%D0%B8%D1%87_%D0%9C%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D0%BD%D0%B0_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B5%D0%B2%D0%BD%D0%B0/LW_2/pics/add_pet.png))
 
 В данной процедуре добавления обработаны такие ошибки, как:
 ```
