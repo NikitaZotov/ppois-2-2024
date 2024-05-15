@@ -6,15 +6,17 @@
 ### Демонстрация работы программы
 `Главное окно` программы представлено в виде таблицы со столбиками Имя питомца, Дата рождения, Дата последнего приема, ФИО ветеринара, Диагноз. Также на главном окне присутствуют различные кнопки управления (переключение количества записей на странице, переключение самих страниц) и инструменты для работы с базой (создание файла, открытие, добавление питомца, поиск по фильтру и удаление по фильтру).
 
-![Главное окно программы]([https://github.com/abushkevicaleksej/ppois-2-2024/assets/112658913/9dc3dc48-5d4f-4419-8814-5a67948d1634](https://github.com/Mariannnnaaaaa/ppois-2-2024/blob/%D0%AE%D1%80%D0%BA%D0%B5%D0%B2%D0%B8%D1%87_%D0%9C%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D0%BD%D0%B0_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B5%D0%B2%D0%BD%D0%B0/LW_2/pics/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%BE%D0%B5%20%D0%BE%D0%BA%D0%BD%D0%BE.png))
+![главное окно](https://github.com/Mariannnnaaaaa/ppois-2-2024/assets/115795639/49a9525d-9d60-48a5-92ff-4de38a790be9)
 
  ### Работа с данными
  Программа поддерживает работу с видом файла - `.xml`. Для удаления и поиска обязательно необходимо открыть какой-либо файл, иначе программа сообшит о невозможности выполнения операций.
- ![image]([https://github.com/abushkevicaleksej/ppois-2-2024/assets/112658913/f84168d5-6105-4fb2-8457-a93b230ba9a3](https://github.com/Mariannnnaaaaa/ppois-2-2024/blob/%D0%AE%D1%80%D0%BA%D0%B5%D0%B2%D0%B8%D1%87_%D0%9C%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D0%BD%D0%B0_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B5%D0%B2%D0%BD%D0%B0/LW_2/pics/error_add_pet.png))
+ ![error_add_pet](https://github.com/Mariannnnaaaaa/ppois-2-2024/assets/115795639/25b7662e-d8b7-40cc-854b-51acaf425e7c)
+
 
 ### Добавление питомца
 Для добавления питомца необходимо нажать `Add Pet`. Открывается окно, в котором пользователь может ввести данные о питомце.
-![image]([[https://github.com/abushkevicaleksej/ppois-2-2024/assets/112658913/a48f44ee-8228-4bc0-a285-9416be2d0bad](https://github.com/Mariannnnaaaaa/ppois-2-2024/blob/%D0%AE%D1%80%D0%BA%D0%B5%D0%B2%D0%B8%D1%87_%D0%9C%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D0%BD%D0%B0_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B5%D0%B2%D0%BD%D0%B0/LW_2/pics/add_pet.png)](https://github.com/Mariannnnaaaaa/ppois-2-2024/blob/%D0%AE%D1%80%D0%BA%D0%B5%D0%B2%D0%B8%D1%87_%D0%9C%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D0%BD%D0%B0_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B5%D0%B2%D0%BD%D0%B0/LW_2/pics/add_pet.png))
+![add_pet](https://github.com/Mariannnnaaaaa/ppois-2-2024/assets/115795639/78539050-1d41-42a3-ab3d-f33e859ebed9)
+
 
 В данной процедуре добавления обработаны такие ошибки, как:
 ```
@@ -25,10 +27,13 @@
 
 ### Поиск питомца
 В данной программе реализована логика поиска питомца. Она практически идентична логике удаления, за исключением того, что присутствует кнопка `Return`, которая обнуляет критерии поиска пациентов. Результаты поиска пациентов отображаются в новой таблице, где указывается, сколько пациентов было найдено. Если запрашиваемых пациентов нет, то выводится сообщение о неудачном поиске.
-![image]([https://github.com/abushkevicaleksej/ppois-2-2024/assets/112658913/5acd38b7-106a-45de-a604-6bae82b89527](https://github.com/Mariannnnaaaaa/ppois-2-2024/blob/%D0%AE%D1%80%D0%BA%D0%B5%D0%B2%D0%B8%D1%87_%D0%9C%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D0%BD%D0%B0_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B5%D0%B2%D0%BD%D0%B0/LW_2/pics/search_by_filter.png))
+![search_by_filter](https://github.com/Mariannnnaaaaa/ppois-2-2024/assets/115795639/41783cfa-3af3-48ca-a508-ae59c4d63a60)
+
 
 ### Удаление питомца
 В данной программе реализована логика удаления питомца. Удалять мы можем по заявленным критериям. Критерии могут быть выбраны поодиночке - пользователь сам выбирает необходимый критерий удаления пациента. При успешном удалении выводится окно успеха с количеством удаленных записей. При неуспешном сообщается о несуществовании такой записи в таблице. Пустые поля оставлять нельзя. После успешного либо неуспешного удаления поля ввода критерия обнуляются.
-![image]([https://github.com/abushkevicaleksej/ppois-2-2024/assets/112658913/d161a8cd-0f84-408a-a05e-28056bd4df68](https://github.com/Mariannnnaaaaa/ppois-2-2024/blob/%D0%AE%D1%80%D0%BA%D0%B5%D0%B2%D0%B8%D1%87_%D0%9C%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D0%BD%D0%B0_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B5%D0%B2%D0%BD%D0%B0/LW_2/pics/delete.png))
+![delete](https://github.com/Mariannnnaaaaa/ppois-2-2024/assets/115795639/aa1fc267-fd4b-4c32-ba51-594e06855122)
 
-![image]([https://github.com/abushkevicaleksej/ppois-2-2024/assets/112658913/929545e7-9bc9-44f4-bccb-b8b4cdd3461c](https://github.com/Mariannnnaaaaa/ppois-2-2024/blob/%D0%AE%D1%80%D0%BA%D0%B5%D0%B2%D0%B8%D1%87_%D0%9C%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D0%BD%D0%B0_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B5%D0%B2%D0%BD%D0%B0/LW_2/pics/delete%20matches.jpg))
+
+![delete matches](https://github.com/Mariannnnaaaaa/ppois-2-2024/assets/115795639/8e8bee1c-6572-4562-839f-24b090e12b93)
+
