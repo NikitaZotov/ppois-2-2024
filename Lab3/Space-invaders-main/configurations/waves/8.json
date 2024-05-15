@@ -1,0 +1,8 @@
+{
+    "type": "spawning",
+    "duration": 40,
+    "enemies": [
+        {"type": "RandomBallAlien","generate_type":"spawning", "interval": 2000}
+    ],
+	"background color":"brown"
+}

@@ -1,0 +1,20 @@
+{
+    "type": "spawning",
+    "duration": 50,
+    "enemies": [
+        {"type": "Generator","generate_type":"spawning", "interval": 5000}
+    ],
+	"obstacles": {
+        "count": 3,
+        "shape": [
+            "  xxxxxxx",
+            " xxxxxxxxx",
+            "xxxxxxxxxxx",
+            "xxxxxxxxxxx",
+            "xxxxxxxxxxx",
+            "xxx     xxx",
+            "xx       xx"
+        ]
+    },
+	"background color":"yellow"
+}

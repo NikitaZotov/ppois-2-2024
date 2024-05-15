@@ -1,0 +1,8 @@
+{
+    "type": "initial",
+    "enemies": [
+        {"type": "GreenAlien", "generate_type": "matrix", "rows": 1, "columns": 7}
+		
+    ],
+	"description":"Небольшое количество зеленых инопланетян"
+}

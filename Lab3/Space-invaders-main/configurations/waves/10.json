@@ -1,0 +1,7 @@
+{
+    "type": "initial",
+    "enemies": [
+		{"type": "Boss",  "generate_type": "center_top"}
+    ],
+	"background color":"silver"
+}

@@ -1,0 +1,23 @@
+{
+    "type": "initial",
+    "duration": 60,
+    "enemies": [
+        {"type": "GreenAlien", "generate_type": "matrix", "rows": 1, "columns": 7},
+		{"type": "YellowAlien", "generate_type": "matrix", "rows": 2, "columns": 7},
+		{"type": "RedAlien", "generate_type":   "matrix", "rows": 3, "columns": 7}
+		
+    ],
+    "obstacles": {
+        "count": 3,
+        "shape": [
+            "  xxxxxxx",
+            " xxxxxxxxx",
+            "xxxxxxxxxxx",
+            "xxxxxxxxxxx",
+            "xxxxxxxxxxx",
+            "xxx     xxx",
+            "xx       xx"
+        ]
+    },
+	"background color":"purlpe"
+}

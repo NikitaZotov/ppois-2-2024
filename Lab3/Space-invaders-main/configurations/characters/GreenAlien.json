@@ -1,0 +1,8 @@
+{
+    "lives": 1,
+    "speed": 1,
+    "value": 100,
+    "animation_files": {
+      "walk": "../graphics/green.png"
+    }
+}
