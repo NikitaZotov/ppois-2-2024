@@ -1,0 +1,8 @@
+{
+  "lives": 1,
+  "speed": 1,
+  "value": 10,
+  "animation_files": {
+    "walk": "../graphics/Minion/walk.png"
+  }
+}

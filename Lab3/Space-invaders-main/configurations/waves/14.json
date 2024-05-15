@@ -1,0 +1,10 @@
+{
+    "type": "spawning",
+    "duration": 40,
+    "enemies": [
+        {"type": "Ram","generate_type":"spawning", "interval": 700},
+		{"type": "Extra", "interval": 2000}
+		
+    ],
+	"background color":"teal"
+}

@@ -1,0 +1,21 @@
+{
+    "type": "initial",
+    "enemies": [
+        {"type": "GreenAlien", "generate_type": "matrix", "rows": 5, "columns": 8}
+		
+    ],
+    "obstacles": {
+        "count": 3,
+        "shape": [
+            "  xxxxxxx",
+            " xxxxxxxxx",
+            "xxxxxxxxxxx",
+            "xxxxxxxxxxx",
+            "xxxxxxxxxxx",
+            "xxx     xxx",
+            "xx       xx"
+        ]
+    }
+	
+}
+

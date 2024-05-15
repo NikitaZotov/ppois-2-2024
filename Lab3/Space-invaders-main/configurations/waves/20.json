@@ -1,0 +1,8 @@
+{
+    "type": "initial",
+    "enemies": [
+		{"type": "Extra", "generate_type": "matrix", "rows": 1, "columns": 7},
+		{"type": "Boss",  "generate_type": "center_top"}
+    ],
+	"background color":"silver"
+}

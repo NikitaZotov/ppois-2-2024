@@ -1,0 +1,9 @@
+{
+   "type": "initial",
+    "enemies": [
+        {"type": "YellowAlien", "generate_type": "matrix", "rows": 3, "columns": 7},
+		{"type": "GreenAlien", "generate_type": "matrix", "rows": 3, "columns": 7}
+		
+    ],
+	"background color":"orange"
+}
