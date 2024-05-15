@@ -1,0 +1,352 @@
+<pets>
+    <pet>
+        <pets_name>Fluffy</pets_name>
+        <date_of_birth>2019-01-15</date_of_birth>
+        <last_appointment>2023-12-20</last_appointment>
+        <veterinarian>Dr. Smith</veterinarian>
+        <diagnosis>Healthy</diagnosis>
+    </pet>
+    <pet>
+        <pets_name>Max</pets_name>
+        <date_of_birth>2018-05-20</date_of_birth>
+        <last_appointment>2023-11-10</last_appointment>
+        <veterinarian>Dr. Johnson</veterinarian>
+        <diagnosis>Arthritis</diagnosis>
+    </pet>
+    <pet>
+        <pets_name>Buddy</pets_name>
+        <date_of_birth>2017-03-12</date_of_birth>
+        <last_appointment>2024-02-28</last_appointment>
+        <veterinarian>Dr. Thompson</veterinarian>
+        <diagnosis>Obesity</diagnosis>
+    </pet>
+    <pet>
+        <pets_name>Luna</pets_name>
+        <date_of_birth>2018-08-25</date_of_birth>
+        <last_appointment>2023-09-15</last_appointment>
+        <veterinarian>Dr. Adams</veterinarian>
+        <diagnosis>Allergies</diagnosis>
+    </pet>
+    <pet>
+        <pets_name>Rex</pets_name>
+        <date_of_birth>2020-01-10</date_of_birth>
+        <last_appointment>2024-03-05</last_appointment>
+        <veterinarian>Dr. Garcia</veterinarian>
+        <diagnosis>Diabetes</diagnosis>
+    </pet>
+    <pet>
+        <pets_name>Bella</pets_name>
+        <date_of_birth>2019-06-18</date_of_birth>
+        <last_appointment>2023-10-20</last_appointment>
+        <veterinarian>Dr. Martinez</veterinarian>
+        <diagnosis>Flea Infestation</diagnosis>
+    </pet>
+    <pet>
+        <pets_name>Milo</pets_name>
+        <date_of_birth>2016-11-05</date_of_birth>
+        <last_appointment>2023-11-30</last_appointment>
+        <veterinarian>Dr. Brown</veterinarian>
+        <diagnosis>Heartworm</diagnosis>
+    </pet>
+    <pet>
+        <pets_name>Spike</pets_name>
+        <date_of_birth>2018-04-02</date_of_birth>
+        <last_appointment>2023-12-15</last_appointment>
+        <veterinarian>Dr. White</veterinarian>
+        <diagnosis>Obesity</diagnosis>
+    </pet>
+    <pet>
+        <pets_name>Lola</pets_name>
+        <date_of_birth>2020-07-20</date_of_birth>
+        <last_appointment>2024-01-20</last_appointment>
+        <veterinarian>Dr. Garcia</veterinarian>
+        <diagnosis>Healthy</diagnosis>
+    </pet>
+    <pet>
+        <pets_name>Simba</pets_name>
+        <date_of_birth>2015-11-08</date_of_birth>
+        <last_appointment>2023-08-10</last_appointment>
+        <veterinarian>Dr. Johnson</veterinarian>
+        <diagnosis>Arthritis</diagnosis>
+    </pet>
+    <pet>
+        <pets_name>Chloe</pets_name>
+        <date_of_birth>2019-02-14</date_of_birth>
+        <last_appointment>2023-10-05</last_appointment>
+        <veterinarian>Dr. Adams</veterinarian>
+        <diagnosis>Diabetes</diagnosis>
+    </pet>
+    <pet>
+        <pets_name>Rocky</pets_name>
+        <date_of_birth>2017-09-30</date_of_birth>
+        <last_appointment>2023-11-25</last_appointment>
+        <veterinarian>Dr. Martinez</veterinarian>
+        <diagnosis>Allergies</diagnosis>
+    </pet>
+    <pet>
+    <pets_name>Buddy</pets_name>
+    <date_of_birth>2019-03-18</date_of_birth>
+    <last_appointment>2023-12-05</last_appointment>
+    <veterinarian>Dr. Brown</veterinarian>
+    <diagnosis>Heartworm</diagnosis>
+</pet>
+<pet>
+    <pets_name>Bella</pets_name>
+    <date_of_birth>2018-08-22</date_of_birth>
+    <last_appointment>2023-11-15</last_appointment>
+    <veterinarian>Dr. Garcia</veterinarian>
+    <diagnosis>Arthritis</diagnosis>
+</pet>
+<pet>
+    <pets_name>Milo</pets_name>
+    <date_of_birth>2020-01-10</date_of_birth>
+    <last_appointment>2024-02-10</last_appointment>
+    <veterinarian>Dr. Martinez</veterinarian>
+    <diagnosis>Flea Infestation</diagnosis>
+</pet>
+<pet>
+    <pets_name>Luna</pets_name>
+    <date_of_birth>2017-11-05</date_of_birth>
+    <last_appointment>2023-10-20</last_appointment>
+    <veterinarian>Dr. White</veterinarian>
+    <diagnosis>Obesity</diagnosis>
+</pet>
+<pet>
+    <pets_name>Max</pets_name>
+    <date_of_birth>2016-06-30</date_of_birth>
+    <last_appointment>2023-09-15</last_appointment>
+    <veterinarian>Dr. Adams</veterinarian>
+    <diagnosis>Healthy</diagnosis>
+</pet>
+<pet>
+    <pets_name>Lucy</pets_name>
+    <date_of_birth>2019-10-12</date_of_birth>
+    <last_appointment>2024-04-18</last_appointment>
+    <veterinarian>Dr. Thompson</veterinarian>
+    <diagnosis>Ear infection</diagnosis>
+</pet>
+<pet>
+    <pets_name>Charlie</pets_name>
+    <date_of_birth>2018-04-25</date_of_birth>
+    <last_appointment>2024-03-20</last_appointment>
+    <veterinarian>Dr. Garcia</veterinarian>
+    <diagnosis>Anxiety</diagnosis>
+</pet>
+<pet>
+    <pets_name>Buddy</pets_name>
+    <date_of_birth>2020-02-28</date_of_birth>
+    <last_appointment>2024-05-10</last_appointment>
+    <veterinarian>Dr. Martinez</veterinarian>
+    <diagnosis>Obesity</diagnosis>
+</pet>
+<pet>
+    <pets_name>Sophie</pets_name>
+    <date_of_birth>2017-07-08</date_of_birth>
+    <last_appointment>2024-02-15</last_appointment>
+    <veterinarian>Dr. Johnson</veterinarian>
+    <diagnosis>Urinary tract infection</diagnosis>
+</pet>
+<pet>
+    <pets_name>Riley</pets_name>
+    <date_of_birth>2021-01-05</date_of_birth>
+    <last_appointment>2024-04-30</last_appointment>
+    <veterinarian>Dr. Brown</veterinarian>
+    <diagnosis>Healthy</diagnosis>
+</pet>
+<pet>
+    <pets_name>Molly</pets_name>
+    <date_of_birth>2019-03-18</date_of_birth>
+    <last_appointment>2024-05-05</last_appointment>
+    <veterinarian>Dr. Adams</veterinarian>
+    <diagnosis>Respiratory infection</diagnosis>
+</pet>
+<pet>
+    <pets_name>Jack</pets_name>
+    <date_of_birth>2017-11-20</date_of_birth>
+    <last_appointment>2024-04-10</last_appointment>
+    <veterinarian>Dr. Thompson</veterinarian>
+    <diagnosis>Broken leg</diagnosis>
+</pet>
+<pet>
+    <pets_name>Daisy</pets_name>
+    <date_of_birth>2018-09-15</date_of_birth>
+    <last_appointment>2024-03-25</last_appointment>
+    <veterinarian>Dr. Martinez</veterinarian>
+    <diagnosis>Eye infection</diagnosis>
+</pet>
+<pet>
+    <pets_name>Cooper</pets_name>
+    <date_of_birth>2020-04-30</date_of_birth>
+    <last_appointment>2024-05-15</last_appointment>
+    <veterinarian>Dr. Garcia</veterinarian>
+    <diagnosis>Stomach flu</diagnosis>
+</pet>
+<pet>
+    <pets_name>Sadie</pets_name>
+    <date_of_birth>2016-12-10</date_of_birth>
+    <last_appointment>2024-04-20</last_appointment>
+    <veterinarian>Dr. Brown</veterinarian>
+    <diagnosis>Ear mites</diagnosis>
+</pet>
+<pet>
+    <pets_name>Rusty</pets_name>
+    <date_of_birth>2018-07-25</date_of_birth>
+    <last_appointment>2024-03-10</last_appointment>
+    <veterinarian>Dr. White</veterinarian>
+    <diagnosis>Heart murmur</diagnosis>
+</pet>
+<pet>
+    <pets_name>Sasha</pets_name>
+    <date_of_birth>2019-05-05</date_of_birth>
+    <last_appointment>2024-04-05</last_appointment>
+    <veterinarian>Dr. Johnson</veterinarian>
+    <diagnosis>Bladder stones</diagnosis>
+</pet>
+<pet>
+    <pets_name>Toby</pets_name>
+    <date_of_birth>2017-08-20</date_of_birth>
+    <last_appointment>2024-05-20</last_appointment>
+    <veterinarian>Dr. Adams</veterinarian>
+    <diagnosis>Arthritis</diagnosis>
+</pet>
+<pet>
+    <pets_name>Max</pets_name>
+    <date_of_birth>2021-02-12</date_of_birth>
+    <last_appointment>2024-05-25</last_appointment>
+    <veterinarian>Dr. Thompson</veterinarian>
+    <diagnosis>Healthy</diagnosis>
+</pet>
+<pet>
+    <pets_name>Chloe</pets_name>
+    <date_of_birth>2018-04-05</date_of_birth>
+    <last_appointment>2024-04-15</last_appointment>
+    <veterinarian>Dr. Garcia</veterinarian>
+    <diagnosis>Obesity</diagnosis>
+</pet>
+<pet>
+    <pets_name>Lucky</pets_name>
+    <date_of_birth>2019-08-12</date_of_birth>
+    <last_appointment>2024-06-05</last_appointment>
+    <veterinarian>Dr. Martinez</veterinarian>
+    <diagnosis>Fractured paw</diagnosis>
+</pet>
+<pet>
+    <pets_name>Princess</pets_name>
+    <date_of_birth>2018-10-20</date_of_birth>
+    <last_appointment>2024-07-10</last_appointment>
+    <veterinarian>Dr. Brown</veterinarian>
+    <diagnosis>Urinary tract infection</diagnosis>
+</pet>
+<pet>
+    <pets_name>Riley</pets_name>
+    <date_of_birth>2020-03-15</date_of_birth>
+    <last_appointment>2024-08-25</last_appointment>
+    <veterinarian>Dr. White</veterinarian>
+    <diagnosis>Conjunctivitis</diagnosis>
+</pet>
+<pet>
+    <pets_name>Buster</pets_name>
+    <date_of_birth>2017-11-30</date_of_birth>
+    <last_appointment>2024-09-15</last_appointment>
+    <veterinarian>Dr. Adams</veterinarian>
+    <diagnosis>Back injury</diagnosis>
+</pet>
+<pet>
+    <pets_name>Lucy</pets_name>
+    <date_of_birth>2019-06-25</date_of_birth>
+    <last_appointment>2024-10-10</last_appointment>
+    <veterinarian>Dr. Thompson</veterinarian>
+    <diagnosis>Anxiety</diagnosis>
+</pet>
+<pet>
+    <pets_name>Charlie</pets_name>
+    <date_of_birth>2018-09-05</date_of_birth>
+    <last_appointment>2024-11-20</last_appointment>
+    <veterinarian>Dr. Garcia</veterinarian>
+    <diagnosis>Intestinal parasites</diagnosis>
+</pet>
+<pet>
+    <pets_name>Sophie</pets_name>
+    <date_of_birth>2020-04-10</date_of_birth>
+    <last_appointment>2024-12-05</last_appointment>
+    <veterinarian>Dr. Johnson</veterinarian>
+    <diagnosis>Respiratory infection</diagnosis>
+</pet>
+<pet>
+    <pets_name>Rusty</pets_name>
+    <date_of_birth>2017-07-20</date_of_birth>
+    <last_appointment>2025-01-15</last_appointment>
+    <veterinarian>Dr. Martinez</veterinarian>
+    <diagnosis>Arthritis</diagnosis>
+</pet>
+<pet>
+    <pets_name>Lola</pets_name>
+    <date_of_birth>2019-02-28</date_of_birth>
+    <last_appointment>2025-02-10</last_appointment>
+    <veterinarian>Dr. Brown</veterinarian>
+    <diagnosis>Diabetes</diagnosis>
+</pet>
+<pet>
+    <pets_name>Rocky</pets_name>
+    <date_of_birth>2018-05-10</date_of_birth>
+    <last_appointment>2025-03-20</last_appointment>
+    <veterinarian>Dr. White</veterinarian>
+    <diagnosis>Flea allergy dermatitis</diagnosis>
+</pet>
+<pet>
+    <pets_name>Shadow</pets_name>
+    <date_of_birth>2017-04-08</date_of_birth>
+    <last_appointment>2025-04-05</last_appointment>
+    <veterinarian>Dr. Thompson</veterinarian>
+    <diagnosis>Ear infection</diagnosis>
+</pet>
+<pet>
+    <pets_name>Murphy</pets_name>
+    <date_of_birth>2020-01-02</date_of_birth>
+    <last_appointment>2026-01-05</last_appointment>
+    <veterinarian>Dr. Brown</veterinarian>
+    <diagnosis>Urinary blockage</diagnosis>
+</pet>
+<pet>
+    <pets_name>Lulu</pets_name>
+    <date_of_birth>2019-09-20</date_of_birth>
+    <last_appointment>2025-06-15</last_appointment>
+    <veterinarian>Dr. Garcia</veterinarian>
+    <diagnosis>Eye infection</diagnosis>
+</pet>
+<pet>
+    <pets_name>Felix</pets_name>
+    <date_of_birth>2020-06-25</date_of_birth>
+    <last_appointment>2025-07-20</last_appointment>
+    <veterinarian>Dr. Brown</veterinarian>
+    <diagnosis>Stomach upset</diagnosis>
+</pet>
+<pet>
+    <pets_name>Mia</pets_name>
+    <date_of_birth>2017-12-10</date_of_birth>
+    <last_appointment>2025-08-10</last_appointment>
+    <veterinarian>Dr. Martinez</veterinarian>
+    <diagnosis>Leg injury</diagnosis>
+</pet>
+<pet>
+    <pets_name>Oscar</pets_name>
+    <date_of_birth>2020-01-02</date_of_birth>
+    <last_appointment>2026-01-05</last_appointment>
+    <veterinarian>Dr. Brown</veterinarian>
+    <diagnosis>Urinary blockage</diagnosis>
+</pet>
+<pet>
+    <pets_name>Margosha</pets_name>
+    <date_of_birth>2019-11-25</date_of_birth>
+    <last_appointment>2026-02-10</last_appointment>
+    <veterinarian>Dr. Martinez</veterinarian>
+    <diagnosis>Ear mites</diagnosis>
+</pet>
+<pet>
+    <pets_name>Murka</pets_name>
+    <date_of_birth>2018-04-30</date_of_birth>
+    <last_appointment>2026-03-15</last_appointment>
+    <veterinarian>Dr. Thompson</veterinarian>
+    <diagnosis>Chronic renal failure</diagnosis>
+</pet>
+</pets>
