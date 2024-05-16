@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book rooms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <form action="/" method="GET">
+            <input type="submit" value="Go to start page">
+        </form>
+        <h1>Available Rooms</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Room number</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for room in available_rooms %}
+                    <tr>
+                        <td>{{ room.number }}</td>
+                        <td>{{ room.type.value[0] }}</td>
+                        <td>{{ room.status.value }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Book Room</h2>
+        <form action="/book-available-rooms" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" required><br>
+
+            <label for="passport_id">Passport ID:</label><br>
+            <input type="text" id="passport_id" name="passport_id" required><br>
+
+            <label for="room_number">Room Number:</label><br>
+            <input type="text" id="room_number" name="room_number" required><br>
+
+            <label for="number_of_days">Number of Days:</label><br>
+            <input type="number" id="number_of_days" name="number_of_days" required><br><br>
+
+            <input type="submit" value="Book">
+        </form>
+        <div class="book-info">
+            {% if book_info %}
+                {{ book_info }}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

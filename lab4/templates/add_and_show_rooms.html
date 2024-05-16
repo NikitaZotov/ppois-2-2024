@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <form action="/" method="GET">
+            <input type="submit" value="Go to start page">
+        </form>
+        <h1>Rooms</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Room number</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for room in all_rooms %}
+                    <tr>
+                        <td>{{ room.number }}</td>
+                        <td>{{ room.type.value[0] }}</td>
+                        <td>{{ room.status.value }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Add room</h2>
+
+        <form action="/rooms" method="POST">
+            <label for="room_number">Room number:</label><br>
+            <input type="text" id="room_number" name="room_number" required><br>
+
+            <label for="type_of_room">Type of room:</label><br>
+            <select id="type_of_room" name="type_of_room" required>
+                <option value="economy">Economy</option>
+                <option value="standard">Standard</option>
+                <option value="luxury">Luxury</option>
+            </select><br>
+
+            <input type="submit" value="Add">
+        </form>
+    </div>
+</body>
+</html>

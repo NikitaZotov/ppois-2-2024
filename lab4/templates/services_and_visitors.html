@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Services and visitors</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/main_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <form action="/" method="GET">
+            <input type="submit" value="Go to start page">
+        </form>
+        <h1>Visitors</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Passport ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for visitor in visitors %}
+                    <tr>
+                        <td>{{ visitor.name }}</td>
+                        <td>{{ visitor.age }}</td>
+                        <td>{{ visitor.passport_id }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h1>Services</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Visitor</th>
+                    <th>Worker</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for service in services %}
+                    <tr>
+                        <td>{{ service.type.value }}</td>
+                        <td>{{ service.visitor.name }}</td>
+                        <td>{{ service.worker.name }}</td>
+                        <td>
+                            <form action="/finish-service" method="POST">
+                                <input type="hidden" name="worker_passport_id" value="{{ service.worker.passport_id }}">
+                                <input type="submit" value="Finish">
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Add service</h2>
+        <form action="/service-and-visitors" method="POST">
+            <label for="visitor_passport_id">Visitor passport:</label><br>
+            <input type="text" id="visitor_passport_id" name="visitor_passport_id" required><br>
+
+            <label for="worker_passport_id">Worker passport:</label><br>
+            <input type="text" id="worker_passport_id" name="worker_passport_id" required><br>
+
+            <label for="type_of_service">Type of service:</label><br>
+            <select id="type_of_service" name="type_of_service" required>
+                <option value="spa">Spa</option>
+                <option value="massage">Massage</option>
+                <option value="restaurant">Restaurant</option>
+            </select><br>
+
+            <input type="submit" value="Ask">
+        </form>
+    </div>
+</body>
+</html>

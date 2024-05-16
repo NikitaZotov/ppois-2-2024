@@ -141,7 +141,7 @@ class Booking:
             self.finish_date == other.finish_date and self.status == other.status
 
     def __str__(self):
-        return (f"Room#{self.room.number} is booked\n"
+        return (f"Room№{self.room.number} is booked\n"
                 f"From: {self.__start_date.strftime('%d/%m/%Y %H:%M')}\n"
                 f"Before: {self.__finish_date.strftime('%d/%m/%Y %H:%M')}\n")
 
