@@ -22,22 +22,29 @@ class Hotel:
         self.__workers.append(worker)
         return True
 
-    def fire_off_worker(self, worker_passport_id: str) -> bool:
+    def fire_off_worker(self, worker_passport_id: str, show=True) -> bool:
         for worker in self.__workers:
             if worker_passport_id == worker.passport_id and worker.status is WorkerStatus.resting:
                 self.__workers.remove(worker)
                 return True
-        print(f"Worker with passport id: {worker_passport_id} is busy or doesn't exist ")
+        if show:
+            print(f"Worker with passport id: {worker_passport_id} is busy or doesn't exist ")
         return False
 
-    def show_unemployed_workers(self):
+    def show_unemployed_workers(self, show=True):
+        unemployed_workers: list[Worker] = []
         for worker in self.__workers:
             if worker.status == WorkerStatus.resting:
-                print(worker)
+                unemployed_workers.append(worker)
+                if show:
+                    print(worker)
+        return unemployed_workers
 
-    def show_all_workers(self):
-        for worker in self.__workers:
-            print(worker)
+    def show_all_workers(self, show=True):
+        if show:
+            for worker in self.__workers:
+                print(worker)
+        return self.__workers
 
     def add_room(self, room_number: str, type_of_room: str) -> bool:
         try:
@@ -48,53 +55,66 @@ class Hotel:
             print("No such type of room")
             return False
 
-    def show_available_rooms(self):
+    def show_available_rooms(self, show=True) -> list[HotelRoom]:
         rooms: list[HotelRoom] = self.__reception.find_available_rooms()
-        print("Available rooms: ")
-        for room in rooms:
-            print(room, "\n")
+        if show:
+            print("Available rooms: ")
+            for room in rooms:
+                print(room, "\n")
 
-    def show_all_rooms(self):
-        for room in self.__reception.rooms:
-            print(room, "\n")
+        return rooms
 
-    def book_room(self, name: str, age: int, passport_id: str, room_number: str, number_of_days: int) -> bool:
+    def show_all_rooms(self, show=True) -> list[HotelRoom]:
+        if show:
+            for room in self.__reception.rooms:
+                print(room, "\n")
+
+        return self.__reception.rooms
+
+    def book_room(self, name: str, age: int, passport_id: str, room_number: str, number_of_days: int, show=True) -> Booking:
         visitor: Visitor = self.registrate_visitor(name, age, passport_id)
         start_date = datetime.now().replace(hour=12, minute=0, second=0, microsecond=0)
         finish_date = start_date + timedelta(days=number_of_days)
         finish_date = finish_date.replace(hour=12, minute=0, second=0, microsecond=0)
         try:
             book: Booking = self.__reception.book(visitor.passport_id, room_number, start_date, finish_date)
-            print(book)
-            return True
+            if show:
+                print(book)
+            return book
         except BookingException as e:
-            print(e)
-            return False
+            if show:
+                print(e)
+            return None
         except VisitorNotFoundException as e:
-            print(e)
-            return False
+            if show:
+                print(e)
+            return None
 
-    def pay_off(self, visitor_passport_id: str) -> bool:
+    def pay_off(self, visitor_passport_id: str, show=True) -> int:
         try:
             booking: Booking = self.__reception.finish_booking(visitor_passport_id)
             days: int = (booking.finish_date - booking.start_date).days
-            print(f"""Payment for {days} days is {days * Hotel.__PAYMENT_PER_DAY * booking.room.type.value[1]}""")
-            return True
+            if show:
+                print(f"""Payment for {days} days is {days * Hotel.__PAYMENT_PER_DAY * booking.room.type.value[1]}""")
+            return days * Hotel.__PAYMENT_PER_DAY * booking.room.type.value[1]
         except BookingException as e:
             print(e)
-            return False
+            return 0
         except VisitorNotFoundException as e:
             print(e)
-            return False
+            return 0
 
-    def show_uncompleted_services(self):
+    def show_uncompleted_services(self, show=True):
         services: list[Service] = self.__reception.services
-        for service in services:
-            print(service)
+        if show:
+            for service in services:
+                print(service)
+        return services
 
-    def ask_for_service(self, worker_passport_id: str, visitor_passport_id: str, service_type: str) -> bool:
+    def ask_for_service(self, worker_passport_id: str, visitor_passport_id: str, service_type: str, show=True) -> bool:
         if service_type == 'restaurant':
-            print("You should ask for a restaurant service")
+            if show:
+                print("You should ask for a restaurant service")
             return False
         try:
             for worker in self.__workers:
@@ -102,12 +122,15 @@ class Hotel:
                     type_of_service: ServiceType = ServiceType[service_type]
                     self.__reception.ask_for_service(visitor_passport_id, type_of_service, worker)
                     return True
-            print(f"Worker with passport id '{worker_passport_id}' is busy or doesn't exist")
+            if show:
+                print(f"Worker with passport id '{worker_passport_id}' is busy or doesn't exist")
             return False
         except KeyError:
-            print("Invalid type of service")
+            if show:
+                print("Invalid type of service")
         except VisitorNotFoundException as e:
-            print(e)
+            if show:
+                print(e)
             return False
 
     def ask_for_restaurant_service(self, worker_passport_id: str,
@@ -123,23 +146,31 @@ class Hotel:
             print(e)
             return False
 
-    def finish_service(self, worker_passport_id: str) -> bool:
+    def finish_service(self, worker_passport_id: str, show=True) -> bool:
         service = self.__reception.finish_service(worker_passport_id)
         if service:
             service.worker.status = WorkerStatus.resting
-            print("Finished service: ", service, sep="\n")
+            if show:
+                print("Finished service: ", service, sep="\n")
             return True
         else:
-            print("No service found")
+            if show:
+                print("No service found")
             return False
 
-    def show_all_visitors(self):
-        for visitor in self.__reception.visitors:
-            print(visitor, "\n")
+    def show_all_visitors(self, show=True):
+        if show:
+            for visitor in self.__reception.visitors:
+                print(visitor, "\n")
 
-    def show_all_bookings(self):
-        for booking in self.__reception.bookings:
-            print(booking, "\n")
+        return self.__reception.visitors
+
+    def show_all_bookings(self, show=True):
+        if show:
+            for booking in self.__reception.bookings:
+                print(booking, "\n")
+
+        return self.__reception.bookings
 
     @private
     def registrate_visitor(self, name: str, age: int, passport_id: str) -> Visitor:

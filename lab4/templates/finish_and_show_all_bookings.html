@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <form action="/" method="GET">
+            <input type="submit" value="Go to start page">
+        </form>
+        <h1>Bookings</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Room number</th>
+                    <th>From</th>
+                    <th>Before</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in all_bookings %}
+                    <tr>
+                        <td>{{ book.room.number }}</td>
+                        <td>{{ book.start_date.strftime('%d/%m/%Y %H:%M') }}</td>
+                        <td>{{ book.finish_date.strftime('%d/%m/%Y %H:%M') }}</td>
+                        <td>
+                            <form action="/finish-bookings" method="POST">
+                                <input type="hidden" name="visitor_passport_id" value="{{ book.visitor.passport_id }}">
+                                <input type="submit" value="Pay off">
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% if payment_info %}
+            <div class="payment-info">
+                Payment for this room = {{ payment_info }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

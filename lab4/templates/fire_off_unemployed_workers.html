@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire off workers</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/main_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <form action="/" method="GET">
+            <input type="submit" value="Go to start page">
+        </form>
+        <h1>Unemployed workers</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Passport ID</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for worker in unemployed_workers %}
+                    <tr>
+                        <td>{{ worker.name }}</td>
+                        <td>{{ worker.age }}</td>
+                        <td>{{ worker.passport_id }}</td>
+                        <td>{{ worker.status.value }}</td>
+                        <td>
+                            <form action="/fire-off-workers" method="POST">
+                                <input type="hidden" name="worker_passport_id" value="{{ worker.passport_id }}">
+                                <input type="submit" value="Fire off">
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

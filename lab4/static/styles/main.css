@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333; /* Тёмный цвет фона */
+    font-family: Arial, sans-serif;
+}
+
+.menu {
+    border: 2px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #f2f2f2; /* Цвет фона меню */
+}
+
+.menu h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    margin-bottom: 10px;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.menu ul li a:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <form action="/" method="GET">
+            <input type="submit" value="Go to start page">
+        </form>
+        <h1>Workers</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Passport ID</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for worker in all_workers %}
+                    <tr>
+                        <td>{{ worker.name }}</td>
+                        <td>{{ worker.age }}</td>
+                        <td>{{ worker.passport_id }}</td>
+                        <td>{{ worker.status.value }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Add worker</h2>
+
+        <form action="/workers" method="POST">
+            <label for="worker_name">Worker name:</label><br>
+            <input type="text" id="worker_name" name="worker_name" required><br>
+
+            <label for="worker_age">Age:</label><br>
+            <input type="number" id="worker_age" name="worker_age" required><br>
+
+            <label for="worker_passport_id">Passport ID:</label><br>
+            <input type="text" id="worker_passport_id" name="worker_passport_id" required><br>
+
+            <input type="submit" value="Add">
+        </form>
+    </div>
+</body>
+</html>
