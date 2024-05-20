@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Receiver Mya</title>
+</head>
+<body>
+    <h1>Mails</h1>
+    <ul>
+        {% for mail in mails %}
+            <li>Sender: {{ mail[0] }}, Receiver: {{ mail[1] }}, Content: {{ mail[2] }}</li>
+        {% endfor %}
+    </ul>
+    <h1>Notifications</h1>
+    <ul>
+        {% for notification in notifications %}
+            <li>Sender: {{ notification[0] }}, Receiver: {{ notification[1] }}, Locker: {{ notification[2] }}, Password: {{ notification[3] }}</li>
+        {% endfor %}
+    </ul>
+    <form method="post" action="/refresh">
+        <input type="hidden" name="return_url" value="{{ request.path }}">
+        <button type="submit" name="action" value="refresh">Burn all mails</button>
+    </form>
+</body>
+</html>

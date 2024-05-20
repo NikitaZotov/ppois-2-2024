@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mailbox Repair</title>
+    <style>
+        /* Стилизация контейнера для сообщений */
+        #messageContainer {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function showMessage() {
+            const messageContainer = document.getElementById('messageContainer');
+            const messages = [
+                "The mailbox accidentally broke. Repairs needed.",
+                "Repairmen are on their way...",
+                "The repairmen are getting to work...",
+                "Almost done...",
+                "The box has been successfully repaired."
+            ];
+
+            for (const message of messages) {
+                const p = document.createElement('p');
+                p.textContent = message;
+                messageContainer.appendChild(p);
+                await sleep(5000); // Задержка в 5 секунд
+            }
+        }
+
+        function handleLinkClick(event) {
+            event.preventDefault(); // Предотвращаем переход по ссылке
+
+            const chance = Math.random();
+            if (chance <= 0.1) {
+                showMessage();
+            } else {
+                alert("No issues detected. Proceed as normal.");
+                window.location.href = event.target.href; // Переходим по ссылке, если нет поломки
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="/" onclick="handleLinkClick(event)">Check Mailbox Condition</a>
+
+    <div id="messageContainer"></div>
+</body>
+</html>

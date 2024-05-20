@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sender Nova</title>
+</head>
+<body>
+    <h1>Mails</h1>
+    <ul>
+        {% for mail in mails %}
+            <li>Sender: {{ mail[0] }}, Receiver: {{ mail[1] }}, Content: {{ mail[2] }}</li>
+        {% endfor %}
+    </ul>
+    <form method="post" action="/refresh">
+        <input type="hidden" name="return_url" value="{{ request.path }}">
+        <button type="submit" name="action" value="refresh">Send all mails</button>
+    </form>
+</body>
+</html>
