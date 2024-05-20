@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card operations</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Card operations</h1>
+
+        <div style="display: flex">
+            <strong>Number:&emsp;</strong><div>{{card.card_number}}</div>
+        </div>
+        <div style="display: flex">
+            <strong>Owner:&emsp;</strong><div>{{ card.owner if card.owner else "N/A" }}</div>
+        </div>
+        <div style="display: flex">
+            <strong>Status:&emsp;</strong><div>{{ "Blocked" if card.is_blocked() else "Active" }}</div>
+        </div>
+
+        <div style="display: flex; margin-top: 20px">
+            <button class="positive_button" onclick="redirectToCardAction('balance/pin')" style="margin-right: 5px">View balance</button>
+            <button class="positive_button" onclick="redirectToCardAction('deposit')" style="margin-right: 5px">Deposit money</button>
+            <button class="positive_button" onclick="redirectToCardAction('transfer')" style="margin-right: 5px">Transfer money</button>
+            <button class="positive_button" onclick="redirectToCardAction('withdraw')" style="margin-right: auto">Withdraw money</button>
+        </div>
+
+        <div style="display: flex; margin-top: 5px">
+            <button onclick="redirectToCardAction('change_limit')" style="margin-right: 5px">Change payment limit</button>
+            <button onclick="redirectToCardAction('change_pin')" style="margin-right: 5px">Change pin</button>
+            <button onclick="redirectToCardAction('toggle_block')" style="margin-right: 5px">Toggle block</button>
+            <button class="negative_button" onclick="deleteCard('{{ bank_name }}', '{{ card.card_number | urlize }}')" style="margin-left: auto; horiz-align: right">Delete card</button>
+        </div>
+
+        <div style="display: flex; margin-top: 20px">
+            <button onclick="redirectToBank('{{ bank_name }}')" style="margin-right: 5px">Back to list</button>
+        </div>
+    </div>
+</body>
+<script>
+    function redirectToCardAction(action_name) {
+        window.location.href = `/banks/{{bank_name}}/cards/{{card.card_number}}/${action_name}`;
+    }
+    function redirectToBank(bank_name) {
+        window.location.href = `/banks/${bank_name}`;
+    }
+    function deleteCard(bank_name, card_number) {
+            if (confirm(`Are you sure you want to delete card ${card_number}?`)) {
+                fetch(`/banks/${bank_name}/cards/${card_number}`, {
+                    method: 'DELETE'
+                }).then(response => {
+                    if (response.ok) {
+                        redirectToBank(bank_name)
+                    } else {
+                        alert('Failed to delete the card.');
+                    }
+                }).catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while deleting the card.');
+                });
+            }
+        }
+</script>
+</html>

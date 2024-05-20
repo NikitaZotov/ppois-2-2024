@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card balance</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Card balance ({{ card_number }})</h1>
+
+        <h2>Balance: {{ balance }}</h2>
+
+        <button class onclick="redirectToCard()" style="margin-left: auto">Back to card</button>
+    </div>
+    <script>
+        function redirectToCard() {
+            window.location.href = '/banks/{{ bank_name }}/cards/{{ card_number }}';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input card pin</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>To {{ operation }} please input pin ({{ card_number }})</h1>
+
+        <form action="{{ redirect }}" method="post">
+            <div>
+                <label for="card_pin">Card pin:</label>
+                <input type="number" id="card_pin" name="card_pin" required style="margin-top: 10px; margin-bottom: 10px">
+            </div>
+
+            <div style="display: flex; margin-top: 10px">
+                <button class="positive_button" type="submit" name="submit" style="margin-right: 5px">Submit</button>
+                <button class onclick="redirectToCard()" style="margin-left: 5px">Back to card</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function redirectToCard() {
+            window.location.href = '/banks/{{ bank_name }}/cards/{{ card_number }}';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error!</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Something went wrong...</h1>
+
+        <form action="{{ redirect }}" method="get">
+            <strong style="margin-bottom: 5px;">Here are some details: </strong>
+            <div style="margin-bottom: 40px; margin-top: 5px">{{ details }}</div>
+
+            <div style="margin-bottom: 5px;">But the world keeps spinning...</div>
+            <div style="display: flex; margin-top: 10px">
+                <button class="positive_button" type="submit" style="margin-right: 5px">Take me back to when we started</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

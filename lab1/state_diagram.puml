@@ -107,7 +107,7 @@ state Pay {
 	InputPinForPay --> [*] : CardBlocked
 }
 
-ViewCard --> ViewBalance : InputWithdraw
+ViewCard --> ViewBalance : InputViewbalance
 ViewBalance --> ViewCard
 
 state ViewBalance {
@@ -117,7 +117,7 @@ state ViewBalance {
 	InputPinForBalance --> [*] : CardBlocked
 }
 
-ViewCard --> Transfer : InputWithdraw
+ViewCard --> Transfer : InputTransfer
 Transfer --> ViewCard
 
 state Transfer {

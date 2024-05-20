@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank information</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        {% if bank.name %}
+            <h1>{{ bank.name }}</h1>
+        {% else %}
+            <h1>Unnamed Bank</h1>
+        {% endif %}
+
+        {% if bank.cards and bank.cards | length > 0 %}
+            <div class="cards-list">
+                <h3>Credit Cards:</h3>
+                <table>
+                  <tr>
+                    <th>Card number</th>
+                    <th>Owner</th>
+                    <th>Status</th>
+                  </tr>
+                {% for card in bank.cards %}
+                    <tr>
+                        <td class="card-details">
+                            <a href="/banks/{{ bank.name }}/cards/{{card.card_number | urlize }}">{{ card.card_number if card.card_number else "N/A" }}</a>
+                        </td>
+                        <td class="card-details">{{ card.owner if card.owner else "N/A" }}</td>
+                        <td class="card-details">{{ "Blocked" if card.is_blocked() else "Active" }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+        {% else %}
+            <div>No Credit Cards available.</div>
+        {% endif %}
+
+        <div style="display: flex; margin-top: 20px">
+            <button class="positive_button" onclick="redirectToCreateCard()" style="margin-right: 5px">Create card</button>
+            <button class="negative_button" onclick="deleteBank('{{ bank.name | urlize }}')" style="margin-left: auto; horiz-align: right">Delete bank</button>
+        </div>
+
+        <div style="display: flex; margin-top: 20px">
+            <button onclick="redirectToBanks()" style="margin-right: 5px">Back to list</button>
+        </div>
+    </div>
+</body>
+<script>
+    function redirectToCreateCard() {
+        window.location.href = '/banks/{{ bank.name }}/cards/create';
+    }
+    function redirectToBanks() {
+        window.location.href = '/banks/';
+    }
+    function deleteBank(bankName) {
+            if (confirm(`Are you sure you want to delete bank ${bankName}?`)) {
+                fetch(`/banks/${bankName}`, {
+                    method: 'DELETE'
+                }).then(response => {
+                    if (response.ok) {
+                        redirectToBanks()
+                    } else {
+                        alert('Failed to delete the bank.');
+                    }
+                }).catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while deleting the bank.');
+                });
+            }
+        }
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create bank</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Create bank</h1>
+
+        <form action="/banks/create" method="post">
+            <div>
+                <label for="name">Bank Name:</label>
+                <input type="text" id="name" name="name" required style="margin-top: 10px">
+            </div>
+
+            <div style="display: flex; margin-top: 10px">
+                <button class="positive_button" type="submit" name="submit" style="margin-right: 5px">Create</button>
+                <button class onclick="redirectToBanks()" style="margin-left: 5px">Back to list</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function redirectToBanks() {
+            window.location.href = '/banks/';
+        }
+    </script>
+</body>
+</html>

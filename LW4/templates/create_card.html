@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create card</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Create card ({{ bank_name }})</h1>
+
+        <form action="/banks/{{ bank_name }}/cards/" method="post">
+            <div>
+                <label for="card_number">Card number:</label>
+                <input type="number" id="card_number" name="card_number" required style="margin-top: 10px; margin-bottom: 10px">
+            </div>
+
+            <div>
+                <label for="card_pin">Card pin:</label>
+                <input type="number" id="card_pin" name="card_pin" required style="margin-top: 10px; margin-bottom: 10px">
+            </div>
+
+            <div style="display: flex; margin-top: 10px">
+                <button class="positive_button" type="submit" name="submit" style="margin-right: 5px">Create</button>
+                <button class onclick="redirectToBank()" style="margin-left: 5px">Back to list</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function redirectToBank() {
+            window.location.href = '/banks/{{ bank_name }}';
+        }
+    </script>
+</body>
+</html>
