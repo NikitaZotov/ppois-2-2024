@@ -1,0 +1,34 @@
+<Persons>
+  <Person>
+    <Attribute1>ФИТУ</Attribute1>
+    <Attribute2>ИИТ</Attribute2>
+    <Attribute3>Зотов Никита Владимирович</Attribute3>
+    <Attribute4>магистрант</Attribute4>
+    <Attribute5>хз</Attribute5>
+    <Attribute6>1</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКСИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Джесси Пинкман Александрович</Attribute3>
+    <Attribute4>магистрант</Attribute4>
+    <Attribute5>хз</Attribute5>
+    <Attribute6>4</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФИТУ</Attribute1>
+    <Attribute2>ИИТ</Attribute2>
+    <Attribute3>Голенков Владимир Васильевич</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>абстракционист</Attribute5>
+    <Attribute6>30</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФИТУ</Attribute1>
+    <Attribute2>ИИТ</Attribute2>
+    <Attribute3>Садовский Михаил Ефимович</Attribute3>
+    <Attribute4>доцент</Attribute4>
+    <Attribute5>гениалыч</Attribute5>
+    <Attribute6>8</Attribute6>
+  </Person>
+</Persons>
