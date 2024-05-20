@@ -1,8 +1,8 @@
 from unittest.mock import MagicMock
 import unittest
-from finances.credit_card import CreditCard
-from finances.bank import Bank
-from finances.finance_exceptions import FinanceException
+from model.entities.credit_card import CreditCard
+from model.entities.bank import Bank
+from model.entities.finance_exceptions import FinanceException
 
 
 class TestBank(unittest.TestCase):

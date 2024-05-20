@@ -1,9 +1,10 @@
-from financial_state_machine import FinancialStateMachine
-from repository.file_repository import FileRepository, Repository
+from cli.financial_state_machine import FinancialStateMachine
+from model.services.finances_service import FinancesService
+from model.repository.file_repository import FileRepository, Repository
 
 repository: Repository = FileRepository("appstate.pickle")
+finances_service = FinancesService(repository)
 
-state_machine = FinancialStateMachine(repository)
+state_machine = FinancialStateMachine(finances_service)
 
-while True:
-    state_machine.move_next(input())
+state_machine.run()

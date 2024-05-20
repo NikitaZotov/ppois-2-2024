@@ -169,14 +169,7 @@ class statemachine as "statemachine.statemachine.StateMachine" {
    allow_event_without_transition: 
    _callbacks_registry: 
    TransitionNotAllowed: 
-   __init__(
-        self,
-        model: Any = None,
-        state_field: str = "state",
-        start_value: Any = None,
-        rtc: bool = True,
-        allow_event_without_transition: bool = False,
-    ): 
+   __init__(self, model, state_field: str, start_value, rtc: bool, allow_event_without_transition: bool): 
    __getattr__(self, attribute: str): 
    __repr__(self): 
    _get_initial_state(self): 
@@ -215,7 +208,7 @@ transaction --|> object
 financialstatemachine --|> statemachine         
 object --|> node3         
 repoexception --|> Exception     
-filerepo --|> repo        
+filerepo --.|> repo        
 repo --|> object        
 statemachine --|> object        
 
@@ -224,6 +217,15 @@ creditcard "*" *-- "1" cardowner
 
 financialstatemachine "*" o-- "*" bank
 financialstatemachine "*" o-- "*" creditcard 
+
+bank ..> transaction
+bank ..> creditcard
+transaction ..> creditcard
+
+creditcard ..> cardowner
+financialstatemachine ..> repo
+financialstatemachine ..> bank
+financialstatemachine ..> creditcard
 
 bank "*" o-- "1" transaction
 bank "*" o-- "1" creditcard

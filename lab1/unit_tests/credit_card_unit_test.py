@@ -1,7 +1,7 @@
 import unittest
-from finances.credit_card import CreditCard
-from finances.card_owner import CardOwner
-from finances.finance_exceptions import FinanceException
+from model.entities.credit_card import CreditCard
+from model.entities.card_owner import CardOwner
+from model.entities.finance_exceptions import FinanceException
 
 
 class TestCreditCard(unittest.TestCase):
