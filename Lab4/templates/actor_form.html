@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="mt-4">
+    <h1>Add Actor</h1>
+    <form id="addActorForm" method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control") }}
+        </div>
+        <div class="form-group mt-2">
+            <button type="submit" id="addActorBtn" class="btn btn-primary">Add Actor</button>
+        </div>
+    </form>
+
+    <h1>Actors List</h1>
+    <table class="table" id="actorsTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for actor in actors %}
+            <tr id="actor_{{ actor.id }}">
+                <td>{{ actor.name }}</td>
+                <td>
+                    <button class="btn btn-warning editActorBtn" data-actor-id="{{ actor.id }}">Edit</button>
+                    <button class="btn btn-danger deleteActorBtn" data-actor-id="{{ actor.id }}">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+        // Delete Actor
+        $(document).on('click', '.deleteActorBtn', function() {
+            var actorId = $(this).data('actor-id');
+            if (confirm('Are you sure you want to delete this actor?')) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/delete_actor/' + actorId,
+                    data: { '_method': 'DELETE' },
+                    success: function(response) {
+                        $('#actor_' + actorId).remove();
+                        alert('Actor deleted successfully!');
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error deleting actor: ' + xhr.responseText);
+                    }
+                });
+            }
+        });
+
+        // Edit Actor
+        $(document).on('click', '.editActorBtn', function() {
+            var actorId = $(this).data('actor-id');
+            var newName = prompt('Enter new name for actor:');
+            if (newName != null && newName.trim() != '') {
+                $.ajax({
+                    type: 'POST',
+                    url: '/edit_actor/' + actorId,
+                    data: { 'name': newName },
+                    success: function(response) {
+                        $('#actor_' + actorId + ' td:first-child').text(response.name);
+                        alert('Actor updated successfully!');
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error updating actor: ' + xhr.responseText);
+                    }
+                });
+            }
+        });
+    });
+</script>
+{% endblock %}

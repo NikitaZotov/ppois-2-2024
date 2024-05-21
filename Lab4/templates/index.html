@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="mt-4">
+    <h1>Studios</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Platforms</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for studio in studios %}
+                <tr>
+                    <td>{{ studio.name }}</td>
+                    <td>
+                        {% if studio.platforms %}
+                            <ul>
+                                {% for platform in studio.platforms %}
+                                    <li>{{ platform.platform_name }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            No platforms available
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
