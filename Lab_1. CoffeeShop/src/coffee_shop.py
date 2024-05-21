@@ -85,15 +85,16 @@ class CoffeeShop(Management, Atmosphere):
             if len(self.__order_list) == 0:
                 raise exceptions.ListIsEmptyException
             else:
-                order: Order = self.__order_list.pop(0)
-                self.barista.make_order(self.inventory, order)
-                for visitor in self.visitor_list:
-                    if visitor.order == order:
-                        visitor.served = True
-                        for table in self.tables:
-                            if table.visitor == visitor:
-                                return
-                        self.visitor_leave(visitor)
+                order: Order = self.__order_list[0]
+                self.barista.make_order(self.inventory, self.__order_list)
+                if len(order.items) == 0:
+                    for visitor in self.visitor_list:
+                        if visitor.order == order:
+                            visitor.served = True
+                            for table in self.tables:
+                                if table.visitor == visitor:
+                                    return
+                            self.visitor_leave(visitor)
         except exceptions.ListIsEmptyException:
             print(colors.CRED + "There is no orders. Take an order first" + colors.CEND)
 

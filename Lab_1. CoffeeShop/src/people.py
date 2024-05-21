@@ -74,9 +74,10 @@ class Barista:
         visitor.pay()
         return order
 
-    def make_order(self, inventory: inventory.Inventory, order: Order) -> None:
+    def make_order(self, inventory: inventory.Inventory, order_list: List[Order]) -> None:
         coffee_positions: List[menu.Coffee] = []
         dessert_positions: List[menu.Dessert] = []
+        order: Order = order_list[0]
         for position in order.items:
             if type(position) is menu.Coffee:
                 coffee_positions.append(position)
@@ -85,6 +86,10 @@ class Barista:
 
         order.items = (self.__make_coffee(inventory, coffee_positions) +
                        self.__make_dessert(inventory, dessert_positions))
+        if len(order.items) == 0:
+            order_list.pop(0)
+        else:
+            order_list[0] = order
 
     def __make_coffee(self, inventory: inventory.Inventory, coffee_list: List[menu.Coffee]) -> List[menu.Coffee]:
         milk_amount: float = 0
