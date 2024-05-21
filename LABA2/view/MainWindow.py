@@ -19,7 +19,7 @@ import re
 
 class Application:
     def __init__(self):
-        self.repo = None
+        self.presenter = None
 
         self.athletes_page = 0
         self.number_of_athletes_page = 10
@@ -70,19 +70,19 @@ class Application:
             button.pack(padx=2, pady=0, side=tk.LEFT)
 
     def check_sports_and_open_add_athlete_window(self):
-        if not self.repo.get_sports():
+        if not self.presenter.get_sports():
             messagebox.showwarning("No sports", "There are no sports. Would you like to add one?")
         else:
             AddAthleteWindow(self.main_window, self)
 
     def _update_all_data(self, a=None, b=None, c=None):
-        if self.repo is None:
+        if self.presenter is None:
             return
         self.update_sport_data()
         self.update_athlete_data()
 
     def close_data_source(self):
-        self.repo = None
+        self.presenter = None
 
     def create_file(self):
         file_window = CreateFileWindow(self.main_window)  # create
@@ -91,31 +91,31 @@ class Application:
             self.open_file(filename)
 
     def open_add_athlete_window(self, event=None):
-        if self.repo is None:
+        if self.presenter is None:
             tk.messagebox.showinfo(title='Error', message='Please, open data source')
         else:
             self.check_sports_and_open_add_athlete_window()
 
     def open_add_sport_window(self, event=None):
-        if self.repo is None:
+        if self.presenter is None:
             tk.messagebox.showinfo(title='Error', message='Please, open data source')
         else:
             AddSportWindow(self.main_window, self)
 
     def open_delete_window(self):
-        if self.repo is None:
+        if self.presenter is None:
             tk.messagebox.showinfo(title='Error', message='Please, open data source')
         else:
             DeleteWindow(self.main_window, self)
 
     def open_search_window(self):
-        if self.repo is None:
+        if self.presenter is None:
             tk.messagebox.showinfo(title='Error', message='Please, open data source')
         else:
             SearchWindow(self.main_window, self)
 
     def search_result(self, search) -> None:
-        result_list = self.repo.search_athletes(search)
+        result_list = self.presenter.search_athletes(search)
 
         if not result_list:
             messagebox.showinfo("Search", "Athletes were not found.")
@@ -142,26 +142,30 @@ class Application:
             self.athlete_tree['show'] = 'headings'
             self.sport_tree['show'] = 'headings'
 
-        if self.repo is None:
+        if self.presenter is None:
             return
         self._update_all_data()
 
     def open_file(self, filename_after_create: str = ""):
 
         if filename_after_create == "":
+            filename = ""
             filetypes = [('DB files', '*.db'), ('XML files', '*.xml')]
             filename = fd.askopenfilename(title='Open file', filetypes=filetypes)
 
-            self.repo = DataPresenter()
-            self.repo.select_model(filename)
+            if filename == "":
+                return
+
+            self.presenter = DataPresenter()
+            self.presenter.select_model(filename)
 
         else:
 
-            self.repo = DataPresenter()
-            self.repo.select_model(filename_after_create)
-            self.repo.creation()
+            self.presenter = DataPresenter()
+            self.presenter.select_model(filename_after_create)
+            self.presenter.creation()
 
-        if self.repo is None:
+        if self.presenter is None:
             return
 
         self._update_all_data()
@@ -185,7 +189,7 @@ class Application:
         athletes_panel.rowconfigure(index=0, weight=1)
         # bottom toolbar
         def set_page_size_athletes(event):
-            if self.repo is None:
+            if self.presenter is None:
                 return
             try:
                 if not self.table_athletes_pages_combobox.get():
@@ -209,7 +213,7 @@ class Application:
                 messagebox.showerror("Error!", "Incorrect number format")
 
         def set_page_size_sports(event):
-            if self.repo is None:
+            if self.presenter is None:
                 return
             try:
                 if not self.table_sports_pages_combobox.get():
@@ -357,7 +361,7 @@ class Application:
                 LIMIT ? OFFSET ?
                 """
             parameters = (self.number_of_athletes_page, self.number_of_athletes_page * self.athletes_page)
-            for record in self.repo.get_model().cursor.execute(query, parameters):
+            for record in self.presenter.get_model().cursor.execute(query, parameters):
                 self.athlete_tree.insert('', tk.END, values=record)
         except AttributeError:
             return
@@ -371,7 +375,7 @@ class Application:
                 LIMIT ? OFFSET ?
             """
             parameters = (self.number_of_sports_page, self.number_of_sports_page * self.sports_page)
-            for record in self.repo.get_model().cursor.execute(query, parameters):
+            for record in self.presenter.get_model().cursor.execute(query, parameters):
                 self.sport_tree.insert('', tk.END, values=record)
         except AttributeError:
             return
@@ -381,7 +385,7 @@ class Application:
             self.athlete_tree.delete(item)
         start = self.athletes_page * self.number_of_athletes_page
         end = start + self.number_of_athletes_page
-        for athlete in self.repo.get_athletes(start, end):
+        for athlete in self.presenter.get_athletes(start, end):
             if not self.__tree_view_enabled.get():
                 self.athlete_tree.insert("", END, values=athlete.tuple())
             else:
@@ -393,7 +397,7 @@ class Application:
                 self.athlete_tree.insert(athlete_row, tk.END, text='Position', values=athlete.get_position())
                 self.athlete_tree.insert(athlete_row, tk.END, text='Title', values=athlete.get_title())
                 self.athlete_tree.insert(athlete_row, tk.END, text='Id', values=athlete.get_id())
-                sport = self.repo.get_sport_by_name(athlete.get_sport_name())
+                sport = self.presenter.get_sport_by_name(athlete.get_sport_name())
 
                 self.athlete_tree.insert(sports, tk.END, text='Athletes number',
                                          values=sport.get_athletes_number())
@@ -408,7 +412,7 @@ class Application:
 
         start = self.sports_page * self.number_of_sports_page
         end = start + self.number_of_sports_page
-        for sport in self.repo.get_sports(start, end):
+        for sport in self.presenter.get_sports(start, end):
             if not self.__tree_view_enabled.get():
                 self.sport_tree.insert("", END, values=sport.tuple())
             else:
@@ -422,7 +426,7 @@ class Application:
 
     def update_record_count_label_athletes(self):
         try:
-            total_records = self.repo.count_athletes_amount()
+            total_records = self.presenter.count_athletes_amount()
             start_index = self.athletes_page * self.number_of_athletes_page
             end_index = min((self.athletes_page + 1) * self.number_of_athletes_page, total_records)
             record_count_text = f"{end_index - start_index} of {total_records} entries"
@@ -432,7 +436,7 @@ class Application:
 
     def update_record_count_label_sports(self):
         try:
-            total_records = self.repo.count_sports_amount()
+            total_records = self.presenter.count_sports_amount()
             start_index = self.sports_page * self.number_of_sports_page
             end_index = min((self.sports_page + 1) * self.number_of_sports_page, total_records)
             record_count_text = f"{end_index - start_index} of {total_records} entries"
@@ -441,18 +445,18 @@ class Application:
             self.record_count_label_sports.config(text="No active data source")
 
     def next_page_athletes(self):
-        if self.repo is None:
+        if self.presenter is None:
             return
-        total_records = self.repo.count_athletes_amount()
+        total_records = self.presenter.count_athletes_amount()
         total_pages = (total_records + self.number_of_athletes_page - 1) // self.number_of_athletes_page
         if self.athletes_page < total_pages - 1:
             self.athletes_page += 1
         self.update_athlete_data()
 
     def next_page_sports(self):
-        if self.repo is None:
+        if self.presenter is None:
             return
-        total_records = self.repo.count_sports_amount()
+        total_records = self.presenter.count_sports_amount()
         total_pages = (total_records + self.number_of_sports_page - 1) // self.number_of_sports_page
 
         if self.sports_page < total_pages - 1:
@@ -460,14 +464,14 @@ class Application:
         self.update_sport_data()
 
     def prev_page_athletes(self):
-        if self.repo is None:
+        if self.presenter is None:
             return
         if self.athletes_page > 0:
             self.athletes_page -= 1
         self.update_athlete_data()
 
     def prev_page_sports(self):
-        if self.repo is None:
+        if self.presenter is None:
             return
         if self.sports_page > 0:
             self.sports_page -= 1
@@ -475,7 +479,7 @@ class Application:
 
     def update_page_label_athletes(self):
         try:
-            total_records = self.repo.count_athletes_amount()
+            total_records = self.presenter.count_athletes_amount()
             total_pages = (total_records + self.number_of_athletes_page - 1) // self.number_of_athletes_page
             self.athlete_page_label.config(text=f"Page {self.athletes_page + 1} of {total_pages}")
         except AttributeError:
@@ -483,7 +487,7 @@ class Application:
 
     def update_page_label_sports(self):
         try:
-            total_records = self.repo.count_sports_amount()
+            total_records = self.presenter.count_sports_amount()
             total_pages = (total_records + self.number_of_sports_page - 1) // self.number_of_sports_page
             self.sport_page_label.config(text=f"Page {self.sports_page + 1} of {total_pages}")
         except AttributeError:
