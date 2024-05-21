@@ -1,3 +1,4 @@
+from typing import List
 from unittest import TestCase
 
 import exceptions
@@ -65,14 +66,16 @@ class TestBarista(TestCase):
 
     def test_make_order(self):
         order: menu.Order = self.barista.take_order(self.visitor, self.menu)
-        self.barista.make_order(self.inventory, order)
+        order_list: List[menu.Order] = [order]
+        self.barista.make_order(self.inventory, order_list)
         self.assertEqual(len(order.items), 0)
 
     def test_make_order_with_no_milk(self):
         self.inventory.storage['milk'] = 0
         order: menu.Order = menu.Order()
         order.add_item(menu.Coffee('coffee', 1, 0.009, 0.100))
-        self.barista.make_order(self.inventory, order)
+        order_list: List[menu.Order] = [order]
+        self.barista.make_order(self.inventory, order_list)
         self.assertEqual(len(order.items), 1)
 
     def test_make_order_with_no_coffee(self):
@@ -80,5 +83,6 @@ class TestBarista(TestCase):
         self.inventory.storage['milk'] = 100
         order: menu.Order = menu.Order()
         order.add_item(menu.Coffee('coffee', 1, 0.009, 0.100))
-        self.barista.make_order(self.inventory, order)
+        order_list: List[menu.Order] = [order]
+        self.barista.make_order(self.inventory, order_list)
         self.assertEqual(len(order.items), 1)
