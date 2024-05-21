@@ -59,7 +59,7 @@ class SearchWindow(tk.Toplevel):
         name_frame.pack(pady=10)
 
         # search by sport
-        all_sports = self.application.repo.get_sports()
+        all_sports = self.application.presenter.get_sports()
         sports_numbers = [sport.get_name() for sport in all_sports]
 
         sport_frame = ttk.LabelFrame(self, text="Sport")

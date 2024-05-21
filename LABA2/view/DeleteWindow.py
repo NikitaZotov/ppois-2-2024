@@ -59,7 +59,7 @@ class DeleteWindow(tk.Toplevel):
         name_frame.pack(pady=10)
 
         # search by sport
-        all_sports = self.application.repo.get_sports()
+        all_sports = self.application.presenter.get_sports()
         sports_numbers = [sport.get_name() for sport in all_sports]
 
         sport_frame = ttk.LabelFrame(self, text="Sport")
@@ -160,7 +160,7 @@ class DeleteWindow(tk.Toplevel):
                 None, self.rank_combobox.get(), 0, 0, criteria_value
             )
 
-        amount_of_deleted_elements = self.application.repo.delete_athletes(search)
+        amount_of_deleted_elements = self.application.presenter.delete_athletes(search)
         if amount_of_deleted_elements > 0:
             messagebox.showinfo("Delete athlete", f"Successfully deleted {amount_of_deleted_elements} athletes")
         else:

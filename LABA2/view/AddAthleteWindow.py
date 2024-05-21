@@ -10,7 +10,7 @@ class AddAthleteWindow(tk.Toplevel):
         super().__init__(master=master)
         self.title("Add athlete")
         self.application = application
-        self.sport_list: list = self.application.repo.get_sports()
+        self.sport_list: list = self.application.presenter.get_sports()
         self.cast_list: list = ["basic", "reserve", "n/a"]
         self.rank_list: list = ["first junior", "second junior", "third junior",
                                 "candidate master of sports", "master of sports"]
@@ -82,7 +82,7 @@ class AddAthleteWindow(tk.Toplevel):
             self.athlete_name_entry.focus_set()
             return
 
-        if self.application.repo.athlete_exists(sport_name, name, cast, position, title, rank):
+        if self.application.presenter.athlete_exists(sport_name, name, cast, position, title, rank):
             messagebox.showerror("Error", "Same athlete is already exist")
             self.athlete_name_entry.delete(0, 'end')
             self.athlete_sport_name_var.set("")
@@ -93,7 +93,7 @@ class AddAthleteWindow(tk.Toplevel):
             self.athlete_name_entry.focus_set()
             return
 
-        self.application.repo.add_athlete(sport_name, name, cast, position, title, rank)
+        self.application.presenter.add_athlete(sport_name, name, cast, position, title, rank)
         messagebox.showinfo("Success!", "athlete has been successfully added.")
         self.application._update_all_data()
         self.destroy()

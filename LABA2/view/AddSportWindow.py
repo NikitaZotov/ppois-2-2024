@@ -40,13 +40,13 @@ class AddSportWindow(tk.Toplevel):
             self.sport_name_combobox.focus_set()
             return
 
-        if self.application.repo.sport_exists(name):
+        if self.application.presenter.sport_exists(name):
             messagebox.showerror("Error", "sport with this name is already exist")
             self.sport_name_var.set("")
             self.sport_name_combobox.focus_set()
             return
 
-        self.application.repo.add_sport(name, athletes_number)
+        self.application.presenter.add_sport(name, athletes_number)
         messagebox.showinfo("Success!", "sport has been added.")
         self.application._update_all_data()
         self.destroy()
