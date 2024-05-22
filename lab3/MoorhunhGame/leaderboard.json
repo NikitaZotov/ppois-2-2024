@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Eugene",
+        "score": 10325
+    },
+    {
+        "name": "Alice",
+        "score": 9850
+    },
+    {
+        "name": "Bob",
+        "score": 8700
+    },
+    {
+        "name": "Charlie",
+        "score": 7800
+    },
+    {
+        "name": "David",
+        "score": 7200
+    },
+    {
+        "name": "Emily",
+        "score": 6400
+    },
+    {
+        "name": "Frank",
+        "score": 5900
+    },
+    {
+        "name": "Grace",
+        "score": 5200
+    },
+    {
+        "name": "Henry",
+        "score": 4800
+    },
+    {
+        "name": "Peter",
+        "score": 1500
+    }
+]
