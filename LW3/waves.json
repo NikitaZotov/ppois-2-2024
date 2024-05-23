@@ -1,0 +1,142 @@
+{
+  "wave_1": {
+    "bat_spawn_time" : 1000,
+    "skeleton_spawn_time": 0,
+    "ghost_spawn_time" : 0,
+    "werewolf_spawn_time": 0,
+    "zombie_spawn_time": 0
+  },
+  "wave_2": {
+    "bat_spawn_time" : 700,
+    "skeleton_spawn_time": 0,
+    "ghost_spawn_time" : 0,
+    "werewolf_spawn_time": 0,
+    "zombie_spawn_time": 0
+  },
+  "wave_3": {
+    "bat_spawn_time" : 1200,
+    "skeleton_spawn_time": 4000,
+    "ghost_spawn_time" : 0,
+    "werewolf_spawn_time": 0,
+    "zombie_spawn_time": 0
+  },
+  "wave_4": {
+    "bat_spawn_time" : 1200,
+    "skeleton_spawn_time": 2500,
+    "ghost_spawn_time" : 0,
+    "werewolf_spawn_time": 0,
+    "zombie_spawn_time": 0
+  },
+  "wave_5": {
+    "bat_spawn_time" : 0,
+    "skeleton_spawn_time": 1000,
+    "ghost_spawn_time" : 1500,
+    "werewolf_spawn_time": 0,
+    "zombie_spawn_time": 0
+  },
+  "wave_6":{
+    "bat_spawn_time" : 0,
+    "skeleton_spawn_time": 700,
+    "ghost_spawn_time" : 0,
+    "werewolf_spawn_time": 0,
+    "zombie_spawn_time": 0
+  },
+  "wave_7": {
+    "bat_spawn_time" : 0,
+    "skeleton_spawn_time": 1200,
+    "ghost_spawn_time" : 4000,
+    "werewolf_spawn_time": 0,
+    "zombie_spawn_time": 0
+  },
+  "wave_8": {
+    "bat_spawn_time" : 2500,
+    "skeleton_spawn_time": 1200,
+    "ghost_spawn_time" : 2500,
+    "werewolf_spawn_time": 0,
+    "zombie_spawn_time": 0
+  },
+  "wave_9": {
+    "bat_spawn_time" : 3000,
+    "skeleton_spawn_time": 0,
+    "ghost_spawn_time" : 1000,
+    "werewolf_spawn_time": 0,
+    "zombie_spawn_time": 0
+  },
+  "wave_10": {
+    "bat_spawn_time" : 2500,
+    "skeleton_spawn_time": 0,
+    "ghost_spawn_time" : 700,
+    "werewolf_spawn_time": 0,
+    "zombie_spawn_time": 0
+  },
+  "wave_11": {
+    "bat_spawn_time" : 0,
+    "skeleton_spawn_time": 0,
+    "ghost_spawn_time" : 1200,
+    "werewolf_spawn_time": 4000,
+    "zombie_spawn_time": 0
+  },
+  "wave_12": {
+    "bat_spawn_time" : 2500,
+    "skeleton_spawn_time": 0,
+    "ghost_spawn_time" : 1200,
+    "werewolf_spawn_time": 2500,
+    "zombie_spawn_time": 0
+  },
+  "wave_13": {
+    "bat_spawn_time" : 0,
+    "skeleton_spawn_time": 0,
+    "ghost_spawn_time" : 0,
+    "werewolf_spawn_time": 700,
+    "zombie_spawn_time": 0
+  },
+  "wave_14": {
+    "bat_spawn_time" : 700,
+    "skeleton_spawn_time": 0,
+    "ghost_spawn_time" : 0,
+    "werewolf_spawn_time": 1000,
+    "zombie_spawn_time": 0
+  },
+  "wave_15": {
+    "bat_spawn_time" : 2500,
+    "skeleton_spawn_time": 0,
+    "ghost_spawn_time" : 0,
+    "werewolf_spawn_time": 1200,
+    "zombie_spawn_time": 4000
+  },
+  "wave_16": {
+    "bat_spawn_time" : 3000,
+    "skeleton_spawn_time": 0,
+    "ghost_spawn_time" : 0,
+    "werewolf_spawn_time": 1200,
+    "zombie_spawn_time": 2500
+  },
+  "wave_17": {
+    "bat_spawn_time" : 3000,
+    "skeleton_spawn_time": 0,
+    "ghost_spawn_time" : 0,
+    "werewolf_spawn_time": 1200,
+    "zombie_spawn_time": 2000
+  },
+  "wave_18": {
+    "bat_spawn_time" : 2500,
+    "skeleton_spawn_time": 3000,
+    "ghost_spawn_time" :0,
+    "werewolf_spawn_time": 1200,
+    "zombie_spawn_time": 2000
+  },
+  "wave_19": {
+    "bat_spawn_time" : 2500,
+    "skeleton_spawn_time": 3000,
+    "ghost_spawn_time" : 5000,
+    "werewolf_spawn_time": 1200,
+    "zombie_spawn_time": 2000
+  },
+  "wave_20": {
+    "bat_spawn_time" : 2000,
+    "skeleton_spawn_time": 6000,
+    "ghost_spawn_time" : 5000,
+    "werewolf_spawn_time": 2000,
+    "zombie_spawn_time": 1000
+  }
+}
