@@ -1,0 +1,72 @@
+<levels>
+    <level>
+        <row>BBBWBWBWBBBWWBBBWWBWWBBBWW</row>
+        <row>BBWWBBWBBBBWBBBWBBB  WW BB</row>
+        <row>W WW   WW WW W    W  WW  B</row>
+        <row>BB BB BBBBBBB  BWWBBBBBBB </row>
+    </level>
+    <level>
+        <row>BBBWWBWWBBBWWBWWBBBWWBWWBBW</row>
+        <row>BBBWWBWWBBBWWBWWBBBWWBWWBBW</row>
+        <row>WW WW   WW WW W    WW WWWWW</row>
+    </level>
+    <level>
+        <row> BBBBBBBB    BBBBB BBBBBBBB</row>
+        <row> BBBBBBBB    WW BBBBBBBBWBB</row>
+    </level>
+    <level>
+        <row>B    BBB BBBB  BBBBB WWWWWB</row>
+        <row>B   B   B BBB BBBB  B BBB  </row>
+        <row>B   B BB WW  B  BBBB B BBBB</row>
+        <row>B WWWWWW  B BB WWW  B  WWBB</row>
+        <row>B   B BB  WW B       BBBBBB</row>
+    </level>
+    <level>
+        <row>   B    B    B    B    B   </row>
+        <row>B   B   B   B   B   B   B   </row>
+        <row> B   B   B   B   B   B   B  </row>
+        <row>  B   B   B   B   B   B   B </row>
+        <row>   B   B   B   B   B   B   B</row>
+    </level>
+    <level>
+        <row>BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</row>
+        <row>BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</row>
+        <row>BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</row>
+        <row>BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</row>
+        <row>BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</row>
+        <row>BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</row>
+    </level>
+
+        <level>
+        <row>BB   BBBBBBBBBBBBBB BBBBBBBBBB</row>
+        <row>BBBB BB  BBWWB  BB BBBBBBBBBBB</row>
+        <row>BBBBBB BBBWWWBBBB BBBBBBBWWWWB</row>
+        <row>BWWBB BB BBBBBB BBBBBBBBBBBBBB</row>
+        <row>BBBB BBBBB BB BBBBBBWWWWBBBBBB</row>
+        <row>BB WWBBBBBBBB BBBBBBBBBBBWWWWB</row>
+    </level>
+
+    <level>
+        <row>WB BBBBBB BBBBBBBBWBWBBW BB B</row>
+        <row>BWBBBBB BBBBB WBBBB BBBBBBB B</row>
+        <row>BBBBBB BBBBBBB BBBBBB WBBBB B</row>
+        <row>W BBBBBBB BWBBBBBBBBBBBBBBB B</row>
+    </level>
+
+
+    <level>
+        <row>   WW      B    B BB B B BB  B</row>
+        <row>BBB BB BB BB BB BBBBBB   B BWB</row>
+        <row>   BBWWB B BB B BBB B BBB BWBB</row>
+        <row>BBBBBB   WW BB BB  BBBB B W  B</row>
+        <row> B B B  BB  B WWWWWWWWWWW BBBB</row>
+    </level>
+
+
+        <level>
+        <row>BBBBBB   WW BB BB  BBBB B W  B</row>
+        <row>BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</row>
+        <row>BBBB BB  BBWWB  BB BBBBBBBBBBB</row>
+        <row>WWWWWWWWWWWBBBBBBBBBBBBBBBBBBB</row>
+    </level>
+</levels>
