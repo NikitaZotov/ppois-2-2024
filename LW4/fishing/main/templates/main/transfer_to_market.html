@@ -1,0 +1,32 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Продажа Рыбы{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h2>Продажа Рыбы на Рынок</h2>
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="weight_limit">Введите максимальное количество килограммов:</label>
+                <input type="number" id="weight_limit" name="weight_limit" required>
+            </div>
+            <button class="btn btn-primary" type="submit">Продать Рыбу</button>
+        </form>
+
+        {% if error_message %}
+            <p class="error-message">{{ error_message }}</p>
+        {% endif %}
+        <p>Общий вес доступной рыбы для продажи: {{ total_weight }} кг</p>  <!-- Добавлено -->
+        {% if fish_to_market %}
+            <h3>Рыба для Продажи</h3>
+            <ul class="fish-list">
+                {% for fish in fish_to_market %}
+                    <li>{{ fish.species }} - {{ fish.weight }} кг</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

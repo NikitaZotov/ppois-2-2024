@@ -1,0 +1,38 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Organize Fishing{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h2>Организовать рыбалку</h2>
+    {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+    {% else %}
+    <form method="post" class="fishing-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="ship">Выбрать корабль:</label><br>
+            {% for ship in ships %}
+            <input type="radio" id="ship-{{ forloop.counter }}" name="ship" value="{{ forloop.counter }}">
+            <label for="ship-{{ forloop.counter }}">{{ ship.name }}</label><br>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label for="fishermen">Выбрать рыбаков:</label><br>
+            {% for fisherman in fishermen %}
+            <input type="checkbox" id="fisherman-{{ forloop.counter }}" name="fishermen" value="{{ forloop.counter }}">
+            <label for="fisherman-{{ forloop.counter }}">{{ fisherman.name }}</label><br>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label for="nets">Выбрать сети:</label><br>
+            {% for net in nets %}
+            <input type="checkbox" id="net-{{ forloop.counter }}" name="nets" value="{{ forloop.counter }}">
+            <label for="net-{{ forloop.counter }}">{{ net.square }} sq. meters</label><br>
+            {% endfor %}
+        </div>
+        <button class="btn btn-success" type="submit">Начать рыбалку</button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

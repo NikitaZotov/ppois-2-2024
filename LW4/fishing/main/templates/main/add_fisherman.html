@@ -1,0 +1,29 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h2>Добавить рыбака</h2>
+    {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+    <form method="post" class="fisherman-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="experience">Опыт:</label>
+            <select id="experience" name="experience" required>
+                <option value="новичок">Новичок</option>
+                <option value="средний">Средний</option>
+                <option value="продвинутый">Продвинутый</option>
+                <option value="эксперт">Эксперт</option>
+            </select>
+        </div>
+        <button class="btn btn-success" type="submit">Добавить</button>
+    </form>
+</div>
+{% endblock %}

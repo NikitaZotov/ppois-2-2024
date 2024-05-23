@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}End Fishing{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h2>Закончить рыбалку</h2>
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit">Закончить рыбалку и отправить рыбу</button>
+    </form>
+</div>
+{% endblock %}
