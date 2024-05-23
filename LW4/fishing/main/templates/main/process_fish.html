@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Process Fish{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h2>Обработать рыбу</h2>
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-success" type="submit">Обработка рыбы</button>
+        </form>
+
+        {% if processed_fish %}
+            <h3>Обработанная рыба</h3>
+            <ul class="fish-list">
+                {% for fish in processed_fish %}
+                    <li>{{ fish.species }} - {{ fish.weight }} kg</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}

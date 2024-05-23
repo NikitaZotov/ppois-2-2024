@@ -1,0 +1,222 @@
+body{
+    background: #2c2c2c;
+}
+
+aside {
+    float: left;
+    background: #181818;
+    width: 20%;
+    padding: 2.5%;
+    height: 250vh;
+    color: #fff;
+    border-right: 5px solid #4d4d4d;
+}
+
+aside img {
+    width: 80px;
+    float: left;
+}
+
+aside .logo{
+    font-size: 40px;
+    margin-left: 10px;
+    font-weight: bold;
+    position: relative;
+    top: 10px;
+}
+
+aside h3{
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+aside ul {list-style: none}
+
+aside ul li {
+    color: #fff;
+    display: block;
+    margin-top: 20px;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: #eb5959;
+}
+
+main .features {
+    float: left;
+    color: #fff;
+    margin-top: 100px;
+    text-align: center;
+    width: 75%;
+}
+
+main .features h1 {
+    font-size: 50px;
+}
+
+main .features p {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.fisherman-form, .ship-form, .net-form {
+    display: inline-block;
+    text-align: left;
+    background: #383838;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.fishing-form {
+    background: #383838;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 60%;
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: left;
+    color: white;
+}
+
+.fishing-form .form-group {
+    margin-bottom: 20px;
+}
+
+.fishing-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    vertical-align: middle;
+    color: black;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.fishing-form .radio-label {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.fishing-form input[type="radio"] {
+    display: none;
+}
+
+.fishing-form input[type="radio"] + label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #999;
+    margin-right: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.fishing-form input[type="radio"]:checked + label::before {
+    background-color: #4CAF50;
+}
+
+.fishing-form input[type="checkbox"] {
+    display: none;
+}
+
+.fishing-form input[type="checkbox"] + label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999;
+    margin-right: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.fishing-form input[type="checkbox"]:checked + label::before {
+    background-color: #4CAF50;
+}
+
+
+
+
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.btn {
+    background: #0ce813;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background: #033304;
+}
+
+/*Завершение рыбалки*/
+
+.features {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.btn.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/*Завершение рыбалки*/
+
+
+.fish-list li {
+    color: black;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+
+.form-container {
+    display: inline-block;
+    background: #383838;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    width: 60%;
+    max-width: 400px;
+    margin: 0 auto;
+}

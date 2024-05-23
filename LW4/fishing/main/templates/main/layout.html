@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+</head>
+<body>
+    <aside>
+    <span class="logo"><i class="fas fa-fish"></i>Fish pr</span>
+    <h3>Навигация</h3>
+    <ul>
+        <a href="{% url 'organize_fishing' %}"><li><i class="fa-solid fa-table-columns"></i> Организовать рыбалку</li></a>
+        <a href="{% url 'finish_fishing' %}"><li><i class="fa-solid fa-anchor"></i> Закончить рыбалку и отправить рыбу на склад</li></a>
+        <a href="{% url 'process_fish' %}"><li><i class="fa-solid fa-cut"></i> Обработать рыбу</li></a>
+        <a href="{% url 'freeze_fish' %}"><li><i class="fa-solid fa-snowflake"></i> Заморозить рыбу</li></a>
+        <a href="{% url 'transfer_to_market' %}"><li><i class="fa-solid fa-store"></i> Перевести рыбу со склада на рынок</li></a>
+        <a href="{% url 'add_ship' %}"><li><i class="fa-solid fa-ship"></i> Добавить корабль</li></a>
+        <a href="{% url 'add_fisherman' %}"><li><i class="fa-solid fa-user-plus"></i> Добавить рыбака</li></a>
+        <a href="{% url 'add_net' %}"><li><i class="fa-solid fa-network-wired"></i> Добавить сеть</li></a>
+        <a href="{% url 'logout' %}"><li><i class="fa-solid fa-sign-out-alt"></i> Сохранить состояние</li></a>
+    </ul>
+</aside>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

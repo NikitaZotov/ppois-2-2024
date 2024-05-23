@@ -1,0 +1,17 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Add ship{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h2>Добавить корабль</h2>
+    <form method="post" class="ship-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Название корабля:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <button class="btn btn-success" type="submit">Добавить</button>
+    </form>
+</div>
+{% endblock %}

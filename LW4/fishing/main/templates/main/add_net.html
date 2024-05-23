@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Add Net{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h2>Добавить сеть</h2>
+    {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+    <form method="post" class="net-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="square">Площадь (в м):</label>
+            <input type="text" id="square" name="square" required>
+        </div>
+        <button class="btn btn-success" type="submit">Add Net</button>
+    </form>
+</div>
+{% endblock %}

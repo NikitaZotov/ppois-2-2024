@@ -1,0 +1,36 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Freeze Fish{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h2>Заморозка Рыбы</h2>
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="weight">Введите количество килограммов для заморозки:</label>
+                <input type="number" id="weight" name="weight" required>
+            </div>
+            <button class="btn btn-primary" type="submit">Заморозить Рыбу</button>
+        </form>
+
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+
+        {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+
+        {% if frozen_fish %}
+        <h3>Замороженная Рыба</h3>
+        <ul class="fish-list">
+            {% for fish in frozen_fish %}
+            <li>{{ fish.species }} - {{ fish.weight }} кг</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
