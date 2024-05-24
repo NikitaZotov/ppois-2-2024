@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Просмотр сообщений</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <div class="message-container container">
+        {% for message in messages %}
+        <div class="message-block block">
+            <h2>Сообщение</h2>
+            <div class="message-info info">
+                <div><span>Отправитель:</span> {{ message.sender }}</div>
+                <div><span>Получатель:</span> {{ message.receiver }}</div>
+                <div><span>Текст сообщения:</span> {{ message.text }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

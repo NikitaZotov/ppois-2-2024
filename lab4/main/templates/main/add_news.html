@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить новость</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Добавить новость</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <select name="user">
+                    <option disabled selected>Выберите пользователя</option>
+                    {% for user in users %}
+                    	<option value="{{ user.id }}">{{ user.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <textarea id="content" name="content" placeholder="Контент новости" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="image">Изображение:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+            </div>
+            <button type="submit">Подтвердить</button>
+        </form>
+    </div>
+</body>
+</html>

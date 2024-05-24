@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отправить сообщение</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Отправить сообщение</h2>
+        <form action="#" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <select name="sender">
+                    <option disabled selected>Выберите отправителя</option>
+                    {% for user in users %}
+                    	<option value="{{ user.id }}">{{ user.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="receiver">
+                    <option disabled selected>Выберите получателя</option>
+                    {% for user in users %}
+                    	<option value="{{ user.id }}">{{ user.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <textarea id="text" name="text" placeholder="Сообщение" rows="4" required></textarea>
+            </div>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+</body>
+</html>

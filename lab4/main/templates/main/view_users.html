@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Просмотр пользователей</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <div class="user-container container">
+        {% for user in users %}
+        <div class="user-block block">
+            <h2>Пользователь</h2>
+            <div class="user-info info">
+                <div><span>Псевдоним:</span> {{ user.username }}</div>
+                <div><span>Имя:</span> {{ user.name }}</div>
+                <div><span>Фамилия:</span> {{ user.surname }}</div>
+                <div><span>Возраст:</span> {{ user.age }}</div>
+                <div><span>Пол:</span> {{ user.gender.value }}</div>
+                   <div><span>Друзья:</span> {% for friend in user.friends.all %} {{ friend.username }}{% if not forloop.last %}, {% endif %}{% endfor %}</div>
+                <div><span>Группы:</span> {% for group in user.group_set.all %} {{ group.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

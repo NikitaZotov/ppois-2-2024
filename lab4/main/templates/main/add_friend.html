@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить друга</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Добавить друга</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <select name="firstUser" onchange="updateFriends()" id="users" required>
+                    <option value="" disabled selected hidden>Выберите пользователя</option>
+                    {% for user in users %}
+                    	<option value="{{ user.id }}">{{ user.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="secondUser" id="friends" required>
+                    <option value="" disabled selected hidden> Выберите друга</option>
+                    {% for user in users %}
+                    	<option value="{{ user.id }}">{{ user.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit">Подтвердить</button>
+        </form>
+    </div>
+    <script>
+        function updateFriends() {
+            const usersSelect = document.getElementById("users");
+            const selectedUser = usersSelect.value;
+            const friendsSelect = document.getElementById("friends");
+
+            // Очистка списка друзей
+            friendsSelect.innerHTML = "";
+            const selectOption = document.createElement("option")
+            selectOption.text = "Выберите друга"
+            selectOption.disabled = true
+            selectOption.selected = true
+            selectOption.value = ""
+            friendsSelect.add(selectOption)
+
+            // Не все юзеры выводятся
+            // AJAX запрос для загрузки списка друзей выбранного пользователя
+            fetch(`/get_users_without_friends/${selectedUser}/`)
+                .then(response => response.json())
+                .then(data => {
+                    data.users_without_friends.forEach(user => {
+                        const option = document.createElement("option");
+                        option.text = user.username;
+                        option.value = user.id;
+                        friendsSelect.add(option);
+                    });
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить пользователя в группу</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Добавить пользователя в группу</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <select name="user" onchange="updateGroups()" id="user" required>
+                    <option value="" disabled selected hidden>Выберите пользователя</option>
+                    {% for user in users %}
+                    	<option value="{{ user.id }}">{{ user.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="group" id="group" required>
+                    <option value="" disabled selected hidden>Выберите группу</option>
+                    {% for group in groups %}
+                    	<option value="{{ group.id }}">{{ group.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit">Подтвердить</button>
+        </form>
+    </div>
+
+    <script>
+        function updateGroups() {
+            const usersSelect = document.getElementById("user");
+            const selectedUser = usersSelect.value;
+            const groupSelect = document.getElementById("group");
+
+            // Очистка списка друзей
+            groupSelect.innerHTML = "";
+            const selectOption = document.createElement("option")
+            selectOption.text = "Выберите группу"
+            selectOption.disabled = true
+            selectOption.selected = true
+            selectOption.value = ""
+            groupSelect.add(selectOption)
+
+            // Не все юзеры выводятся
+            // AJAX запрос для загрузки списка друзей выбранного пользователя
+            fetch(`/get_available_groups/${selectedUser}/`)
+                .then(response => response.json())
+                .then(data => {
+                    data.available_groups.forEach(group => {
+                        const option = document.createElement("option");
+                        option.text = group.name;
+                        option.value = group.id;
+                        groupSelect.add(option);
+                    });
+                });
+        }
+    </script>
+</body>
+</html>

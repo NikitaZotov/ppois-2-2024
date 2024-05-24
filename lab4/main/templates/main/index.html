@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор действия</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <div class="menu">
+        <a href="{% url 'add_user' %}">Добавить пользователя</a>
+        <a href="{% url 'add_news' %}">Добавить новость</a>
+        <a href="{% url 'add_friend' %}">Добавить друга</a>
+        <a href="{% url 'add_group' %}">Добавить группу</a>
+        <a href="{% url 'add_user_to_group' %}">Добавить пользователя в группу</a>
+        <a href="{% url 'view_users' %}">Просмотреть пользователей</a>
+        <a href="{% url 'view_news' %}">Просмотреть новости</a>
+        <a href="{% url 'view_messages' %}">Просмотреть сообщения</a>
+        <a href="{% url 'view_groups' %}">Просмотреть все группы</a>
+        <a href="{% url 'write_message' %}">Написать сообщение</a>
+        <a href="{% url 'delete_friend' %}">Удалить друга</a>
+    </div>
+</body>
+</html>

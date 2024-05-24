@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        {% for news_el in news %}
+        <div class="block">
+            <h2>Новость</h2>
+            <div class="info">
+                <div><span>Псевдоним пользователя:</span> {{ news_el.user.username }}</div>
+                <div><span>Контент:</span> {{ news_el.content }}</div>
+                <div><span>Картинка:</span>
+                    {% if news_el.image %}
+                        <img src="{% static 'main/img/news' %}{{ news_el.image }}" alt="Example Image" style="max-width: 100%; border-radius: 5px;">
+                    {% else %}
+                        Не прилагается
+                    {% endif %}
+                </div>
+                <div><span>Дата и время публикации:</span> {{ news_el.datatime }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
