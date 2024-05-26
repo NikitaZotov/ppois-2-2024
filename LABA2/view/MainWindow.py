@@ -56,6 +56,9 @@ class Application:
         toolbar = ttk.Frame(self.main_window)
         toolbar.grid(row=0, column=0, columnspan=2, sticky=tk.EW, padx=2, pady=2)
 
+        self.open_file_label = tk.StringVar()
+        self.open_file_label.set("Opened file: None")
+
         toolbar_buttons = (
             ttk.Button(toolbar, text="Create file", command=self.create_file),
             ttk.Button(toolbar, text="Open file", command=self.open_file),
@@ -68,6 +71,8 @@ class Application:
         )
         for index, button in enumerate(toolbar_buttons):
             button.pack(padx=2, pady=0, side=tk.LEFT)
+        label = tk.Label(toolbar, textvariable=self.open_file_label)
+        label.pack(padx=2, pady=0, side=tk.LEFT)
 
     def check_sports_and_open_add_athlete_window(self):
         if not self.presenter.get_sports():
@@ -157,11 +162,13 @@ class Application:
                 return
 
             self.presenter = DataPresenter()
+            self.open_file_label.set(f"Opened file: {filename}")
             self.presenter.select_model(filename)
 
         else:
 
             self.presenter = DataPresenter()
+            self.open_file_label.set(f"Opened file: {filename_after_create}")
             self.presenter.select_model(filename_after_create)
             self.presenter.creation()
 
@@ -178,6 +185,8 @@ class Application:
         return all(re.match(r'^[А-ЯA-Z][а-яa-z]*$', word) for word in name.split())
 
     def configure_tabs(self):
+
+
         sports_panel = ttk.Labelframe(self.main_window, text="Sports")
         sports_panel.grid(row=1, column=0, sticky=tk.NSEW)
         sports_panel.columnconfigure(index=0, weight=1)
@@ -188,6 +197,7 @@ class Application:
         athletes_panel.columnconfigure(index=0, weight=1)
         athletes_panel.rowconfigure(index=0, weight=1)
         # bottom toolbar
+
         def set_page_size_athletes(event):
             if self.presenter is None:
                 return
@@ -264,6 +274,7 @@ class Application:
         self.record_count_label_sports = ttk.Label(sport_tree_buttons, text="")
         self.record_count_label_sports.pack()
         self.update_record_count_label_sports()
+
 
         # Left side of main screen
         self.sport_tree = ttk.Treeview(master=sports_panel)

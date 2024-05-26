@@ -8,7 +8,7 @@
 с помощью команды:
 `pip install -r requirements.txt`
 <hr>
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Roboto&weight=300&pause=1000&color=00A41F&random=false&width=435&lines=2.+%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5+%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%3A" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Roboto&weight=300&pause=1000&color=00A41F&random=false&width=435&lines=2.+%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5+%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F" alt="Typing SVG" /></a>
 
 Программа Sport Base предназначена для управления данными о различных видах спорта и спортсменах
 с помощью графического интерфейса.
@@ -36,7 +36,8 @@
 - Таблица Sports для просмотра видов спорта
 - Таблица Athletes для просмотра спортсменов
 
-Также имеется панель инструментов со всеми командами.
+Также имеется панель инструментов со всеми командами,
+слева от которой отображается абсолютнй путь открытого файла
 
 ![img_19.png](images/img_19.png)
 
