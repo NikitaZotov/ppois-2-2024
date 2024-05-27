@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Barbershop</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+<body>
+<h1>Главная страница Парикмахерской</h1>
+<a href="/add_registration/">Добавить запись</a>
+<a href="/execution/">Выполнить все услуги</a>
+<a href="/purchase/">закупка инструментов и найм работников</a><br>
+
+<p>Бюджет: {{ budget }}</p>
+<p>Количество парикмахеров: {{ barbers_count }}</p>
+
+{% if message %}
+<p style="color: green;">{{ message }}</p>
+{% endif %}
+{% if clients %}
+<h2>Все записи</h2>
+<form id="deleteForm" action="/delete_clients/" method="post">
+    <table>
+        <tr>
+            <th></th> <!-- Пустая ячейка для чекбокса -->
+            <th>Имя</th>
+            <th>День</th>
+            <th>Время</th>
+            <th>Тип услуги</th>
+            <th>Длина волос</th>
+            <th>Тип волос</th>
+        </tr>
+        {% for client in clients %}
+        <tr>
+            <td><input type="checkbox" name="selected_rows" value="{{ loop.index }}"></td>
+            <td>{{ client.name }}</td>
+            <td>{{ client.day }}</td>
+            <td>{{ client.time }}</td>
+            <td>{{ client.service_type }}</td>
+            <td>{{ client.hair_length }}</td>
+            <td>{{ client.hair_type }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <button type="button" onclick="deleteSelected()">Удалить выбранные записи</button>
+</form>
+{% else %}
+<p>Нет записей</p>
+{% endif %}
+
+<script>
+    function deleteSelected() {
+        var form = document.getElementById("deleteForm");
+        var formData = new FormData(form);
+
+        fetch(form.action, {
+            method: "DELETE",
+            body: formData
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Ошибка удаления записей');
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log(data); // Обработка ответа сервера
+
+                window.location.reload();
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление клиентов</title>
+</head>
+<body>
+<h1>Добавить клиента</h1>
+{% if error_message %}
+<p style="color: red;">{{ error_message }}</p>
+{% endif %}
+{% if message %}
+<p style="color: green;">{{ message }}</p>
+{% endif %}
+<form action="/add_registration/" method="post">
+    <label for="name">ФИО:</label><br>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="day">День:</label><br>
+    <select id="day" name="day">
+        <option value="Понедельник">Понедельник</option>
+        <option value="Вторник">Вторник</option>
+        <option value="Среда">Среда</option>
+        <option value="Четверг">Четверг</option>
+        <option value="Пятница">Пятница</option>
+        <option value="Суббота">Суббота</option>
+        <option value="Воскресенье">Воскресенье</option>
+    </select><br>
+
+    <label for="time">Время:</label><br>
+    <select id="time" name="time">
+        <option value="8">8:00</option>
+        <option value="9">9:00</option>
+        <option value="10">10:00</option>
+        <option value="11">11:00</option>
+        <option value="12">12:00</option>
+        <option value="13">13:00</option>
+        <option value="14">14:00</option>
+        <option value="15">15:00</option>
+        <option value="16">16:00</option>
+        <option value="17">17:00</option>
+        <option value="18">18:00</option>
+    </select><br>
+
+    <label for="service_type">Тип услуги:</label><br>
+    <select id="service_type" name="service_type">
+        <option value="стрижка">Стрижка</option>
+        <option value="укладка волос">Укладка волос</option>
+        <option value="консультация">Консульатция</option>
+    </select><br>
+
+    <label for="hair_length">Длина волос:</label><br>
+    <select id="hair_length" name="hair_length">
+        <option value="длинные">Длинные</option>
+        <option value="короткие">Короткие</option>
+    </select><br>
+
+    <label for="hair_type">Тип волос:</label><br>
+    <select id="hair_type" name="hair_type">
+        <option value="тонкие">Тонкие</option>
+        <option value="жесткие">Жесткие</option>
+    </select><br><br>
+
+    <input type="submit" value="Добавить">
+</form>
+<br>
+<form action="/" method="get" style="display: inline;">
+    <button type="submit" class="nav-button">
+        На главную
+    </button>
+</form>
+
+</body>
+</html>
