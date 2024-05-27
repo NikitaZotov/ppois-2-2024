@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Create Script - My App{% endblock %}
+{% block content %}
+    <h1>Найти сценарий</h1>
+    {% if message %}
+        <div class="alert alert-{{ message_type }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+    <form method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Название сценария:</label>
+            <input type="text" class="form-control" id="name" name="name" pattern="[^\s].*" title="First character cannot be a space" required>
+        </div>
+        <div class="mb-3">
+            <label for="type" class="form-label">Тип сценария:</label>
+            <input type="text" class="form-control" id="type" name="type" pattern="[^\s].*" title="First character cannot be a space" required>
+        </div>
+        <div class="mb-3">
+            <label for="person_number" class="form-label">Кол-во всех актеров:</label>
+            <input type="number" class="form-control" id="person_number" name="person_number" min="0" required>
+        </div>
+        <div class="mb-3">
+            <label for="plot" class="form-label">Описание сценария:</label>
+            <textarea class="form-control" id="plot" name="plot" rows="3" pattern="[^\s].*" title="First character cannot be a space" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="experience" class="form-label">Требуемый опыт директора:</label>
+            <select class="form-select" id="experience" name="experience" required>
+                <option value="0">Новичок</option>
+                <option value="1">Средний</option>
+                <option value="2">Профессионал</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Найти сценарий</button>
+    </form>
+{% endblock %}

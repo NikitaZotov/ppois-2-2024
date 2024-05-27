@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}Make Post Production - My App{% endblock %}
+{% block content %}
+    <h1>Постпродакшн</h1>
+    
+    <!-- Отображение сообщений -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <form method="post">
+        <div class="mb-3">
+            <label for="action" class="form-label">Действие:</label>
+            <select class="form-select" id="action" name="action" required onchange="toggleFields()">
+                <option value="del">Удалить кадр</option>
+                <option value="ch">Изменить позицию кадра</option>
+            </select>
+        </div>
+        <div class="mb-3" id="position-field">
+            <label for="position" class="form-label">Позиция кадра:</label>
+            <select class="form-select" id="position" name="position" required>
+                {% for i in range(1, num_shots + 1) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3" id="new-position-field" style="display: none;">
+            <label for="new_position" class="form-label">Новая позиция кадра:</label>
+            <select class="form-select" id="new_position" name="new_position">
+                {% for i in range(1, num_shots + 1) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Изменить</button>
+        <a href="{{ url_for('make_realization') }}" class="btn btn-primary">Продолжить</a>
+    </form>
+
+    <!-- Отображение списка кадров и их позиций -->
+    <div class="mt-3">
+        <h2>Список кадров и их позиций:</h2>
+        <ul>
+            {% for shot, position in shots_and_positions %}
+                <li>{{ position }}. Кадр {{ shot }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        function toggleFields() {
+            const action = document.getElementById('action').value;
+            const positionField = document.getElementById('position-field');
+            const newPositionField = document.getElementById('new-position-field');
+
+            if (action === 'del') {
+                positionField.style.display = 'block';
+                newPositionField.style.display = 'none';
+            } else if (action === 'ch') {
+                positionField.style.display = 'block';
+                newPositionField.style.display = 'block';
+            }
+        }
+
+        // Инициализация полей на основе выбора по умолчанию
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleFields();
+        });
+    </script>
+{% endblock %}

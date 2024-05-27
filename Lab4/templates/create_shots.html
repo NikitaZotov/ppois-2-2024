@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Create Shots - My App{% endblock %}
+{% block content %}
+    <h1>Создание кадров</h1>
+    {% if message %}
+        <div class="alert alert-{{ message_type }}" role="alert">
+            {{ message }}
+        </div>
+    {% endif %}
+    <form method="post">
+        <div class="row mb-3">
+            <div class="col">
+                <label for="direction" class="form-label">Поворот камеры:</label>
+                <select class="form-select" id="direction" name="direction" required>
+                    <option value="r">Вправо</option>
+                    <option value="l">Влево</option>
+                    <option value="u">Вверх</option>
+                    <option value="d">Вниз</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Создать кадр</button>
+            </div>
+            <div class="col-auto">
+                <a href="{{ url_for('change_number_actors') }}" class="btn btn-primary">Продолжить</a>
+            </div>
+        </div>
+    </form>
+{% endblock %}
