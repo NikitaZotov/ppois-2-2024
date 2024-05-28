@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div class="text-center">
+        <h1 class="mb-4">Добро пожаловать в создание студии</h1>
+        <p class="mb-4">Нажмите на кнопку, чтобы начать создание студии</p>
+        <!-- Добавляем кнопку для перехода на страницу создания студии -->
+        <form action="{{ url_for('create_studio') }}">
+            <button type="submit" class="btn btn-primary btn-lg">Создать студию</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

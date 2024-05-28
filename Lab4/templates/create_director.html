@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Create Director - My App{% endblock %}
+{% block content %}
+    <h1>Найти режиссера</h1>
+    {% if message %}
+        <div class="alert alert-{{ message_type }}" role="alert">
+            {{ message }}
+        </div>
+    {% endif %}
+    <form method="post">
+        <div class="mb-3">
+            <label for="director_name" class="form-label">Имя режисера:</label>
+            <input type="text" class="form-control" id="director_name" name="director_name" required>
+        </div>
+        <div class="mb-3">
+            <label for="director_exp" class="form-label">Опыт режиссера:</label>
+            <select class="form-select" id="director_exp" name="director_exp" required>
+                <option value="0">Новичок</option>
+                <option value="1">Средний</option>
+                <option value="2">Профессионал</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Создать режиссера</button>
+    </form>
+{% endblock %}

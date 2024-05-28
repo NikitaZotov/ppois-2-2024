@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Create Actor - My App{% endblock %}
+{% block content %}
+    <h1>Найти актера</h1>
+    {% if message %}
+        <div class="alert alert-{{ message_type }}" role="alert">
+            {{ message }}
+        </div>
+    {% endif %}
+    <form method="post">
+        <div class="mb-3">
+            <label for="actor_name" class="form-label">Имя актера:</label>
+            <input type="text" class="form-control" id="actor_name" name="actor_name" required>
+        </div>
+        <div class="mb-3">
+            <label for="actor_age" class="form-label">Возраст актера:</label>
+            <input type="number" class="form-control" id="actor_age" name="actor_age" min="1" max="100" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Создать актера</button>
+    </form>
+{% endblock %}

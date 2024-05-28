@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Change Number of Actors - My App{% endblock %}
+{% block content %}
+    <h1>Изменить кол-во актеров</h1>
+    <form method="post">
+        <div class="mb-3">
+            <label for="number" class="form-label">Новое кол-во всех актеров:</label>
+            <input type="number" class="form-control" id="number" name="number" min="0" required>
+        </div>
+        <div class="mb-3">
+            <label for="young_number" class="form-label">Новое кол-во молодых актеров:</label>
+            <input type="number" class="form-control" id="young_number" name="young_number" min="0" required>
+        </div>
+        <div class="mb-3">
+            <label for="old_number" class="form-label">Новое кол-во взрослых актеровs:</label>
+            <input type="number" class="form-control" id="old_number" name="old_number" min="0" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Изменить</button>
+        <a href="{{ url_for('make_post_production') }}" class="btn btn-primary">Продолжить</a>
+    </form>
+{% endblock %}

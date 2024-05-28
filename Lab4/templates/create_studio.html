@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Create Studio - My App{% endblock %}
+{% block content %}
+    <h1>Найти студию</h1>
+    {% if message %}
+        <div class="alert alert-{{ message_type }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+    <form method="post">
+        <div class="mb-3">
+            <label for="studio_name" class="form-label">Название студии:</label>
+            <input type="text" class="form-control" id="studio_name" name="studio_name" pattern="^(?!\s).*$" title="First character can't be a space" required>
+        </div>
+        <div class="mb-3">
+            <label for="studio_number" class="form-label">Кол-во актеров:</label>
+            <input type="number" class="form-control" id="studio_number" name="studio_number" min="0" required>
+        </div>
+        <div class="mb-3">
+            <label for="old_number" class="form-label">Кол-во взрослых актеров:</label>
+            <input type="number" class="form-control" id="old_number" name="old_number" min="0" required>
+        </div>
+        <div class="mb-3">
+            <label for="young_number" class="form-label">Кол-во молодых актеров:</label>
+            <input type="number" class="form-control" id="young_number" name="young_number" min="0" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Создать студию</button>
+    </form>
+{% endblock %}
