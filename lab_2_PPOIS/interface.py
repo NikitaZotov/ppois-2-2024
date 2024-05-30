@@ -5,6 +5,7 @@ import logic as lg
 from tkinter import ttk
 
 current_page = 1
+current_num_of_pages = 0
 def add_batton_cleaked():
     dial_window = tk.Toplevel(window)  # Use Toplevel instead of Tk for a new window
     lab_name = tk.Label(dial_window, text='Имя')
@@ -58,6 +59,9 @@ def add_batton_cleaked():
             lg.add_to_list(enter_name.get(), enter_sname.get(), enter_lname.get(), bdate.get_date(),
                            enter_team.get(), enter_city.get(), sost.get(), pos.get())
             global current_page
+            global current_num_of_pages
+            if (len(lg.list_of_players) % 10 == 1):
+                current_num_of_pages += 1
             renew_table(current_page)
             dial_window.destroy()
 
@@ -100,8 +104,9 @@ def find_birth_date():
     bdate.grid(column=1, row=3)
 
     def add_clicked():
+        birth_date = bdate.get_date()
         dial_window.destroy()
-        print_founded(lg.find_players('', '', '', bdate.get_date(), '', '', '', '')[0])
+        print_founded(lg.find_players('', '', '', birth_date, '', '', '', '')[0])
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
     but.grid(column=0, row=8)
@@ -124,9 +129,8 @@ def find_position():
                              'свободный защитник(либеро)', 'фланговый защитник', 'вратарь')
     drop_pos.grid(column=1, row=7)
     def add_clicked():
-        dial_window.destroy()
         print_founded(lg.find_players('', '', '', '', '', '', '', pos.get())[0])
-
+        dial_window.destroy()
     but = tk.Button(dial_window, text='найти', command=add_clicked)
     but.grid(column=0, row=8)
 
@@ -139,8 +143,8 @@ def find_sost():
     drop_sost = tk.OptionMenu(dial_window, sost, 'основной', 'запасной')
     drop_sost.grid(column=1, row=6)
     def add_clicked():
-        dial_window.destroy()
         print_founded(lg.find_players('', '', '', '', '', '', sost.get(), '')[0])
+        dial_window.destroy()
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
     but.grid(column=0, row=8)
@@ -154,8 +158,8 @@ def find_city():
         if(enter_city.get() == ''):
             mb.showwarning('Предупреждение','Поле не заполнено')
         else:
-            dial_window.destroy()
             print_founded(lg.find_players('', '', '', '', '', enter_city.get(), '', '')[0])
+            dial_window.destroy()
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
     but.grid(column=0, row=8)
@@ -169,8 +173,10 @@ def find_team():
         if(enter_team.get() == ''):
             mb.showwarning('Предупреждение','Поле не заполнено')
         else:
-            dial_window.destroy()
+            #dial_window.destroy()
             print_founded(lg.find_players('', '', '', '', enter_team.get(), '', '', '')[0])
+            dial_window.destroy()
+
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
     but.grid(column=0, row=8)
@@ -194,11 +200,12 @@ def del_full_name():
         if (enter_name.get() == '' and enter_lname == '' and enter_sname == ''):
             mb.showwarning('Предупреждение', 'Хотя бы одно поле должно быть заполнено')
         else:
-            dial_window.destroy()
+            #dial_window.destroy()
             founded = lg.find_players(enter_name.get(), enter_sname.get(), enter_lname.get(), '', '', '', '', '')
             print_founded(founded[0])
-            mb.showinfo(len(founded[0]),'элементов удалено')
+            mb.showinfo(str(len(founded[0])),'элементов удалено')
             lg.delete_info(founded[1])
+            dial_window.destroy()
 
 
     but = tk.Button(dial_window, text='удалить', command=add_clicked)
@@ -228,9 +235,12 @@ def renew_table(page_num):
     people = lg.get_players(page_num)
     for element in list_of_items:
         tree.delete(element)
+    list_of_items.clear()
     for person in people:
         list_of_items.append(tree.insert("", END, values=person))
         #tree.pack()
+    global current_num_of_pages
+    count_lab.config(text= str(page_num) + '/' + str(current_num_of_pages))
 
 
 window = tk.Tk()

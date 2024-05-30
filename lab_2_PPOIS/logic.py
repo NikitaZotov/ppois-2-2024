@@ -107,7 +107,7 @@ def create_xml(file_name):
         player_lname = ET.SubElement(football_player, 'last name')
         player_lname.text = player.last_name
         player_bdate = ET.SubElement(football_player, 'date of birth')
-        player_bdate.text = player.date_of_birth
+        player_bdate.text = player.date_of_birth.strftime('%Y-%m-%d')
         player_team = ET.SubElement(football_player, 'football team')
         player_team.text = player.football_team
         player_town = ET.SubElement(football_player, 'birth town')
