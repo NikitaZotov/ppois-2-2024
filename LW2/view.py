@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from tkinter.messagebox import showerror, showwarning
+from tkinter.messagebox import showerror, showwarning, showinfo
 from model import Model
 from controller import Controller
 
@@ -200,6 +200,9 @@ class View:
 
     def show_error(self, message):
         showerror("Ошибка", message)
+
+    def show_message(self, message):
+        showinfo("Информация", message)
 
     def delete_element(self):
         def create_conditions(entries):

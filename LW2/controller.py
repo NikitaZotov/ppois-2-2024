@@ -41,9 +41,14 @@ class Controller:
             persons_to_delete = [index for index, person in enumerate(self.model.persons)
                                  if all(condition(person) for condition in conditions)]
 
+            if not persons_to_delete:
+                self.view.show_message("Таких элементов не было найдено.")
+                return
+
             for index in sorted(persons_to_delete, reverse=True):
                 del self.model.persons[index]
             self.view.update_table()
+            self.view.show_message(f"Удалено {len(persons_to_delete)} элементов.")
         except ValueError as e:
             self.view.show_error(str(e))
 
