@@ -353,7 +353,7 @@ def prev():
 def next_():
     global current_page
     global current_num_of_pages
-    if(current_page != current_num_of_pages)
+    if(current_page != current_num_of_pages):
         current_page+=1
         renew_table(current_page)
 
