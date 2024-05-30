@@ -17,10 +17,10 @@ class GardenAdministration(gr.Garden):
                                 time_between_taking_care_days, time_between_fertilizing_days):
 
         try:
-            time_between_fertilizing_days = int(time_between_fertilizing_days)
-            time_before_colecting_week = int(time_before_colecting_week)
-            time_between_watering_days = int(time_between_watering_days)
-            time_between_taking_care_days = int(time_between_taking_care_days)
+            time_between_fertilizing_days = abs(int(time_between_fertilizing_days))
+            time_before_colecting_week = abs(int(time_before_colecting_week))
+            time_between_watering_days = abs(int(time_between_watering_days))
+            time_between_taking_care_days = abs(int(time_between_taking_care_days))
         except:
             return -1
 
@@ -43,7 +43,7 @@ class GardenAdministration(gr.Garden):
 
     def buy_seeds(self, name, num):
         try:
-            num = int(num)
+            num = abs(int(num))
         except:
             return -1
         if(self.seads_collection.get(name) == None):
@@ -60,7 +60,7 @@ class GardenAdministration(gr.Garden):
         if (self.seads_collection.get(plant_name) == None or self.seads_collection[plant_name] < self.garden_plan[id_].get_garden_bed_size()):
             return -3
         if(self.plant_enciclopedy.get(plant_name) == None):
-            self.seads_collection[plant_name] -= self.garden_plan[id_].get_garden_bed_size()
+            self.seads_collection[plant_name] = self.seads_collection[plant_name] - self.garden_plan[id_].get_garden_bed_size()
             return self.plant_garden_bed(id_, plant_name) + 1
         else:
             if(self.plant_enciclopedy[plant_name].is_prefered(self.garden_plan[id_].get_garden_bed_solid_type()) == -1):
@@ -69,7 +69,7 @@ class GardenAdministration(gr.Garden):
                 if(self.seads_collection[plant_name] == None or self.seads_collection[plant_name] < self.garden_plan[id_].get_garden_bed_size()):
                     return -3
                 else:
-                    self.seads_collection[plant_name] -= self.garden_plan[id_].get_garden_bed_size()
+                    self.seads_collection[plant_name] = self.seads_collection[plant_name] - self.garden_plan[id_].get_garden_bed_size()
                     return self.plant_garden_bed(id_, plant_name)
 
 

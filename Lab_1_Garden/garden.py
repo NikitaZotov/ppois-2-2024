@@ -13,8 +13,8 @@ class Garden:
     def add_garden_bed(self, length, width, soil_typ):
         id_ = len(self.garden_plan)
         try:
-            length = int(length)
-            width = int(width)
+            length = abs(int(length))
+            width = abs(int(width))
         except ValueError:
             return -1
         #добавить если элемента нет в массиве видов почв добавить
