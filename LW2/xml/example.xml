@@ -1,0 +1,250 @@
+<Persons>
+  <Person>
+    <Attribute1>ФИТУ</Attribute1>
+    <Attribute2>ИИТ</Attribute2>
+    <Attribute3>Зотов Никита Владимирович</Attribute3>
+    <Attribute4>магистрант</Attribute4>
+    <Attribute5>хз</Attribute5>
+    <Attribute6>1</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКСИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Джесси Пинкман Александрович</Attribute3>
+    <Attribute4>магистрант</Attribute4>
+    <Attribute5>хз</Attribute5>
+    <Attribute6>4</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФИТУ</Attribute1>
+    <Attribute2>ИИТ</Attribute2>
+    <Attribute3>Голенков Владимир Васильевич</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>абстракционист</Attribute5>
+    <Attribute6>30</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФИТУ</Attribute1>
+    <Attribute2>ИИТ</Attribute2>
+    <Attribute3>Садовский Михаил Ефимович</Attribute3>
+    <Attribute4>доцент</Attribute4>
+    <Attribute5>гениалыч</Attribute5>
+    <Attribute6>8</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФИТУ</Attribute1>
+    <Attribute2>ИИТ</Attribute2>
+    <Attribute3>Гракова Наталья Викторовна</Attribute3>
+    <Attribute4>Доцент</Attribute4>
+    <Attribute5>Куратор гр 221702</Attribute5>
+    <Attribute6>12</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФИТУ</Attribute1>
+    <Attribute2>ИИТ</Attribute2>
+    <Attribute3>Самодумкин Сергей Александрович</Attribute3>
+    <Attribute4>Доцент</Attribute4>
+    <Attribute5>лектор</Attribute5>
+    <Attribute6>25</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФИТУ</Attribute1>
+    <Attribute2>ИИТ</Attribute2>
+    <Attribute3>Захаров Владимир Владимирович</Attribute3>
+    <Attribute4>Доцент</Attribute4>
+    <Attribute5>Кандидат технических наук</Attribute5>
+    <Attribute6>15</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКИС</Attribute1>
+    <Attribute2>Философия</Attribute2>
+    <Attribute3>Чуешов Виктор Иванович</Attribute3>
+    <Attribute4>Профессор</Attribute4>
+    <Attribute5>Доктор философских наук</Attribute5>
+    <Attribute6>40</Attribute6>
+  </Person>
+  <Person>
+    <Attribute1>ФКСИС</Attribute1>
+    <Attribute2>ПОИТ</Attribute2>
+    <Attribute3>Парамонов Антон Иванович</Attribute3>
+    <Attribute4>доцент</Attribute4>
+    <Attribute5>Кандидат технических наук</Attribute5>
+    <Attribute6>8</Attribute6>
+  </Person>
+</Persons>
