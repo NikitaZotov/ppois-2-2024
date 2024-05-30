@@ -9,7 +9,10 @@ list_of_players = []
 def get_players(page_num):
     list_ = []
     for i in range((page_num-1)*10, min(page_num*10, len(list_of_players))):
-        list_.append(list_of_players[i])
+        list_.append([list_of_players[i].last_name + ' ' + list_of_players[i].first_name + ' ' +
+                      list_of_players[i].middle_name, list_of_players[i].date_of_birth,
+                      list_of_players[i].football_team, list_of_players[i].birth_town,
+                      list_of_players[i].sostav, list_of_players[i].position])
     return list_
 
 
@@ -71,6 +74,13 @@ def find_players(name, mname, lname, bdate, team, town, sost, pos):
         for element in search_result:
             if (element.position != pos):
                 search_result.remove(element)
+    search_result_print = []
+    for element in search_result:
+        search_result_print.append([element.last_name + ' ' + element.first_name + ' ' +
+                      element.middle_name, element.date_of_birth,
+                      element.football_team, element.birth_town,
+                      element.sostav, element.position])
+    return search_result_print
 
 def delete_info(list_of_players_del):
     for element in list_of_players_del:
@@ -123,5 +133,5 @@ def read_xml(file_name):
 
 
 
-list_of_players.append(Football_player('1','2','3','4','5','6','7','8'))
-create_xml(list_of_players)
+#list_of_players.append(Football_player('1','2','3','4','5','6','7','8'))
+#create_xml(list_of_players)
