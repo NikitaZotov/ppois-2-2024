@@ -80,7 +80,7 @@ def find_players(name, mname, lname, bdate, team, town, sost, pos):
                       element.middle_name, element.date_of_birth,
                       element.football_team, element.birth_town,
                       element.sostav, element.position])
-    return search_result_print
+    return search_result_print, search_result
 
 def delete_info(list_of_players_del):
     for element in list_of_players_del:

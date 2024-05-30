@@ -51,8 +51,8 @@ def add_batton_cleaked():
                 'свободный защитник(либеро)', 'фланговый защитник', 'вратарь')
     drop_pos.grid(column=1, row=7)
     def add_clicked():
-        if(enter_name.get() == '' or enter_lname == '' or enter_sname == '' or enter_city.get() == ''
-           or enter_team == ''):
+        if(enter_name.get() == '' or enter_lname.get() == '' or enter_sname.get() == '' or enter_city.get() == ''
+           or enter_team.get() == ''):
             mb.showwarning('Предупреждение','Не все поля заполнены')
         else:
             lg.add_to_list(enter_name.get(), enter_sname.get(), enter_lname.get(), bdate.get_date(),
@@ -80,11 +80,14 @@ def find_full_name():
     enter_lname = tk.Entry(dial_window, width=10)
     enter_lname.grid(column=1, row=0)
     def add_clicked():
-        if(enter_name.get() == '' and enter_lname == '' and enter_sname == ''):
-            mb.showwarning('Предупреждение','Хотя бы одно поле должно быть заполнено')
+        name = enter_name.get()
+        lname = enter_lname.get()
+        sname = enter_sname.get()
+        if name == '' and lname == '' and sname == '':
+            mb.showwarning('Предупреждение','Хотя бы  одно поле должно быть заполнено')
         else:
             dial_window.destroy()
-            print_founded(lg.find_players(enter_name.get(), enter_sname.get(), enter_lname.get(), '', '', '', '', ''))
+            print_founded(lg.find_players(name, sname, lname, '', '', '', '', '')[0])
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
     but.grid(column=0, row=8)
@@ -98,7 +101,7 @@ def find_birth_date():
 
     def add_clicked():
         dial_window.destroy()
-        print_founded(lg.find_players('', '', '', bdate.get_date(), '', '', '', ''))
+        print_founded(lg.find_players('', '', '', bdate.get_date(), '', '', '', '')[0])
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
     but.grid(column=0, row=8)
@@ -122,7 +125,7 @@ def find_position():
     drop_pos.grid(column=1, row=7)
     def add_clicked():
         dial_window.destroy()
-        print_founded(lg.find_players('', '', '', '', '', '', '', pos.get()))
+        print_founded(lg.find_players('', '', '', '', '', '', '', pos.get())[0])
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
     but.grid(column=0, row=8)
@@ -137,7 +140,7 @@ def find_sost():
     drop_sost.grid(column=1, row=6)
     def add_clicked():
         dial_window.destroy()
-        print_founded(lg.find_players('', '', '', '', '', '', sost.get(), ''))
+        print_founded(lg.find_players('', '', '', '', '', '', sost.get(), '')[0])
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
     but.grid(column=0, row=8)
@@ -152,7 +155,7 @@ def find_city():
             mb.showwarning('Предупреждение','Поле не заполнено')
         else:
             dial_window.destroy()
-            print_founded(lg.find_players('', '', '', '', '', enter_city.get(), '', ''))
+            print_founded(lg.find_players('', '', '', '', '', enter_city.get(), '', '')[0])
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
     but.grid(column=0, row=8)
@@ -167,7 +170,7 @@ def find_team():
             mb.showwarning('Предупреждение','Поле не заполнено')
         else:
             dial_window.destroy()
-            print_founded(lg.find_players('', '', '', '', enter_team.get(), '', '', ''))
+            print_founded(lg.find_players('', '', '', '', enter_team.get(), '', '', '')[0])
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
     but.grid(column=0, row=8)
@@ -192,18 +195,42 @@ def del_full_name():
             mb.showwarning('Предупреждение', 'Хотя бы одно поле должно быть заполнено')
         else:
             dial_window.destroy()
-            print_founded(lg.find_players(enter_name.get(), enter_sname.get(), enter_lname.get(), '', '', '', '', ''))
+            founded = lg.find_players(enter_name.get(), enter_sname.get(), enter_lname.get(), '', '', '', '', '')
+            print_founded(founded[0])
+            mb.showinfo(len(founded[0]),'элементов удалено')
+            lg.delete_info(founded[1])
 
-    but = tk.Button(dial_window, text='найти', command=add_clicked)
+
+    but = tk.Button(dial_window, text='удалить', command=add_clicked)
     but.grid(column=0, row=8)
+
+def del_birth_date():
+    dial_window = tk.Toplevel(window)
+
+def del_pos():
+    dial_window = tk.Toplevel(window)
+
+def del_sost():
+    dial_window = tk.Toplevel(window)
+
+def del_team():
+    dial_window = tk.Toplevel(window)
+
+def del_city():
+    dial_window = tk.Toplevel(window)
+
+
 def print_founded(list_of_players):
     dial_window = tk.Toplevel(window)
 
+list_of_items = []
 def renew_table(page_num):
-    tree.option_clear()
     people = lg.get_players(page_num)
+    for element in list_of_items:
+        tree.delete(element)
     for person in people:
-        tree.insert("", END, values=person)
+        list_of_items.append(tree.insert("", END, values=person))
+        #tree.pack()
 
 
 window = tk.Tk()
