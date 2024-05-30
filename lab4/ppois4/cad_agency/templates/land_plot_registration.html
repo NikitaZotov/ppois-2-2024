@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Land Plot Management
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="menu-container">
+        <h1>Land Plot Management</h1>
+        <div class="current-region">
+            <h2>Current Region: {{ current_region.name }}</h2>
+        </div>
+        <div class="menu">
+            <div class="menu-item">
+                <button class="menu-button" id="registerLandPlotButton" onclick="toggleLandPlotForm()">Register Land
+                    Plot
+                </button>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button" onclick="location.href='{{ url_for('unregister_land_plot') }}'">
+                    Unregister Land Plot
+                </button>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button" onclick="location.href='{{ url_for('pick_unowned_land_plot') }}'">Pick
+                    Unowned Land Plot
+                </button>
+                <br><br>
+            </div>
+        </div>
+
+        <div id="land-plot-form" style="display: none;">
+            <form id="landPlotForm">
+                <label for="coordinates">Coordinates:</label>
+                <input type="text" id="coordinates" name="coordinates" required><br><br>
+
+                <label for="area_in_hectares">Area in Hectares:</label>
+                <input type="text" id="area_in_hectares" name="area_in_hectares" required><br><br>
+
+                <label for="func_purpose">Functional Purpose:</label>
+                <input type="text" id="func_purpose" name="func_purpose" required><br><br>
+
+                <label for="land_plot_number">Land Plot Number:</label>
+                <input type="text" id="land_plot_number" name="land_plot_number" required><br><br>
+
+                <label for="cadastral_block_number">Territorial Block Number:</label>
+                <select id="cadastral_block_number" name="cadastral_block_number">
+                    {% for i in range(current_region.terr_blocks + 1) %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <button type="button" class="menu-button" onclick="submitLandPlotForm()">Submit</button>
+                <br><br>
+            </form>
+        </div>
+
+        <div>
+            <button type="button" class="menu-button" onclick="window.location.href='{{ url_for('main_menu') }}'">
+                Back
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let formVisible = false;
+
+        function toggleLandPlotForm() {
+            let landPlotForm = document.getElementById('land-plot-form');
+            let registerLandPlotButton = document.getElementById('registerLandPlotButton');
+
+            if (!formVisible) {
+                landPlotForm.style.display = 'block';
+                registerLandPlotButton.textContent = 'Hide Land Plot Form';
+            } else {
+                landPlotForm.style.display = 'none';
+                registerLandPlotButton.textContent = 'Register Land Plot';
+            }
+
+            formVisible = !formVisible;
+        }
+
+        function submitLandPlotForm() {
+            let form = document.getElementById('landPlotForm');
+            let formData = new FormData(form);
+
+            fetch("{{ url_for('submit_land_form') }}", {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        window.location.href = "{{ url_for('land_plot_registration') }}";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+{% endblock %}

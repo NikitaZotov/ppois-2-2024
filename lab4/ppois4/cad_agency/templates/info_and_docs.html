@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Info and Documents
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="menu-container">
+        <h1>Info & Documents Management</h1>
+        <div class="menu">
+            <div class="menu-item">
+                <button class="menu-button" id="land-plots-button" onclick="showLandPlots()">Show All Land Plots</button>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button" id="buildings-button" onclick="showBuildings()">Show All Buildings</button>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button" id="owner-registrations-button" onclick="showOwnerRegistrations()">Show All Owner's Registrations</button>
+            </div>
+        </div>
+
+        <div id="land-plots" style="display: none;">
+            <h2>Land Plots:</h2>
+            <h3>OWNED:</h3>
+            <ul>
+                {% for land_plot in land_plots %}
+                    <li>
+                        CAD_NUM: {{ land_plot.cadastral_number }} | COORDS: {{ land_plot.coordinates }} |
+                        AREA: {{ land_plot.area_in_hectares }}
+                    </li>
+                {% endfor %}
+            </ul>
+            <h3>UNOWNED:</h3>
+            <ul>
+                {% for land_plot in u_land_plots %}
+                    <li>
+                        CAD_NUM: {{ land_plot.cadastral_number }} | COORDS: {{ land_plot.coordinates }} |
+                        AREA: {{ land_plot.area_in_hectares }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div id="buildings" style="display: none;">
+            <h2>Buildings:</h2>
+            <ul>
+                {% for building in buildings %}
+                    <li>
+                        NAME: {{ building.name }} | DATE: {{ building.date_of_building }} |
+                        AREA: {{ building.area_in_square_meters }}
+                        | FLOORS: {{ building.floors }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div id="owner-registrations" style="display: none;">
+            <h2>Owner's Registrations:</h2>
+            <ul>
+                {% for reg in registrations %}
+                    <li>
+                        OWNER: {{ reg.owner }} | DATE: {{ reg.reg_date }} | INFO: {{ reg.info }}
+                        <button class="menu-button" onclick="updateDoc('{{ reg.info }}')">Update</button>
+                    </li><br>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div>
+            <button type="button" class="menu-button" onclick="window.location.href='{{ url_for('main_menu') }}'">
+                Back
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let landPlotsVisible = false;
+        let buildingsVisible = false;
+        let registrationsVisible = false;
+
+        function showLandPlots() {
+            landPlotsVisible = !landPlotsVisible;
+            if (landPlotsVisible) {
+                document.getElementById('land-plots').style.display = 'block';
+                document.getElementById('land-plots-button').textContent = 'Hide Land Plots';
+            } else {
+                document.getElementById('land-plots').style.display = 'none';
+                document.getElementById('land-plots-button').textContent = 'Show All Land Plots';
+            }
+        }
+
+        function showBuildings() {
+            buildingsVisible = !buildingsVisible;
+            if (buildingsVisible) {
+                document.getElementById('buildings').style.display = 'block';
+                document.getElementById('buildings-button').textContent = 'Hide Buildings';
+            } else {
+                document.getElementById('buildings').style.display = 'none';
+                document.getElementById('buildings-button').textContent = 'Show All Buildings';
+            }
+        }
+
+        function showOwnerRegistrations() {
+            registrationsVisible = !registrationsVisible;
+            if (registrationsVisible) {
+                document.getElementById('owner-registrations').style.display = 'block';
+                document.getElementById('owner-registrations-button').textContent = 'Hide Registrations';
+            } else {
+                document.getElementById('owner-registrations').style.display = 'none';
+                document.getElementById('owner-registrations-button').textContent = "Show All Owner's Registrations"
+            }
+        }
+
+        function updateDoc(regInfo) {
+                fetch("{{ url_for('documents_and_information') }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ reg_info: regInfo })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        window.location.href = "{{ url_for('documents_and_information') }}";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+    </script>
+{% endblock %}

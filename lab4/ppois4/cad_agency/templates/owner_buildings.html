@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Your Buildings
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="menu-container">
+
+        <div class="land-plots">
+            <h2>Buildings:</h2>
+            <ul>
+                {% for building in buildings %}
+                    <li>
+                        NAME: {{ building.name }} | LAND_PLOT_CAD_NUM: {{ building.land_cad_num }} | DATE OF
+                        BUILDING: {{ building.date_of_building }}
+                        <button class="menu-button" onclick="unregisterBuilding('{{ building.name }}')">Unregister
+                        </button><br><br>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="menu">
+            <div class="menu-item">
+                <button class="menu-button" onclick="window.location.href='{{ url_for('building_registration') }}'">
+                    Back
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function unregisterBuilding(buildingId) {
+            fetch("{{ url_for('unregister_building') }}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({build_name: buildingId})
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        window.location.href = "{{ url_for('building_registration') }}";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Unowned Land Plots
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block content %}
+	    <div class="menu-container">
+
+        <div class="land-plots">
+            <h2>Unowned Land Plots:</h2>
+            <ul>
+                {% for land_plot in unowned_lands %}
+                    <li>
+                        CAD_NUM: {{ land_plot.cadastral_number }} | COORDS: {{ land_plot.coordinates }} | AREA: {{land_plot.area_in_hectares}}
+                        <button class="menu-button" onclick="pickLandPlot('{{ land_plot.cadastral_number }}')">Pick That</button><br>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+         <div class="menu">
+            <div class="menu-item">
+                <button class="menu-button" onclick="window.location.href='{{ url_for('land_plot_registration') }}'">Back</button>
+            </div>
+        </div>
+        </div>
+
+        <script>
+            function pickLandPlot(landPlotId) {
+                fetch("{{ url_for('pick_unowned_land_plot') }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ land_plot_cad_num: landPlotId })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        window.location.href = "{{ url_for('land_plot_registration') }}";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        </script>
+{% endblock %}
