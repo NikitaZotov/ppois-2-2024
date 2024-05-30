@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkcalendar import DateEntry
-from tkinter import messagebox as mb, BOTH, END
+from tkinter import messagebox as mb, BOTH, END, VERTICAL
 import logic as lg
 from tkinter import ttk
 
@@ -219,10 +219,60 @@ def del_full_name():
 
 def del_birth_date():
     dial_window = tk.Toplevel(window)
+    lab_bdate = tk.Label(dial_window, text='Дата \n рождения')
+    lab_bdate.grid(column=0, row=3)
+    bdate = DateEntry(dial_window, width=12, background="darkblue", foreground="white", borderwidth=2)
+    bdate.grid(column=1, row=3)
+
+    def add_clicked():
+        founded = lg.find_players('', '', '', bdate.get_date(), '', '', '', '')
+        dial_window.destroy()
+        print_founded(founded[0])
+        mb.showinfo(str(len(founded[0])), 'элементов удалено')
+        lg.delete_info(founded[1])
+        dial_window.destroy()
+        global current_page
+        current_page = 1
+        global current_num_of_pages
+        count_lab = len(lg.list_of_players) % 10
+        renew_table(1)
+
+    but = tk.Button(dial_window, text='найти', command=add_clicked)
+    but.grid(column=0, row=8)
 
 
 def del_pos():
     dial_window = tk.Toplevel(window)
+    lab_position = tk.Label(dial_window, text='Позиия')
+    lab_position.grid(column=0, row=7)
+    pos_list = ['форвард', 'оттянутый нападающий', 'крайний нападающий', 'полусредний нападающий',
+                'центральный опорный полузащитник', 'центральный полузащитник',
+                'центральный атакующий полузащитник', 'фланговый полузащитник', 'центральный защитник',
+                'свободный защитник(либеро)', 'фланговый защитник', 'вратарь']
+    pos = tk.StringVar()
+    pos.set('форвард')
+    drop_pos = tk.OptionMenu(dial_window, pos, 'форвард', 'оттянутый нападающий', 'крайний нападающий',
+                             'полусредний нападающий',
+                             'центральный опорный полузащитник', 'центральный полузащитник',
+                             'центральный атакующий полузащитник', 'фланговый полузащитник', 'центральный защитник',
+                             'свободный защитник(либеро)', 'фланговый защитник', 'вратарь')
+    drop_pos.grid(column=1, row=7)
+    def add_clicked():
+        founded = lg.find_players('', '', '', '', '', '', '', pos.get())
+        print_founded(founded[0])
+        dial_window.destroy()
+        mb.showinfo(str(len(founded[0])), 'элементов удалено')
+        lg.delete_info(founded[1])
+        dial_window.destroy()
+        global current_page
+        current_page = 1
+        global current_num_of_pages
+        count_lab = len(lg.list_of_players) % 10
+        renew_table(1)
+
+    but = tk.Button(dial_window, text='найти', command=add_clicked)
+    but.grid(column=0, row=8)
+
 
 def del_sost():
     dial_window = tk.Toplevel(window)
@@ -234,7 +284,7 @@ def del_sost():
     drop_sost.grid(column=1, row=6)
 
     def add_clicked():
-        founded = lg.find_players('', '', '', '', '', '', sost.get(), '')[0]
+        founded = lg.find_players('', '', '', '', '', '', sost.get(), '')
         print_founded(founded)
         dial_window.destroy()
         mb.showinfo(str(len(founded[0])), 'элементов удалено')
@@ -261,7 +311,7 @@ def del_team():
             mb.showwarning('Предупреждение', 'Поле не заполнено')
         else:
             # dial_window.destroy()
-            founded = lg.find_players('', '', '', '', enter_team.get(), '', '', '')[0]
+            founded = lg.find_players('', '', '', '', enter_team.get(), '', '', '')
             print_founded(founded[0])
             mb.showinfo(str(len(founded[0])), 'элементов удалено')
             lg.delete_info(founded[1])
@@ -288,7 +338,7 @@ def del_city():
         if (enter_city.get() == ''):
             mb.showwarning('Предупреждение', 'Поле не заполнено')
         else:
-            founded = lg.find_players('', '', '', '', '', enter_city.get(), '', '')[0]
+            founded = lg.find_players('', '', '', '', '', enter_city.get(), '', '')
             print_founded(founded)
             dial_window.destroy()
             mb.showinfo(str(len(founded[0])), 'элементов удалено')
@@ -305,7 +355,7 @@ def del_city():
 
 
 def print_founded(list_of_players):
-    dial_window = tk.Toplevel(window)
+    dial_window = tk.Tk()
     columns = ("name", "birth_date", "team", "town", "sost", "pos")
 
     tree = ttk.Treeview(columns=columns, show="headings")
@@ -318,6 +368,13 @@ def print_founded(list_of_players):
     tree.heading("town", text="Домашний город")
     tree.heading("sost", text="Состав")
     tree.heading("pos", text="Позиция")
+
+    for person in list_of_players:
+        tree.insert("", END, values=person)
+
+    scrollbar = ttk.Scrollbar(orient=VERTICAL, command=tree.yview)
+    tree.configure(yscroll=scrollbar.set)
+    scrollbar.grid(row=0, column=1, sticky="ns")
 
 
 list_of_items = []
