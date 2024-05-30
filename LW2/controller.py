@@ -7,6 +7,8 @@ class Controller:
     def __init__(self, model: Model):
         self.model = model
         self.view = None
+        self.current_page = 0
+        self.items_per_page = 10  # Количество элементов на странице
 
     def setView(self, view):
         self.view = view  # Устанавливаем представление для контроллера
@@ -70,3 +72,43 @@ class Controller:
 
     def reset_search(self):
         self.view.model.found_persons = []
+
+    def get_current_page_items(self):
+        start_index = self.current_page * self.items_per_page
+        end_index = start_index + self.items_per_page
+        return self.model.persons[start_index:end_index]
+
+    def next_page(self):
+        if self.has_next_page():
+            self.current_page += 1
+            self.view.update_table()
+            self.view.update_pagination_buttons()
+
+    def previous_page(self):
+        if self.has_previous_page():
+            self.current_page -= 1
+            self.view.update_table()
+            self.view.update_pagination_buttons()
+
+    def has_next_page(self):
+        start_index = (self.current_page + 1) * self.items_per_page
+        return start_index < len(self.model.persons)
+
+    def has_previous_page(self):
+        return self.current_page > 0
+
+    def first_page(self):
+        self.current_page = 0
+        self.view.update_table()
+        self.view.update_pagination_buttons()
+
+    def last_page(self):
+        self.current_page = (len(self.model.persons) - 1) // self.items_per_page  # Исправлено для корректного вычисления последней страницы
+        self.view.update_table()
+        self.view.update_pagination_buttons()
+
+    def set_items_per_page(self, items_per_page):
+        self.items_per_page = items_per_page
+        self.current_page = 0  # Сбрасываем на первую страницу при изменении количества записей на страницу
+        self.view.update_table()
+        self.view.update_pagination_buttons()

@@ -7,6 +7,16 @@ from controller import Controller
 
 class View:
     def __init__(self, model: Model, controller: Controller):
+        self.page_label = None
+        self.next_button = None
+        self.records_per_page_label = None
+        self.total_records_label = None
+        self.prev_button = None
+        self.first_page_button = None
+        self.last_page_button = None
+        self.items_per_page_var = None
+        self.items_per_page_entry = None
+        self.update_button = None
         self.reset_button = None
         self.file_menu = None
         self.table = None
@@ -20,6 +30,7 @@ class View:
         self.root.resizable(False, False)
         self.create_main_menu()
         self.create_table()
+        self.create_pagination_buttons()
         self.update_table()
 
     def update_table(self):
@@ -27,9 +38,12 @@ class View:
         for item in self.table.get_children():
             self.table.delete(item)
 
-        # Добавляем все персоны из модели
-        for person in self.model.persons:
+        # Добавляем персоны текущей страницы из контроллера
+        for person in self.controller.get_current_page_items():
             self.table.insert("", "end", values=person)
+
+        # Обновляем кнопки пагинации и количество записей
+        self.update_pagination_buttons()
 
     def create_table(self):
         columns = ("faculty", "department", "SNP", "academic_title", "academic_degree", "work_exp")
@@ -44,6 +58,71 @@ class View:
         self.table.column("#1", width=100)
         self.table.column("#2", width=150)
         self.table.column("#6", width=100)
+
+    def create_pagination_buttons(self):
+        button_frame = ttk.Frame(self.root)
+        button_frame.pack(side=BOTTOM, fill=X)
+
+        center_frame = ttk.Frame(button_frame)
+        center_frame.pack(side=TOP, expand=True)
+
+        self.first_page_button = ttk.Button(center_frame, text="Первая страница", command=self.controller.first_page)
+        self.first_page_button.pack(side=LEFT)
+
+        self.prev_button = ttk.Button(center_frame, text="Предыдущая страница", command=self.controller.previous_page)
+        self.prev_button.pack(side=LEFT)
+
+        self.page_label = ttk.Label(center_frame, text=f"Страница {self.controller.current_page + 1}")
+        self.page_label.pack(side=LEFT, padx=10)
+
+        self.next_button = ttk.Button(center_frame, text="Следующая страница", command=self.controller.next_page)
+        self.next_button.pack(side=LEFT)
+
+        self.last_page_button = ttk.Button(center_frame, text="Последняя страница", command=self.controller.last_page)
+        self.last_page_button.pack(side=LEFT)
+
+        records_label_frame = ttk.Frame(center_frame)
+        records_label_frame.pack(side=LEFT, padx=10)
+
+        self.records_per_page_label = ttk.Label(records_label_frame,
+                                                text=f"Записей на текущей странице: {self.controller.items_per_page}")
+        self.records_per_page_label.pack(side=TOP)
+
+        self.total_records_label = ttk.Label(records_label_frame, text=f"Всего записей: {len(self.model.persons)}")
+        self.total_records_label.pack(side=TOP)
+
+        items_per_page_frame = ttk.Frame(center_frame)
+        items_per_page_frame.pack(side=LEFT, padx=10)
+
+        ttk.Label(items_per_page_frame, text="Записей на страницу:").pack(side=LEFT)
+        self.items_per_page_var = StringVar(value=self.controller.items_per_page)
+        self.items_per_page_entry = ttk.Entry(items_per_page_frame, textvariable=self.items_per_page_var, width=5)
+        self.items_per_page_entry.pack(side=LEFT)
+        self.items_per_page_entry.bind("<Return>", self.update_items_per_page)
+
+        self.update_button = ttk.Button(items_per_page_frame, text="Обновить", command=self.update_items_per_page)
+        self.update_button.pack(side=LEFT)
+
+    def update_items_per_page(self, event=None):
+        try:
+            items_per_page = int(self.items_per_page_var.get())
+            if items_per_page > 0:
+                self.controller.set_items_per_page(items_per_page)
+                self.update_table()
+            else:
+                raise ValueError
+        except ValueError:
+            showerror("Ошибка", "Введите положительное целое число для количества записей на страницу")
+
+    def update_pagination_buttons(self):
+        self.prev_button.config(state=NORMAL if self.controller.has_previous_page() else DISABLED)
+        self.next_button.config(state=NORMAL if self.controller.has_next_page() else DISABLED)
+        self.first_page_button.config(state=NORMAL if self.controller.has_previous_page() else DISABLED)
+        self.last_page_button.config(state=NORMAL if self.controller.has_next_page() else DISABLED)
+        self.page_label.config(text=f"Страница {self.controller.current_page + 1}")
+        self.records_per_page_label.config(
+            text=f"Записей на текущей странице: {len(self.controller.get_current_page_items())}")
+        self.total_records_label.config(text=f"Всего записей: {len(self.model.persons)}")
 
     def serialize(self):
         try:
@@ -64,7 +143,7 @@ class View:
         self.file_menu.add_command(label="Сохранить", command=self.serialize)  # serialize
         self.file_menu.add_command(label="Открыть", command=self.deserialize)
         self.file_menu.add_command(label="Найти эл-нт", command=self.search)
-        self.file_menu.add_command(label="Добавить эл-нт", command= self.add_element)
+        self.file_menu.add_command(label="Добавить эл-нт", command=self.add_element)
         self.file_menu.add_command(label="Удалить эл-нт", command=self.delete_element)
         self.file_menu.add_command(label="Сброс", command=self.reset_search, state=DISABLED)
         self.file_menu.add_separator()
@@ -141,6 +220,12 @@ class View:
                 try:
                     min_exp = int(work_exp_min.get())
                     max_exp = int(work_exp_max.get())
+                    if min_exp > max_exp:
+                        window.destroy()
+                        showerror(title="Ошибка", message="Минимум не может быть больше максимума")
+                    if min_exp < 0 or max_exp < 0:
+                        window.destroy()
+                        showerror(title="Ошибка", message="Минимум или максимум не может быть отрицательным")
                     conditions.append(lambda person: min_exp <= int(person[5]) <= max_exp)
                 except ValueError:
                     pass  # Ignore invalid input for work experience range
@@ -214,12 +299,15 @@ class View:
             if faculty.get() and faculty.get() in faculties:
                 conditions.append(lambda person: person[0] == faculty.get())
             if work_exp_min.get() and work_exp_max.get():
-                try:
-                    min_exp = int(work_exp_min.get())
-                    max_exp = int(work_exp_max.get())
-                    conditions.append(lambda person: min_exp <= int(person[5]) <= max_exp)
-                except ValueError:
-                    pass  # Ignore invalid input for work experience range
+                min_exp = int(work_exp_min.get())
+                max_exp = int(work_exp_max.get())
+                if min_exp > max_exp:
+                    showerror(title="Ошибка", message="Минимум не может быть больше максимума")
+                    return None
+                if min_exp < 0 or max_exp < 0:
+                    showerror(title="Ошибка", message="Минимум или максимум не может быть отрицательным")
+                    return None
+                conditions.append(lambda person: min_exp <= int(person[5]) <= max_exp)
 
             return conditions
 
@@ -266,6 +354,8 @@ class View:
 
         def on_search():
             conditions = create_conditions(entries)
+            if conditions is None:
+                return
             found_persons = self.controller.find_persons_by_conditions(conditions)
             self.display_found_persons(found_persons)
             self.file_menu.entryconfig("Сброс", state=NORMAL)  # Включаем кнопку сброса после поиска
@@ -297,11 +387,20 @@ class View:
         # Отключаем все элементы меню, кроме кнопки сброса
         menu_entries = self.file_menu.index("end")
         for index in range(menu_entries + 1):
-            if self.file_menu.entrycget(index, "label") != "Сброс":
-                self.file_menu.entryconfig(index, state=DISABLED)
+            try:
+                if self.file_menu.entrycget(index, "label") != "Сброс":
+                    self.file_menu.entryconfig(index, state=DISABLED)
+            except TclError:
+                continue
 
     def enable_menu_items(self):
         # Включаем все элементы меню
         menu_entries = self.file_menu.index("end")
         for index in range(menu_entries + 1):
-            self.file_menu.entryconfig(index, state=NORMAL)
+            try:
+                self.file_menu.entryconfig(index, state=NORMAL)
+                if self.file_menu.entrycget(index, "label") == "Сброс":
+                    self.file_menu.entryconfig(index, state=DISABLED)
+            except TclError:
+                continue
+

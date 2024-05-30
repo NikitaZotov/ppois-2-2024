@@ -7,6 +7,27 @@ class Model:
     def __init__(self):
         self.persons: List[tuple] = []
         self.found_persons: List[tuple] = []
+        self.current_page = 0
+        self.items_per_page = 10
+
+    def get_page(self):
+        start_index = self.current_page * self.items_per_page
+        end_index = start_index + self.items_per_page
+        return self.persons[start_index:end_index]
+
+    def get_total_pages(self):
+        return (len(self.persons) + self.items_per_page - 1) // self.items_per_page
+
+    def reset_page(self):
+        self.current_page = 0
+
+    def next_page(self):
+        if self.current_page < self.get_total_pages() - 1:
+            self.current_page += 1
+
+    def prev_page(self):
+        if self.current_page > 0:
+            self.current_page -= 1
 
     def add_to_list(self, person: tuple):
         self.persons.append(person)
