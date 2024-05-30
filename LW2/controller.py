@@ -9,6 +9,8 @@ class Controller:
         self.view = None
         self.current_page = 0
         self.items_per_page = 10  # Количество элементов на странице
+        self.search_mode = False
+        self.found_persons = []
 
     def setView(self, view):
         self.view = view  # Устанавливаем представление для контроллера
@@ -63,20 +65,33 @@ class Controller:
             if not conditions:
                 raise ValueError("Не заданы условия поиска")
 
-            self.view.model.found_persons = [index for index, person in enumerate(self.model.persons)
-                                             if all(condition(person) for condition in conditions)]
+            self.found_persons = [index for index, person in enumerate(self.model.persons)
+                                  if all(condition(person) for condition in conditions)]
 
-            return self.view.model.found_persons
+            return self.found_persons
         except ValueError as e:
             self.view.show_error(str(e))
 
+    def set_search_mode(self, mode):
+        self.search_mode = mode
+
+    def set_found_persons(self, found_persons):
+        self.found_persons = found_persons
+
     def reset_search(self):
-        self.view.model.found_persons = []
+        self.set_search_mode(False)
+        self.found_persons = []
+        self.current_page = 0
 
     def get_current_page_items(self):
-        start_index = self.current_page * self.items_per_page
-        end_index = start_index + self.items_per_page
-        return self.model.persons[start_index:end_index]
+        if self.search_mode:
+            start_index = self.current_page * self.items_per_page
+            end_index = start_index + self.items_per_page
+            return [self.model.persons[i] for i in self.found_persons[start_index:end_index]]
+        else:
+            start_index = self.current_page * self.items_per_page
+            end_index = start_index + self.items_per_page
+            return self.model.persons[start_index:end_index]
 
     def next_page(self):
         if self.has_next_page():
@@ -91,8 +106,12 @@ class Controller:
             self.view.update_pagination_buttons()
 
     def has_next_page(self):
-        start_index = (self.current_page + 1) * self.items_per_page
-        return start_index < len(self.model.persons)
+        if self.search_mode:
+            start_index = (self.current_page + 1) * self.items_per_page
+            return start_index < len(self.found_persons)
+        else:
+            start_index = (self.current_page + 1) * self.items_per_page
+            return start_index < len(self.model.persons)
 
     def has_previous_page(self):
         return self.current_page > 0
@@ -103,7 +122,10 @@ class Controller:
         self.view.update_pagination_buttons()
 
     def last_page(self):
-        self.current_page = (len(self.model.persons) - 1) // self.items_per_page  # Исправлено для корректного вычисления последней страницы
+        if self.search_mode:
+            self.current_page = (len(self.found_persons) - 1) // self.items_per_page
+        else:
+            self.current_page = (len(self.model.persons) - 1) // self.items_per_page
         self.view.update_table()
         self.view.update_pagination_buttons()
 

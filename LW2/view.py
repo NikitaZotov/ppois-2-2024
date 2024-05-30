@@ -88,7 +88,8 @@ class View:
                                                 text=f"Записей на текущей странице: {self.controller.items_per_page}")
         self.records_per_page_label.pack(side=TOP)
 
-        self.total_records_label = ttk.Label(records_label_frame, text=f"Всего записей: {len(self.model.persons)}")
+        self.total_records_label = ttk.Label(records_label_frame,
+                                             text=f"Всего записей: {len(self.model.get_current_persons())}")
         self.total_records_label.pack(side=TOP)
 
         items_per_page_frame = ttk.Frame(center_frame)
@@ -122,7 +123,7 @@ class View:
         self.page_label.config(text=f"Страница {self.controller.current_page + 1}")
         self.records_per_page_label.config(
             text=f"Записей на текущей странице: {len(self.controller.get_current_page_items())}")
-        self.total_records_label.config(text=f"Всего записей: {len(self.model.persons)}")
+        self.total_records_label.config(text=f"Всего записей: {len(self.model.get_current_persons())}")
 
     def serialize(self):
         try:
@@ -368,17 +369,12 @@ class View:
         window.mainloop()
 
     def display_found_persons(self, found_persons):
-        # Очищаем таблицу перед добавлением новых данных
-        for item in self.table.get_children():
-            self.table.delete(item)
-
-        # Добавляем найденные персоны в таблицу
-        for index in found_persons:
-            person = self.model.persons[index]
-            self.table.insert("", "end", values=person)
+        self.controller.set_search_mode(True)
+        self.controller.set_found_persons(found_persons)
+        self.controller.first_page()  # Переключаемся на первую страницу результатов поиска
 
     def reset_search(self):
-        self.controller.reset_search()
+        self.controller.set_search_mode(False)
         self.update_table()
         self.file_menu.entryconfig("Сброс", state=DISABLED)  # Отключаем кнопку сброса после сброса
         self.enable_menu_items()  # Включаем все элементы меню
@@ -403,4 +399,3 @@ class View:
                     self.file_menu.entryconfig(index, state=DISABLED)
             except TclError:
                 continue
-

@@ -29,6 +29,9 @@ class Model:
         if self.current_page > 0:
             self.current_page -= 1
 
+    def get_current_persons(self):
+        return self.persons if not self.found_persons else [self.persons[i] for i in self.found_persons]
+
     def add_to_list(self, person: tuple):
         self.persons.append(person)
 
@@ -63,5 +66,3 @@ class Model:
                     attributes.append(child.text)
                 persons.append(tuple(attributes))
         self.persons = persons
-
-
