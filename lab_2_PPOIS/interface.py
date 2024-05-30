@@ -206,6 +206,12 @@ def del_full_name():
             mb.showinfo(str(len(founded[0])),'элементов удалено')
             lg.delete_info(founded[1])
             dial_window.destroy()
+            global current_page
+            current_page = 1
+            global current_num_of_pages
+            count_lab = len(lg.list_of_players) % 10
+            renew_table(1)
+
 
 
     but = tk.Button(dial_window, text='удалить', command=add_clicked)
@@ -214,21 +220,105 @@ def del_full_name():
 def del_birth_date():
     dial_window = tk.Toplevel(window)
 
+
 def del_pos():
     dial_window = tk.Toplevel(window)
 
 def del_sost():
     dial_window = tk.Toplevel(window)
+    lab_sost = tk.Label(dial_window, text='Состав')
+    lab_sost.grid(column=0, row=6)
+    sost = tk.StringVar()
+    sost.set('основной')
+    drop_sost = tk.OptionMenu(dial_window, sost, 'основной', 'запасной')
+    drop_sost.grid(column=1, row=6)
+
+    def add_clicked():
+        founded = lg.find_players('', '', '', '', '', '', sost.get(), '')[0]
+        print_founded(founded)
+        dial_window.destroy()
+        mb.showinfo(str(len(founded[0])), 'элементов удалено')
+        lg.delete_info(founded[1])
+        dial_window.destroy()
+        global current_page
+        current_page = 1
+        global current_num_of_pages
+        count_lab = len(lg.list_of_players) % 10
+        renew_table(1)
+
+    but = tk.Button(dial_window, text='найти', command=add_clicked)
+    but.grid(column=0, row=8)
 
 def del_team():
     dial_window = tk.Toplevel(window)
+    lab_team = tk.Label(dial_window, text='Футбольная \n команда')
+    lab_team.grid(column=0, row=4)
+    enter_team = tk.Entry(dial_window, width=10)
+    enter_team.grid(column=1, row=4)
+
+    def add_clicked():
+        if (enter_team.get() == ''):
+            mb.showwarning('Предупреждение', 'Поле не заполнено')
+        else:
+            # dial_window.destroy()
+            founded = lg.find_players('', '', '', '', enter_team.get(), '', '', '')[0]
+            print_founded(founded[0])
+            mb.showinfo(str(len(founded[0])), 'элементов удалено')
+            lg.delete_info(founded[1])
+            dial_window.destroy()
+            global current_page
+            current_page = 1
+            global current_num_of_pages
+            count_lab = len(lg.list_of_players) % 10
+            renew_table(1)
+            #dial_window.destroy()
+
+    but = tk.Button(dial_window, text='удалить', command=add_clicked)
+    but.grid(column=0, row=8)
 
 def del_city():
     dial_window = tk.Toplevel(window)
+    #dial_window = tk.Toplevel(window)
+    lab_city = tk.Label(dial_window, text='Домашний  \n город')
+    lab_city.grid(column=0, row=5)
+    enter_city = tk.Entry(dial_window, width=10)
+    enter_city.grid(column=1, row=5)
+
+    def add_clicked():
+        if (enter_city.get() == ''):
+            mb.showwarning('Предупреждение', 'Поле не заполнено')
+        else:
+            founded = lg.find_players('', '', '', '', '', enter_city.get(), '', '')[0]
+            print_founded(founded)
+            dial_window.destroy()
+            mb.showinfo(str(len(founded[0])), 'элементов удалено')
+            lg.delete_info(founded[1])
+            dial_window.destroy()
+            global current_page
+            current_page = 1
+            global current_num_of_pages
+            count_lab = len(lg.list_of_players) % 10
+            renew_table(1)
+
+    but = tk.Button(dial_window, text='найти', command=add_clicked)
+    but.grid(column=0, row=8)
 
 
 def print_founded(list_of_players):
     dial_window = tk.Toplevel(window)
+    columns = ("name", "birth_date", "team", "town", "sost", "pos")
+
+    tree = ttk.Treeview(columns=columns, show="headings")
+    tree.pack(fill=BOTH, expand=1)
+
+    # определяем заголовки
+    tree.heading("name", text="ФИО игрока")
+    tree.heading("birth_date", text="Дата рождения")
+    tree.heading("team", text="Футбольная команда")
+    tree.heading("town", text="Домашний город")
+    tree.heading("sost", text="Состав")
+    tree.heading("pos", text="Позиция")
+
 
 list_of_items = []
 def renew_table(page_num):
@@ -241,6 +331,31 @@ def renew_table(page_num):
         #tree.pack()
     global current_num_of_pages
     count_lab.config(text= str(page_num) + '/' + str(current_num_of_pages))
+
+def to_beggining():
+    global current_page
+    global current_num_of_pages
+    renew_table(1)
+    current_page = 1
+
+def to_end():
+    global current_page
+    global current_num_of_pages
+    renew_table(current_num_of_pages)
+    current_page = current_num_of_pages
+
+def prev():
+    global current_page
+    if(current_page != 1):
+        current_page -= 1
+        renew_table(current_page)
+
+def next_():
+    global current_page
+    global current_num_of_pages
+    if(current_page != current_num_of_pages)
+        current_page+=1
+        renew_table(current_page)
 
 
 window = tk.Tk()
@@ -300,15 +415,15 @@ tree.heading("pos", text="Позиция")
 
 # добавляем данные
 
-to_begining_but = tk.Button(text="|ᐊᐊ")
+to_begining_but = tk.Button(text="|ᐊᐊ", command= to_beggining)
 to_begining_but.pack(fill=BOTH, expand=1)
-prev_but = tk.Button(text="ᐊ")
+prev_but = tk.Button(text="ᐊ", command=prev)
 prev_but.pack(fill=BOTH, expand=1)
 count_lab = tk.Label(text="0/0")
 count_lab.pack(fill=BOTH, expand=1)
-next_but = tk.Button(text="ᐅ")
+next_but = tk.Button(text="ᐅ", command=next_)
 next_but.pack(fill=BOTH, expand=1)
-to_end_but = tk.Button(text="ᐅᐅ|")
+to_end_but = tk.Button(text="ᐅᐅ|", command=to_end)
 to_end_but.pack(fill=BOTH, expand=1)
 #add_batton_cleaked()
 
