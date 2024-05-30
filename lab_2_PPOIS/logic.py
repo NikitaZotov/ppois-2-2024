@@ -86,7 +86,7 @@ def delete_info(list_of_players_del):
     for element in list_of_players_del:
         list_of_players.remove(element)
 def create_xml(file_name):
-    file = 'players.xml'
+    #file = 'players.xml'
     data_xml = ET.Element("players")
     data_xml.append(ET.Element("player"))
     data = ET.ElementTree(data_xml)
@@ -94,8 +94,6 @@ def create_xml(file_name):
 
     # Opening a file under the name `items2.xml`,
     # with operation mode `wb` (write + binary)
-    with open("GFG.xml", "wb") as f:
-        f.write(b_xml)
     #myfile = open(file, 'wb')
     #data.write(myfile)
     for player in list_of_players:
@@ -107,7 +105,7 @@ def create_xml(file_name):
         player_lname = ET.SubElement(football_player, 'last name')
         player_lname.text = player.last_name
         player_bdate = ET.SubElement(football_player, 'date of birth')
-        player_bdate.text = player.date_of_birth.strftime('%Y-%m-%d')
+        player_bdate.text = player.date_of_birth.strftime('%d-%m-%Y')
         player_team = ET.SubElement(football_player, 'football team')
         player_team.text = player.football_team
         player_town = ET.SubElement(football_player, 'birth town')
@@ -117,7 +115,7 @@ def create_xml(file_name):
         player_pos = ET.SubElement(football_player, 'position')
         player_pos.text = player.position
     data = ET.ElementTree(data_xml)
-    myfile = open(file, "wb")
+    myfile = open(file_name, "wb")
     data.write(myfile, encoding='utf-8', xml_declaration=True)
 
 def read_xml(file_name):
@@ -128,7 +126,7 @@ def read_xml(file_name):
         player = []
         for subelem in elem:
             player.append(subelem.text)
-        add_to_list(Football_player(player[0],player[1],player[2],player[3], player[4],
+        add_to_list(Football_player(player[0],player[1],player[2],dt.strptime(player[3], '%d-%m-%Y'), player[4],
                                                player[5], player[6], player[7]))
 
 
