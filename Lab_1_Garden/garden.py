@@ -1,5 +1,6 @@
 import datetime as dt
 import markdown
+import pdoc
 
 class Garden:
 
@@ -9,10 +10,8 @@ class Garden:
         self.garden_plan = []
         self.solid_type = []
 
-    """"Function for adding garden bed"""
-
     def add_garden_bed(self, length, width, soil_typ):
-        """"Function for adding garden bed"""
+        """"Function for adding garden bed. If fail return -1"""
         id_ = len(self.garden_plan)
         try:
             length = abs(int(length))
@@ -26,7 +25,7 @@ class Garden:
 
 
     def water_plants(self, id_):
-        """"Function for watering plants"""
+        """"Function for watering plants.If fail return -1"""
         try:
             id_ = int(id_)
             self.garden_plan[id_]
@@ -37,7 +36,7 @@ class Garden:
 
 
     def take_care_of_plant(self, id_):
-        """"Function for taking care of plants"""
+        """"Function for taking care of plants.If fail return -1"""
         try:
             id_ = int(id_)
             self.garden_plan[id_]
@@ -48,7 +47,7 @@ class Garden:
 
 
     def fertilizing_lant(self, id_):
-        """"Function for fertilizing plants"""
+        """"Function for fertilizing plants.If fail return -1"""
         try:
             id_ = int(id_)
             self.garden_plan[id_]
@@ -89,7 +88,7 @@ class Garden:
         return planted_beds
 
     def plant_garden_bed(self, id_, plant_name):
-        """"This function plants"""
+        """"This function plantsIf fail return -3"""
         try:
             id_ = int(id_)
             self.garden_plan[id_]
@@ -99,7 +98,7 @@ class Garden:
         return self.garden_plan[id_].planting(plant_name)
 
     def collect_garden_bed(self, id_):
-        """"This function collects plants"""
+        """"This function collects plantsIf fail return (-1,'')"""
         try:
             id_ = int(id_)
             self.garden_plan[id_]
@@ -139,7 +138,7 @@ class Garden_bed:
 
 
     def planting(self, plant_name):
-        """"Function for planting garden bed"""
+        """"Function for planting garden bed.If fail return -2"""
         if self.is_planted == False:
             self.plant_name = plant_name
             self.is_planted = True
@@ -155,7 +154,7 @@ class Garden_bed:
 
 
     def watering(self):
-        """"Function for watering garden bed"""
+        """"Function for watering garden bed.If fail return -1"""
         if(self.is_planted):
             self.time_of_watering = dt.datetime.now()
             return 0
@@ -164,7 +163,7 @@ class Garden_bed:
 
 
     def fertilizing(self):
-        """"Function for fertilizing garden bed"""
+        """"Function for fertilizing garden bed.If fail return -1"""
         if(self.is_planted):
             self.time_of_fertilizing = dt.datetime.now()
             return 0
@@ -173,7 +172,7 @@ class Garden_bed:
 
 
     def take_care(self):
-        """"Function for taking care garden bed"""
+        """"Function for taking care garden bed.If fail return -1"""
         if(self.is_planted):
             self.time_of_taking_care = dt.datetime.now()
             return 0
@@ -182,7 +181,7 @@ class Garden_bed:
 
 
     def collect(self):
-        """"Function for collection plants"""
+        """"Function for collection plants.If fail return -1"""
         if self.is_planted == True:
            self.is_planted = False
            return self.garden_bed_width*self.garden_bed_length, self.plant_name
@@ -192,24 +191,24 @@ class Garden_bed:
 
 
     def get_garden_bed_size(self):
-        """"Function for getting size"""
+        """"Function for getting size.If fail return -1"""
         return self.garden_bed_width * self.garden_bed_length
 
 
 
     def get_garden_bed_id(self):
-        """"Function for getting id"""
+        """"Function for getting id.If fail return -1"""
         return self.id_
 
 
 
     def get_garden_bed_solid_type(self):
-        """Function for getting solid type"""
+        """Function for getting solid type.If fail return -1"""
         return self.soil_type
 
 
     def get_plant(self):
-        """Function for getting plant name"""
+        """Function for getting plant name.If fail return -1"""
         if(self.is_planted):
             return self.plant_name
         else:
