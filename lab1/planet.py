@@ -30,7 +30,6 @@ class Planet(SpaceObject):
         return Spacecraft(name, self)
 
 
-
 if __name__ == "__main__":
     a = Planet('earth', 4.2, 2, 20, 2, 3, 4)
 

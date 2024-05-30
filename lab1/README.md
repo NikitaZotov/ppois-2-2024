@@ -6,7 +6,7 @@
 
 ## Классы и методы
 
-### Класс SpaceOject
+### Класс SpaceObject
 
 Базовый класс для представления естественных объектов в системе.
 
@@ -24,7 +24,7 @@
 - `get_radius(self)`:Возвращает радиус объекта .
 - `get_atmosphere(self)`:Возвращает список элементов атмосферы объекта.
 - `get_info(self)`:Возвращает словарь с аттрибутами объекта .
-### Класс Star(SpaceObject)
+### Класс Spacectaft
 
 Класс для представления космического аппарата.
 
@@ -36,6 +36,14 @@
 - `analysis_space_object(self, space_object: SpaceObject)`: Выводит информацию о космическом объекте.
 - `get_name(self)`: Возвращает имя космического аппарата.
 
+### Класс Star(SpaceObject)
+
+Класс для представления космического аппарата.
+
+#### Методы
+
+- `__init__(self, name: str, type_star: str, speed: float, mass: float, x: float, y: float, z: float, radius: float)`: Инициализация объекта класса Star.
+- `get_type(self)`: Возвращает тип звезды.
 
 
 ### Класс Planet(SpaceObject)

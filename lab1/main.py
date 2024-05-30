@@ -4,6 +4,7 @@ from cometa import Cometa
 from planet import Planet
 from satellite import Satellite
 from asteroid import Asteroid
+import os
 from spacecraft import Spacecraft
 from star_system import StarSystem
 import pickle
@@ -96,10 +97,11 @@ def analysis_spaceobject(star_system):
             print("not a found spaceobject. Try again")
     try:
         spacecraft_name = input("enter spacecraft name")
+        spacecraft = star_system.search_spacecraft(spacecraft_name)
     except ValueError:
         print("not a found spacecraft.")
         return
-    spacecraft = star_system.search_spacecraft(spacecraft_name)
+
     print(type(spaceobject))
     spacecraft.analysis_space_object(spaceobject)
 
@@ -221,7 +223,7 @@ def search_comets(star_system):
         except ValueError:
             print("not a valid radius")
     cometa = Cometa(name, speed, mass, x, y, z, radius, star=star_system.get_star())
-    star_system.add_asteroid(cometa)
+    star_system.add_cometa(cometa)
 
 
 def speed_planet(star_system: StarSystem):
@@ -238,7 +240,7 @@ def speed_planet(star_system: StarSystem):
     except ValueError:
         print("not a found spacecraft")
         return
-    spacecraft.speed_exploration(planet)
+    print(spacecraft.speed_exploration(planet))
 
 
 def modelling_orbits(star_system: StarSystem):
@@ -260,22 +262,25 @@ def modelling_orbits(star_system: StarSystem):
 
 if __name__ == '__main__':
     choose = 0
-    star = Star('sun', 'carlic', 40, 6*10**20, 0, 0, 0, 8200)
     system = StarSystem()
-    print("""
-            Input number of operation:
-            1 - Create system
-            2 - Download exist system
-            """)
-    choose = int(input("Enter:"))
-    match choose:
-        case 1:
-            system = create_system()
-        case 2:
-            with open("star_system.pickle", "rb") as file:
-                system = pickle.load(file)
-                system.get_info()
-            print("Loaded successfully")
+    if not os.path.isfile("star_system.pickle") or os.path.getsize("star_system.pickle") == 0:
+        print("Creating star system")
+        system = create_system()
+    else:
+        print("""
+                Input number of operation:
+                1 - Create system
+                2 - Download exist system
+                """)
+        choose = int(input("Enter:"))
+        match choose:
+            case 1:
+                system = create_system()
+            case 2:
+                with open("star_system.pickle", "rb") as file:
+                    system = pickle.load(file)
+                    system.get_info()
+                print("Loaded successfully")
     while True:
         choose = 0
         print("""
@@ -284,16 +289,21 @@ if __name__ == '__main__':
         2 - analysis planet atmosphere
         3 - analysis  spaceobject
         4 - modelling planet orbit
-        5 - speed planet
-        6 - search satellite
-        7 - search asteroid
-        8 - search cometa
-        9 - search planet
+        5 - planet speed exploration
+        6 - add satellite
+        7 - add asteroid
+        8 - add cometa
+        9 - add planet
         10 - star system info
         11 - Save
         12 - Exit
         """)
-        choose = int(input("enter:"))
+        while True:
+            try:
+                choose = int(input("enter:"))
+                break
+            except ValueError:
+                print("not correct")
         match choose:
             case 1:
                 launch_spacecraft(system)
