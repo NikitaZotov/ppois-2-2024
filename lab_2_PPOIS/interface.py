@@ -3,9 +3,23 @@ from tkcalendar import DateEntry
 from tkinter import messagebox as mb, BOTH, END, VERTICAL
 import logic as lg
 from tkinter import ttk
+from tkinter import filedialog as fd
+import table as tb
 
 current_page = 1
 current_num_of_pages = 0
+
+def read_file():
+    filepath = fd.askopenfilename()
+    if filepath != "":
+        lg.read_xml(filepath)
+        global current_page
+        global current_num_of_pages
+        current_page = 0
+        current_num_of_pages = len(lg.list_of_players)//10 + 1
+        renew_table(1)
+
+
 def add_batton_cleaked():
     dial_window = tk.Toplevel(window)  # Use Toplevel instead of Tk for a new window
     lab_name = tk.Label(dial_window, text='Имя')
@@ -234,7 +248,7 @@ def del_birth_date():
         global current_page
         current_page = 1
         global current_num_of_pages
-        count_lab = len(lg.list_of_players) % 10
+        current_num_of_pages = len(lg.list_of_players) // 10 + 1
         renew_table(1)
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
@@ -267,8 +281,9 @@ def del_pos():
         global current_page
         current_page = 1
         global current_num_of_pages
-        count_lab = len(lg.list_of_players) % 10
+        current_num_of_pages = len(lg.list_of_players) // 10 + 1
         renew_table(1)
+
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
     but.grid(column=0, row=8)
@@ -293,7 +308,7 @@ def del_sost():
         global current_page
         current_page = 1
         global current_num_of_pages
-        count_lab = len(lg.list_of_players) % 10
+        current_num_of_pages = len(lg.list_of_players) // 10 + 1
         renew_table(1)
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
@@ -319,9 +334,10 @@ def del_team():
             global current_page
             current_page = 1
             global current_num_of_pages
-            count_lab = len(lg.list_of_players) % 10
+            current_num_of_pages = len(lg.list_of_players) // 10 + 1
             renew_table(1)
-            #dial_window.destroy()
+
+    #dial_window.destroy()
 
     but = tk.Button(dial_window, text='удалить', command=add_clicked)
     but.grid(column=0, row=8)
@@ -347,7 +363,7 @@ def del_city():
             global current_page
             current_page = 1
             global current_num_of_pages
-            count_lab = len(lg.list_of_players) % 10
+            current_num_of_pages = len(lg.list_of_players) // 10 + 1
             renew_table(1)
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
@@ -355,26 +371,27 @@ def del_city():
 
 
 def print_founded(list_of_players):
-    dial_window = tk.Tk()
-    columns = ("name", "birth_date", "team", "town", "sost", "pos")
-
-    tree = ttk.Treeview(columns=columns, show="headings")
-    tree.pack(fill=BOTH, expand=1)
+    w = tb.Window(list_of_players)
+    #dial_window = tk.Tk()
+    #columns = ("name", "birth_date", "team", "town", "sost", "pos")
+    #frame_tree = tk.Frame(dial_window)
+    #tree = ttk.Treeview(frame_tree,columns=columns, show="headings")
+    #tree.pack(fill=BOTH, expand=1)
 
     # определяем заголовки
-    tree.heading("name", text="ФИО игрока")
-    tree.heading("birth_date", text="Дата рождения")
-    tree.heading("team", text="Футбольная команда")
-    tree.heading("town", text="Домашний город")
-    tree.heading("sost", text="Состав")
-    tree.heading("pos", text="Позиция")
+    #tree.heading("name", text="ФИО игрока")
+    #tree.heading("birth_date", text="Дата рождения")
+    #tree.heading("team", text="Футбольная команда")
+    #tree.heading("town", text="Домашний город")
+    #tree.heading("sost", text="Состав")
+    #tree.heading("pos", text="Позиция")
 
-    for person in list_of_players:
-        tree.insert("", END, values=person)
-
-    scrollbar = ttk.Scrollbar(orient=VERTICAL, command=tree.yview)
-    tree.configure(yscroll=scrollbar.set)
-    scrollbar.grid(row=0, column=1, sticky="ns")
+    #for person in list_of_players:
+     #   tree.insert("", END, values=person)
+    #dial_window=tree
+    #scrollbar = ttk.Scrollbar(orient=VERTICAL, command=tree.yview)
+    #tree.pack(fill=BOTH, expand=1)
+    #scrollbar.pack()
 
 
 list_of_items = []
@@ -424,7 +441,7 @@ menu = tk.Menu(window)# определяем столбцы
 
 file_menu = tk.Menu(menu, tearoff=0)
 
-file_menu.add_command(label="Открыть", command=lg.read_file)
+file_menu.add_command(label="Открыть", command=read_file)
 #file_menu.add_separator()
 #file_menu.add_command(label="Сохранить")
 file_menu.add_command(label="Сохранить как...", command=lg.save_file)

@@ -41,13 +41,13 @@ data_4 = []
 
 
 for i in range(0, 60):
-    data_1.append( lg.Football_player(choice(name_list), choice(sname_list), choice(lname_list), dt.datetime.strptime(choice(data_list),'%d-%m-%Y'),
+    data_1.append( lg.Football_player(choice(name_list), choice(sname_list), choice(lname_list), dt.datetime.strptime(choice(data_list).strip(),'%d-%m-%Y'),
                                 choice(club_list), choice(city_list), choice(sos_var), choice(pos_list)))
-    data_2.append(lg.Football_player(choice(name_list), choice(sname_list), choice(lname_list), choice(data_list),
+    data_2.append(lg.Football_player(choice(name_list), choice(sname_list), choice(lname_list), dt.datetime.strptime(choice(data_list).strip(),'%d-%m-%Y'),
                                      choice(club_list), choice(city_list), choice(sos_var), choice(pos_list)))
-    data_3.append(lg.Football_player(choice(name_list), choice(sname_list), choice(lname_list), choice(data_list),
+    data_3.append(lg.Football_player(choice(name_list), choice(sname_list), choice(lname_list), dt.datetime.strptime(choice(data_list).strip(),'%d-%m-%Y'),
                                      choice(club_list), choice(city_list), choice(sos_var), choice(pos_list)))
-    data_4.append(lg.Football_player(choice(name_list), choice(sname_list), choice(lname_list), choice(data_list),
+    data_4.append(lg.Football_player(choice(name_list), choice(sname_list), choice(lname_list), dt.datetime.strptime(choice(data_list).strip(),'%d-%m-%Y'),
                                      choice(club_list), choice(city_list), choice(sos_var), choice(pos_list)))
 
 lg.list_of_players = data_1
