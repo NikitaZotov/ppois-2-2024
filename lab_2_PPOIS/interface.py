@@ -368,7 +368,7 @@ def del_city():
 
     but = tk.Button(dial_window, text='найти', command=add_clicked)
     but.grid(column=0, row=8)
-
+#some text
 
 def print_founded(list_of_players):
     w = tb.Window(list_of_players)
