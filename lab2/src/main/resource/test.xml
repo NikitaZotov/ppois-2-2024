@@ -1,0 +1,122 @@
+<books>
+    <book title="Verdana" author_fio="Ivanov Ivan Ivanovich" publisher="Niata" volumes_num="14" circulation="14"
+          total_volumes="196"/>
+    <book title="Times New Roman" author_fio="Ivanov Ivan Ivanovich" publisher="Niata" volumes_num="13" circulation="13"
+          total_volumes="169"/>
+    <book title="Courier New" author_fio="Ivanov Ivan Ivanovich" publisher="Niata" volumes_num="12" circulation="12"
+          total_volumes="144"/>
+    <book title="Georgia" author_fio="Ivanov Ivan Ivanovich" publisher="Niata" volumes_num="11" circulation="11"
+          total_volumes="121"/>
+    <book title="Tahoma" author_fio="Ivanov Ivan Ivanovich" publisher="Niata" volumes_num="10" circulation="10"
+          total_volumes="100"/>
+    <book title="Trebuchet MS" author_fio="Ivanov Ivan Ivanovich" publisher="Niata" volumes_num="9" circulation="9"
+          total_volumes="81"/>
+    <book title="Lucida Console" author_fio="Ivanov Ivan Ivanovich" publisher="Niata" volumes_num="8" circulation="8"
+          total_volumes="64"/>
+    <book title="Lucida Sans Unicode" author_fio="Ivanov Ivan Ivanovich" publisher="Niata" volumes_num="7"
+          circulation="7" total_volumes="49"/>
+    <book title="Palatino Linotype" author_fio="Ivanov Ivan Ivanovich" publisher="Niata" volumes_num="6" circulation="6"
+          total_volumes="36"/>
+    <book title="Book Antiqua" author_fio="Ivanov Ivan Ivanovich" publisher="Niata" volumes_num="5" circulation="5"
+          total_volumes="25"/>
+    <book title="Comic Sans MS" author_fio="Petrov Petr Petrovich" publisher="Niata" volumes_num="15" circulation="15"
+          total_volumes="225"/>
+    <book title="Rockwell" author_fio="Petrov Petr Petrovich" publisher="Niata" volumes_num="14" circulation="14"
+          total_volumes="196"/>
+    <book title="Vivaldi" author_fio="Petrov Petr Petrovich" publisher="Niata" volumes_num="13" circulation="13"
+          total_volumes="169"/>
+    <book title="Garamond" author_fio="Petrov Petr Petrovich" publisher="Niata" volumes_num="12" circulation="12"
+          total_volumes="144"/>
+    <book title="Brush Script MT" author_fio="Petrov Petr Petrovich" publisher="Niata" volumes_num="11" circulation="11"
+          total_volumes="121"/>
+    <book title="Copperplate Gothic" author_fio="Petrov Petr Petrovich" publisher="Niata" volumes_num="10"
+          circulation="10" total_volumes="100"/>
+    <book title="Curlz MT" author_fio="Petrov Petr Petrovich" publisher="Niata" volumes_num="9" circulation="9"
+          total_volumes="81"/>
+    <book title="Harrington" author_fio="Petrov Petr Petrovich" publisher="Niata" volumes_num="8" circulation="8"
+          total_volumes="64"/>
+    <book title="Jokerman" author_fio="Petrov Petr Petrovich" publisher="Niata" volumes_num="7" circulation="7"
+          total_volumes="49"/>
+    <book title="Juice ITC" author_fio="Petrov Petr Petrovich" publisher="Niata" volumes_num="6" circulation="6"
+          total_volumes="36"/>
+    <book title="Kristen ITC" author_fio="Sidorov Sidor Sidorovich" publisher="Niata" volumes_num="15" circulation="15"
+          total_volumes="225"/>
+    <book title="Kunstler Script" author_fio="Sidorov Sidor Sidorovich" publisher="Niata" volumes_num="14"
+          circulation="14" total_volumes="196"/>
+    <book title="Lucida Calligraphy" author_fio="Sidorov Sidor Sidorovich" publisher="Niata" volumes_num="13"
+          circulation="13" total_volumes="169"/>
+    <book title="Lucida Fax" author_fio="Sidorov Sidor Sidorovich" publisher="Niata" volumes_num="12" circulation="12"
+          total_volumes="144"/>
+    <book title="Lucida Handwriting" author_fio="Sidorov Sidor Sidorovich" publisher="Niata" volumes_num="11"
+          circulation="11" total_volumes="121"/>
+    <book title="Lucida Sans Typewriter" author_fio="Sidorov Sidor Sidorovich" publisher="Niata" volumes_num="10"
+          circulation="10" total_volumes="100"/>
+    <book title="Magneto" author_fio="Sidorov Sidor Sidorovich" publisher="Niata" volumes_num="9" circulation="9"
+          total_volumes="81"/>
+    <book title="Matura MT Script Capitals" author_fio="Sidorov Sidor Sidorovich" publisher="Niata" volumes_num="8"
+          circulation="8" total_volumes="64"/>
+    <book title="Mistral" author_fio="Sidorov Sidor Sidorovich" publisher="Niata" volumes_num="7" circulation="7"
+          total_volumes="49"/>
+    <book title="Modern No. 20" author_fio="Sidorov Sidor Sidorovich" publisher="Niata" volumes_num="6" circulation="6"
+          total_volumes="36"/>
+    <book title="Niagara Engraved" author_fio="Ivanov Ivan Ivanovich" publisher="Eksmo" volumes_num="15"
+          circulation="15" total_volumes="225"/>
+    <book title="Old English Text MT" author_fio="Ivanov Ivan Ivanovich" publisher="Eksmo" volumes_num="14"
+          circulation="14" total_volumes="196"/>
+    <book title="Onyx" author_fio="Ivanov Ivan Ivanovich" publisher="Eksmo" volumes_num="13" circulation="13"
+          total_volumes="169"/>
+    <book title="Parchment" author_fio="Ivanov Ivan Ivanovich" publisher="Eksmo" volumes_num="12" circulation="12"
+          total_volumes="144"/>
+    <book title="Perpetua" author_fio="Ivanov Ivan Ivanovich" publisher="Eksmo" volumes_num="11" circulation="11"
+          total_volumes="121"/>
+    <book title="Playbill" author_fio="Ivanov Ivan Ivanovich" publisher="Eksmo" volumes_num="10" circulation="10"
+          total_volumes="100"/>
+    <book title="Poor Richard" author_fio="Ivanov Ivan Ivanovich" publisher="Eksmo" volumes_num="9" circulation="9"
+          total_volumes="81"/>
+    <book title="Pristina" author_fio="Ivanov Ivan Ivanovich" publisher="Eksmo" volumes_num="8" circulation="8"
+          total_volumes="64"/>
+    <book title="Rage Italic" author_fio="Ivanov Ivan Ivanovich" publisher="Eksmo" volumes_num="7" circulation="7"
+          total_volumes="49"/>
+    <book title="Ravie" author_fio="Ivanov Ivan Ivanovich" publisher="Eksmo" volumes_num="6" circulation="6"
+          total_volumes="36"/>
+    <book title="Rockwell Extra Bold" author_fio="Petrov Petr Petrovich" publisher="Eksmo" volumes_num="15"
+          circulation="15" total_volumes="225"/>
+    <book title="Script MT Bold" author_fio="Petrov Petr Petrovich" publisher="Eksmo" volumes_num="14" circulation="14"
+          total_volumes="196"/>
+    <book title="Showcard Gothic" author_fio="Petrov Petr Petrovich" publisher="Eksmo" volumes_num="13" circulation="13"
+          total_volumes="169"/>
+    <book title="Snap ITC" author_fio="Petrov Petr Petrovich" publisher="Eksmo" volumes_num="12" circulation="12"
+          total_volumes="144"/>
+    <book title="Stencil" author_fio="Petrov Petr Petrovich" publisher="Eksmo" volumes_num="11" circulation="11"
+          total_volumes="121"/>
+    <book title="Tempus Sans ITC" author_fio="Petrov Petr Petrovich" publisher="Eksmo" volumes_num="10" circulation="10"
+          total_volumes="100"/>
+    <book title="Viner Hand ITC" author_fio="Petrov Petr Petrovich" publisher="Eksmo" volumes_num="9" circulation="9"
+          total_volumes="81"/>
+    <book title="Viner Hand ITC" author_fio="Petrov Petr Petrovich" publisher="Eksmo" volumes_num="8" circulation="8"
+          total_volumes="64"/>
+    <book title="Viner Hand ITC" author_fio="Petrov Petr Petrovich" publisher="Eksmo" volumes_num="7" circulation="7"
+          total_volumes="49"/>
+    <book title="Viner Hand ITC" author_fio="Petrov Petr Petrovich" publisher="Eksmo" volumes_num="6" circulation="6"
+          total_volumes="36"/>
+    <book title="Viner Hand ITC" author_fio="Sidorov Sidor Sidorovich" publisher="Azbuka" volumes_num="15"
+          circulation="15" total_volumes="225"/>
+    <book title="Viner Hand ITC" author_fio="Sidorov Sidor Sidorovich" publisher="Azbuka" volumes_num="14"
+          circulation="14" total_volumes="196"/>
+    <book title="Viner Hand ITC" author_fio="Sidorov Sidor Sidorovich" publisher="Azbuka" volumes_num="13"
+          circulation="13" total_volumes="169"/>
+    <book title="Viner Hand ITC" author_fio="Sidorov Sidor Sidorovich" publisher="Azbuka" volumes_num="12"
+          circulation="12" total_volumes="144"/>
+    <book title="Viner Hand ITC" author_fio="Sidorov Sidor Sidorovich" publisher="Azbuka" volumes_num="11"
+          circulation="11" total_volumes="121"/>
+    <book title="Viner Hand ITC" author_fio="Sidorov Sidor Sidorovich" publisher="Azbuka" volumes_num="10"
+          circulation="10" total_volumes="100"/>
+    <book title="Viner Hand ITC" author_fio="Sidorov Sidor Sidorovich" publisher="Azbuka" volumes_num="9"
+          circulation="9" total_volumes="81"/>
+    <book title="Viner Hand ITC" author_fio="Sidorov Sidor Sidorovich" publisher="Azbuka" volumes_num="8"
+          circulation="8" total_volumes="64"/>
+    <book title="Viner Hand ITC" author_fio="Sidorov Sidor Sidorovich" publisher="Azbuka" volumes_num="7"
+          circulation="7" total_volumes="49"/>
+    <book title="Viner Hand ITC" author_fio="Sidorov Sidor Sidorovich" publisher="Azbuka" volumes_num="6"
+          circulation="6" total_volumes="36"/>
+</books>

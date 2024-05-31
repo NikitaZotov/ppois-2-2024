@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Building Management
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="menu-container">
+        <h1>Building Management</h1>
+        <div class="current-region">
+            <h2>Current Region: {{ current_region.name }}</h2>
+        </div>
+        <div class="menu">
+            <div class="menu-item">
+                <button class="menu-button" id="registerLandPlotButton" onclick="toggleLandPlotForm()">
+                    Register Building
+                </button>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button" onclick="location.href='{{ url_for('unregister_building') }}'">
+                    Unregister Building
+                </button>
+            </div>
+        </div>
+
+        <div id="land-plot-form" style="display: none;">
+            <h2>Land Plots:</h2>
+            <ul>
+                {% for land_plot in land_plots %}
+                    <li>
+                        CAD_NUM: {{ land_plot.cadastral_number }} | COORDS: {{ land_plot.coordinates }} |
+                        AREA: {{ land_plot.area_in_hectares }}
+                        <button class="menu-button" onclick="pickLandPlot('{{ land_plot.cadastral_number }}')">
+                            Select
+                        </button><br><br>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div id="building-form" style="display: none;">
+            <form id="buildingForm">
+                <label for="name">Building Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="build_date">Building Date [DD.MM.YYYY]:</label>
+                <input type="text" id="build_date" name="build_date" required><br><br>
+
+                <label for="area_in_sq_m">Area in Square Meters:</label>
+                <input type="text" id="area_in_sq_m" name="area_in_sq_m" required><br><br>
+
+                <label for="floors">Number of Floors:</label>
+                <input type="text" id="floors" name="floors" required><br><br>
+
+                <button type="button" class="menu-button" onclick="submitBuildingForm()">Submit</button>
+                <br><br>
+            </form>
+        </div>
+        <br><br>
+
+        <div>
+            <button type="button" class="menu-button" onclick="window.location.href='{{ url_for('main_menu') }}'">
+                Back
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let landPlotVisible = false;
+        let buildingVisible = false;
+        let current_cad_num = "";
+
+        function toggleLandPlotForm() {
+            landPlotVisible = !landPlotVisible;
+            if (landPlotVisible && !buildingVisible) {
+                document.getElementById('land-plot-form').style.display = 'block';
+                document.getElementById('registerLandPlotButton').textContent = 'Hide';
+            } else if (!landPlotVisible && !buildingVisible){
+                document.getElementById('land-plot-form').style.display = 'none';
+                document.getElementById('registerLandPlotButton').textContent = 'Register Building';
+            } else if (buildingVisible) {
+                toggleBuildingForm()
+            }
+        }
+
+        function toggleBuildingForm() {
+            buildingVisible = !buildingVisible
+            if (buildingVisible) {
+                document.getElementById('building-form').style.display = 'block';
+                document.getElementById('registerLandPlotButton').textContent = 'Hide';
+            } else {
+                document.getElementById('building-form').style.display = 'none';
+                document.getElementById('registerLandPlotButton').textContent = 'Register Building';
+            }
+        }
+
+        function pickLandPlot(landPlotId) {
+            current_cad_num = landPlotId
+            toggleLandPlotForm()
+            toggleBuildingForm()
+        }
+
+        function submitBuildingForm() {
+            let buildingForm = document.getElementById('buildingForm');
+            let formData = new FormData(buildingForm);
+            formData.set("land_cad_num",current_cad_num)
+
+            fetch("{{ url_for('submit_building_form') }}", {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        window.location.href = "{{ url_for('building_registration') }}";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+{% endblock %}

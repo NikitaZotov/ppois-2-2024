@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Owner Registration
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="menu-container">
+        <h1>Owner Registration</h1>
+        <div class="form-container">
+            <form id="ownerForm">
+                <label for="passportId">Passport ID:</label>
+                <input type="text" id="passportId" name="passport_id" required><br><br>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" required><br><br>
+
+                <button type="button" class="menu-button" onclick="submitOwnerForm()">Submit</button>
+                <button type="button" class="menu-button" onclick="window.location.href='{{ url_for('main_menu') }}'">
+                    Back
+                </button>
+            </form>
+        </div>
+    <script>
+        function submitOwnerForm() {
+            let form = document.getElementById('ownerForm');
+            let formData = new FormData(form);
+
+            fetch("{{ url_for('submit_owner_form') }}", {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    window.location.href = "{{ url_for('main_menu') }}";
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+    </div>
+
+{% endblock %}

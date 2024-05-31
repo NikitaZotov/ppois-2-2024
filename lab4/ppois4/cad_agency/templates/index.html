@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Cadastral Agency
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="menu-container">
+        <h1>Cadastral Agency</h1>
+        <div class="current-region">
+            <h2>Current Region: <select id="regionSelect" onchange="changeRegion()">
+                <option value="Minsk">Minsk</option>
+                <option value="Minsk Region">Minsk Region</option>
+                <option value="Gomel">Gomel</option>
+                <option value="Vitebsk">Vitebsk</option>
+                <option value="Mogilev">Mogilev</option>
+                <option value="Brest">Brest</option>
+                <option value="Grodno">Grodno</option>
+            </select></h2>
+        </div>
+        <div class="menu">
+            <div class="menu-item">
+                <button class="menu-button"
+                        onclick="checkPassportAndRedirect('{{ url_for('land_plot_registration') }}')">
+                    Land Plot Management
+                </button>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button"
+                        onclick="checkPassportAndRedirect('{{ url_for('building_registration') }}')">
+                    Building Management
+                </button>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button"
+                        onclick="checkPassportAndRedirect('{{ url_for('documents_and_information') }}')">
+                    Documents & Information
+                </button>
+            </div>
+        </div>
+        <script>
+            regionSelect = document.getElementById("regionSelect");
+            regionSelect.value = "Minsk";
+            let selectedRegion = regionSelect.value
+            fetch('{{ url_for('update_region') }}', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({region: selectedRegion}),
+            })
+                .then(response => response.json())
+
+            function changeRegion() {
+                let selectedRegion = regionSelect.value;
+
+                fetch('{{ url_for('update_region') }}', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({region: selectedRegion}),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data); // Check the response in the console
+                        alert(`Region updated to: ${selectedRegion}`);
+                    });
+            }
+
+            function checkPassportAndRedirect(url) {
+                let passportId = prompt("Please enter your passport ID:");
+
+                if (passportId !== null) {
+                    fetch('{{ url_for('authenticate_user') }}', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({passport_id: passportId}),
+                    })
+                        .then(response => response.json())
+                        .then(response => {
+                            if (response.authenticated) {
+                                window.location.href = url;
+                            } else {
+                                window.location.href = '{{ url_for('owner_registration') }}';
+                            }
+                        });
+                }
+            }
+        </script>
+    </div>
+{% endblock %}
