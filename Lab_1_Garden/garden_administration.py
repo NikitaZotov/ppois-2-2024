@@ -17,10 +17,12 @@ class GardenAdministration(gr.Garden):
         """"This function adds plant to encyclopedia.If fail return -1"""
 
         try:
-            time_between_fertilizing_days = abs(int(time_between_fertilizing_days))
-            time_before_colecting_week = abs(int(time_before_colecting_week))
-            time_between_watering_days = abs(int(time_between_watering_days))
-            time_between_taking_care_days = abs(int(time_between_taking_care_days))
+            time_between_fertilizing_days = int(time_between_fertilizing_days)
+            time_before_colecting_week = int(time_before_colecting_week)
+            time_between_watering_days = int(time_between_watering_days)
+            time_between_taking_care_days = int(time_between_taking_care_days)
+            if (time_before_colecting_week < 0 or time_between_fertilizing_days < 0 or time_between_taking_care_days < 0 or time_between_fertilizing_days < 0):
+                return -1
         except:
             return -1
 
@@ -46,7 +48,9 @@ class GardenAdministration(gr.Garden):
     def buy_seeds(self, name, num):
         """"This function buys.If fail return -1"""
         try:
-            num = abs(int(num))
+            num = int(num)
+            if(num < 0):
+                return -1
         except:
             return -1
         if(self.seads_collection.get(name) == None):

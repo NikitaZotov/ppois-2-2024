@@ -14,8 +14,10 @@ class Garden:
         """"Function for adding garden bed. If fail return -1"""
         id_ = len(self.garden_plan)
         try:
-            length = abs(int(length))
-            width = abs(int(width))
+            length = int(length)
+            width = int(width)
+            if (length < 0 or width < 0):
+                return -1
         except ValueError:
             return -1
         #добавить если элемента нет в массиве видов почв добавить
@@ -31,7 +33,7 @@ class Garden:
             self.garden_plan[id_]
         except:
             return -1
-        return self.garden_plan[id_].watering(self)
+        return self.garden_plan[id_].watering()
 
 
 
@@ -42,7 +44,7 @@ class Garden:
             self.garden_plan[id_]
         except:
             return -1
-        return  self.garden_plan[id_].take_care(self)
+        return  self.garden_plan[id_].take_care()
 
 
 
@@ -53,7 +55,7 @@ class Garden:
             self.garden_plan[id_]
         except:
             return -1
-        return self.garden_plan[id_].fertilizing(self)
+        return self.garden_plan[id_].fertilizing()
 
 
 
