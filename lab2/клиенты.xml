@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Phones>
+    <Phone>
+        <FullName>Иванов Иван Иванович</FullName>
+        <AccountNumber>123456</AccountNumber>
+        <Address>ул. Ленина, д. 1</Address>
+        <Mobile>+79101234567</Mobile>
+        <Landline>+74951234567</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Петров Петр Петрович</FullName>
+        <AccountNumber>123457</AccountNumber>
+        <Address>ул. Пушкина, д. 2</Address>
+        <Mobile>+79101234568</Mobile>
+        <Landline>+74951234568</Landline>
+    </Phone>
+
+    <Phone>
+        <FullName>Сидоров Сидор Сидорович</FullName>
+        <AccountNumber>123458</AccountNumber>
+        <Address>ул. Садовая, д. 3</Address>
+        <Mobile>+79101234569</Mobile>
+        <Landline>+74951234569</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Кузнецов Алексей Викторович</FullName>
+        <AccountNumber>123459</AccountNumber>
+        <Address>ул. Центральная, д. 4</Address>
+        <Mobile>+79101234570</Mobile>
+        <Landline>+74951234570</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Смирнова Ольга Сергеевна</FullName>
+        <AccountNumber>123460</AccountNumber>
+        <Address>ул. Молодежная, д. 5</Address>
+        <Mobile>+79101234571</Mobile>
+        <Landline>+74951234571</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Васильев Василий Васильевич</FullName>
+        <AccountNumber>123461</AccountNumber>
+        <Address>ул. Солнечная, д. 6</Address>
+        <Mobile>+79101234572</Mobile>
+        <Landline>+74951234572</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Морозов Михаил Алексеевич</FullName>
+        <AccountNumber>123462</AccountNumber>
+        <Address>ул. Речная, д. 7</Address>
+        <Mobile>+79101234573</Mobile>
+        <Landline>+74951234573</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Козлов Андрей Николаевич</FullName>
+        <AccountNumber>123463</AccountNumber>
+        <Address>ул. Березовая, д. 8</Address>
+        <Mobile>+79101234574</Mobile>
+        <Landline>+74951234574</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Новикова Анна Владимировна</FullName>
+        <AccountNumber>123464</AccountNumber>
+        <Address>ул. Лесная, д. 9</Address>
+        <Mobile>+79101234575</Mobile>
+        <Landline>+74951234575</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Федоров Федор Федорович</FullName>
+        <AccountNumber>123465</AccountNumber>
+        <Address>ул. Полевая, д. 10</Address>
+        <Mobile>+79101234576</Mobile>
+        <Landline>+74951234576</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Михайлова Мария Ивановна</FullName>
+        <AccountNumber>123466</AccountNumber>
+        <Address>ул. Парковая, д. 11</Address>
+        <Mobile>+79101234577</Mobile>
+        <Landline>+74951234577</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Павлова Елена Петровна</FullName>
+        <AccountNumber>123467</AccountNumber>
+        <Address>ул. Цветочная, д. 12</Address>
+        <Mobile>+79101234578</Mobile>
+        <Landline>+74951234578</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Семенов Семен Семенович</FullName>
+        <AccountNumber>123468</AccountNumber>
+        <Address>ул. Тихая, д. 13</Address>
+        <Mobile>+79101234579</Mobile>
+        <Landline>+74951234579</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Александров Александр Александрович</FullName>
+        <AccountNumber>123469</AccountNumber>
+        <Address>ул. Луговая, д. 14</Address>
+        <Mobile>+79101234580</Mobile>
+        <Landline>+74951234580</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Лебедев Николай Павлович</FullName>
+        <AccountNumber>123470</AccountNumber>
+        <Address>ул. Зелёная, д. 15</Address>
+        <Mobile>+79101234581</Mobile>
+        <Landline>+74951234581</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Тимофеева Татьяна Сергеевна</FullName>
+        <AccountNumber>123471</AccountNumber>
+        <Address>ул. Вокзальная, д. 16</Address>
+        <Mobile>+79101234582</Mobile>
+        <Landline>+74951234582</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Соколова Наталья Андреевна</FullName>
+        <AccountNumber>123472</AccountNumber>
+        <Address>ул. Линейная, д. 17</Address>
+        <Mobile>+79101234583</Mobile>
+        <Landline>+74951234583</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Виноградов Алексей Михайлович</FullName>
+        <AccountNumber>123473</AccountNumber>
+        <Address>ул. Высокая, д. 18</Address>
+        <Mobile>+79101234584</Mobile>
+        <Landline>+74951234584</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Беляева Екатерина Владимировна</FullName>
+        <AccountNumber>123474</AccountNumber>
+        <Address>ул. Новая, д. 19</Address>
+        <Mobile>+79101234585</Mobile>
+        <Landline>+74951234585</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Гусев Виктор Викторович</FullName>
+        <AccountNumber>123475</AccountNumber>
+        <Address>ул. Советская, д. 20</Address>
+        <Mobile>+79101234586</Mobile>
+        <Landline>+74951234586</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Дмитриев Дмитрий Александрович</FullName>
+        <AccountNumber>123476</AccountNumber>
+        <Address>ул. Первомайская, д. 21</Address>
+        <Mobile>+79101234587</Mobile>
+        <Landline>+74951234587</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Зайцев Иван Петрович</FullName>
+        <AccountNumber>123477</AccountNumber>
+        <Address>ул. Школьная, д. 22</Address>
+        <Mobile>+79101234588</Mobile>
+        <Landline>+74951234588</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Ефимова Алина Николаевна</FullName>
+        <AccountNumber>123478</AccountNumber>
+        <Address>ул. Южная, д. 23</Address>
+        <Mobile>+79101234589</Mobile>
+        <Landline>+74951234589</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Исаев Сергей Иванович</FullName>
+        <AccountNumber>123479</AccountNumber>
+        <Address>ул. Северная, д. 24</Address>
+        <Mobile>+79101234590</Mobile>
+        <Landline>+74951234590</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Капустин Виктор Сергеевич</FullName>
+        <AccountNumber>123480</AccountNumber>
+        <Address>ул. Восточная, д. 25</Address>
+        <Mobile>+79101234591</Mobile>
+        <Landline>+74951234591</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Лазарева Ольга Ивановна</FullName>
+        <AccountNumber>123481</AccountNumber>
+        <Address>ул. Западная, д. 26</Address>
+        <Mobile>+79101234592</Mobile>
+        <Landline>+74951234592</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Медведева Наталья Александровна</FullName>
+        <AccountNumber>123482</AccountNumber>
+        <Address>ул. Островная, д. 27</Address>
+        <Mobile>+79101234593</Mobile>
+        <Landline>+74951234593</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Никитина Екатерина Сергеевна</FullName>
+        <AccountNumber>123483</AccountNumber>
+        <Address>ул. Центральная, д. 28</Address>
+        <Mobile>+79101234594</Mobile>
+        <Landline>+74951234594</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Орлов Александр Викторович</FullName>
+        <AccountNumber>123484</AccountNumber>
+        <Address>ул. Садовая, д. 29</Address>
+        <Mobile>+79101234595</Mobile>
+        <Landline>+74951234595</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Попова Марина Андреевна</FullName>
+        <AccountNumber>123485</AccountNumber>
+        <Address>ул. Сосновая, д. 30</Address>
+        <Mobile>+79101234596</Mobile>
+        <Landline>+74951234596</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Романов Михаил Иванович</FullName>
+        <AccountNumber>123486</AccountNumber>
+        <Address>ул. Малая, д. 31</Address>
+        <Mobile>+79101234597</Mobile>
+        <Landline>+74951234597</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Сафонов Павел Сергеевич</FullName>
+        <AccountNumber>123487</AccountNumber>
+        <Address>ул. Большая, д. 32</Address>
+        <Mobile>+79101234598</Mobile>
+        <Landline>+74951234598</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Титов Владимир Андреевич</FullName>
+        <AccountNumber>123488</AccountNumber>
+        <Address>ул. Московская, д. 33</Address>
+        <Mobile>+79101234599</Mobile>
+        <Landline>+74951234599</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Уварова Светлана Сергеевна</FullName>
+        <AccountNumber>123489</AccountNumber>
+        <Address>ул. Питерская, д. 34</Address>
+        <Mobile>+79101234600</Mobile>
+        <Landline>+74951234600</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Фролова Ольга Ивановна</FullName>
+        <AccountNumber>123490</AccountNumber>
+        <Address>ул. Кировская, д. 35</Address>
+        <Mobile>+79101234601</Mobile>
+        <Landline>+74951234601</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Цветков Николай Михайлович</FullName>
+        <AccountNumber>123491</AccountNumber>
+        <Address>ул. Волгоградская, д. 36</Address>
+        <Mobile>+79101234602</Mobile>
+        <Landline>+74951234602</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Чистякова Марина Викторовна</FullName>
+        <AccountNumber>123492</AccountNumber>
+        <Address>ул. Пролетарская, д. 37</Address>
+        <Mobile>+79101234603</Mobile>
+        <Landline>+74951234603</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Шилова Екатерина Сергеевна</FullName>
+        <AccountNumber>123493</AccountNumber>
+        <Address>ул. Луговая, д. 38</Address>
+        <Mobile>+79101234604</Mobile>
+        <Landline>+74951234604</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Щербаков Андрей Александрович</FullName>
+        <AccountNumber>123494</AccountNumber>
+        <Address>ул. Строительная, д. 39</Address>
+        <Mobile>+79101234605</Mobile>
+        <Landline>+74951234605</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Яковлев Иван Петрович</FullName>
+        <AccountNumber>123495</AccountNumber>
+        <Address>ул. Октябрьская, д. 40</Address>
+        <Mobile>+79101234606</Mobile>
+        <Landline>+74951234606</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Игнатов Сергей Николаевич</FullName>
+        <AccountNumber>123496</AccountNumber>
+        <Address>ул. Майская, д. 41</Address>
+        <Mobile>+79101234607</Mobile>
+        <Landline>+74951234607</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Зимин Дмитрий Павлович</FullName>
+        <AccountNumber>123497</AccountNumber>
+        <Address>ул. Набережная, д. 42</Address>
+        <Mobile>+79101234608</Mobile>
+        <Landline>+74951234608</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Ларина Татьяна Ивановна</FullName>
+        <AccountNumber>123498</AccountNumber>
+        <Address>ул. Вишневая, д. 43</Address>
+        <Mobile>+79101234609</Mobile>
+        <Landline>+74951234609</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Матвеев Александр Сергеевич</FullName>
+        <AccountNumber>123499</AccountNumber>
+        <Address>ул. Малиновая, д. 44</Address>
+        <Mobile>+79101234610</Mobile>
+        <Landline>+74951234610</Landline>
+    </Phone>
+    <Phone>
+        <FullName>Николаев Иван Николаевич</FullName>
+        <AccountNumber>123500</AccountNumber>
+        <Address>ул. Трудовая, д. 45</Address>
+        <Mobile>+79101234611</Mobile>
+        <Landline>+74951234611</Landline>
+    </Phone>
+</Phones>
