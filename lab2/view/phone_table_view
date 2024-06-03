@@ -1,0 +1,54 @@
+import tkinter as tk
+from tkinter import ttk
+
+
+class PhoneTableView:
+    def __init__(self, window, controller):
+        self.controller = controller
+
+        self.labels = ["ФИО клиента", "Номер счета", "Адрес прописки", "Мобильный телефон", "Городской телефон"]
+        self.tree = ttk.Treeview(window, columns=self.labels, show='headings')
+
+        for label in self.labels:
+            self.tree.heading(label, text=label)
+
+        self.tree.grid(row=0, column=2, rowspan=len(self.labels) + 1, padx=10, pady=5)
+
+        self.page_label = tk.Label(window, text="")
+        self.page_label.grid(row=len(self.labels) + 2, column=2, pady=5)
+
+        self.nav_frame = tk.Frame(window)
+        self.nav_frame.grid(row=len(self.labels) + 3, column=2, columnspan=4)
+
+        first_button = tk.Button(self.nav_frame, text="<<", command=lambda: self.navigate_page(1))
+        first_button.grid(row=0, column=0, pady=5)
+
+        previous_button = tk.Button(self.nav_frame, text="<", command=lambda: self.navigate_page(self.controller.current_page - 1))
+        previous_button.grid(row=0, column=1, pady=5)
+
+        next_button = tk.Button(self.nav_frame, text=">", command=lambda: self.navigate_page(self.controller.current_page + 1))
+        next_button.grid(row=0, column=2, pady=5)
+
+        last_button = tk.Button(self.nav_frame, text=">>", command=lambda: self.navigate_page(self.controller.total_pages))
+        last_button.grid(row=0, column=3, pady=5)
+
+    def navigate_page(self, page):
+        if 1 <= page <= self.controller.total_pages:
+            self.controller.current_page = page
+            self.update_table()
+
+    def update_table(self, phones=None):
+        self.tree.delete(*self.tree.get_children())
+        if phones is None:
+            phones = self.controller.get_phones_for_page()
+
+        for phone in phones:
+            self.tree.insert('', 'end', values=[
+                phone.full_name,
+                phone.account_number,
+                phone.address,
+                phone.mobile,
+                phone.landline
+            ])
+
+        self.page_label.config(text=f"{self.controller.current_page}/{self.controller.total_pages}")
