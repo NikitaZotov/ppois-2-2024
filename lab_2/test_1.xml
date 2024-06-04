@@ -1,0 +1,123 @@
+<products>
+
+    <product>
+        <name>Молоко</name>
+        <manufacturer_name>ОАО Молочный Завод</manufacturer_name>
+        <unp>1234567890123</unp>
+        <quantity>100</quantity>
+        <warehouse_address>ул. Складовая, 1</warehouse_address>
+    </product>
+
+    <product>
+        <name>Хлеб</name>
+        <manufacturer_name>Пекарня "Хруст"</manufacturer_name>
+        <unp>9876543210987</unp>
+        <quantity>50</quantity>
+        <warehouse_address>ул. Пекарная, 10</warehouse_address>
+    </product>
+
+    <product>
+        <name>Сахар</name>
+        <manufacturer_name>ОАО Сахарный завод</manufacturer_name>
+        <unp>5678901234567</unp>
+        <quantity>200</quantity>
+        <warehouse_address>ул. Складовая, 1</warehouse_address>
+    </product>
+
+    <product>
+    <name>Кефир</name>
+    <manufacturer_name>ООО Дары молока</manufacturer_name>
+    <unp>2345678901234</unp>
+    <quantity>50</quantity>
+    <warehouse_address>ул. Молочная, 2</warehouse_address>
+    </product>
+
+<product>
+    <name>Творог</name>
+    <manufacturer_name>ОАО Творожная фабрика</manufacturer_name>
+    <unp>3456789012345</unp>
+    <quantity>75</quantity>
+    <warehouse_address>ул. Сытная, 3</warehouse_address>
+</product>
+
+    <product>
+        <name>Яблоки</name>
+        <manufacturer_name>Фермерское хозяйство "Зелёная поляна"</manufacturer_name>
+        <unp>8765432109876</unp>
+        <quantity>150</quantity>
+        <warehouse_address>ул. Фруктовая, 5</warehouse_address>
+    </product>
+
+    <product>
+        <name>Мороженое</name>
+        <manufacturer_name>ООО "Сладкий рай"</manufacturer_name>
+        <unp>6543210987654</unp>
+        <quantity>80</quantity>
+        <warehouse_address>ул. Ледяная, 8</warehouse_address>
+    </product>
+
+    <product>
+        <name>Картофель</name>
+        <manufacturer_name>Фермерское хозяйство "Подсолнух"</manufacturer_name>
+        <unp>7890123456789</unp>
+        <quantity>120</quantity>
+        <warehouse_address>ул. Картофельная, 12</warehouse_address>
+    </product>
+
+    <product>
+        <name>Мясо</name>
+        <manufacturer_name>ООО "Мясная лавка"</manufacturer_name>
+        <unp>8901234567890</unp>
+        <quantity>100</quantity>
+        <warehouse_address>ул. Мясная, 15</warehouse_address>
+    </product>
+
+    <product>
+        <name>Помидоры</name>
+        <manufacturer_name>ООО "Агроферма"</manufacturer_name>
+        <unp>9012345678901</unp>
+        <quantity>200</quantity>
+        <warehouse_address>ул. Овощная, 20</warehouse_address>
+    </product>
+
+    <product>
+        <name>Рыба</name>
+        <manufacturer_name>ОАО Рыболовецкий коллектив</manufacturer_name>
+        <unp>4321098765432</unp>
+        <quantity>60</quantity>
+        <warehouse_address>ул. Рыбная, 25</warehouse_address>
+    </product>
+
+    <product>
+        <name>Мука</name>
+        <manufacturer_name>Пекарня "Мучные радости"</manufacturer_name>
+        <unp>5432109876543</unp>
+        <quantity>90</quantity>
+        <warehouse_address>ул. Мельничная, 30</warehouse_address>
+    </product>
+
+    <product>
+        <name>Сок</name>
+        <manufacturer_name>ООО "Фруктовый сад"</manufacturer_name>
+        <unp>6543210987654</unp>
+        <quantity>70</quantity>
+        <warehouse_address>ул. Соковая, 35</warehouse_address>
+    </product>
+
+    <product>
+        <name>Колбаса</name>
+        <manufacturer_name>ООО "Домашние деликатесы"</manufacturer_name>
+        <unp>7654321098765</unp>
+        <quantity>80</quantity>
+        <warehouse_address>ул. Мясопромышленная, 40</warehouse_address>
+    </product>
+
+    <product>
+        <name>Мед</name>
+        <manufacturer_name>Фермерское хозяйство "Медовые ульи"</manufacturer_name>
+        <unp>9876543210987</unp>
+        <quantity>50</quantity>
+        <warehouse_address>ул. Пчелиная, 45</warehouse_address>
+    </product>
+
+</products>
