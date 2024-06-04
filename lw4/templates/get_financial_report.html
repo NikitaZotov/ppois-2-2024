@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Финансовый отчет банковского счета
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div>
+        {% for line in text %}
+            <h5> {{ line }} </h5>
+        {% endfor %}
+        <a href="/" class="btn btn-primary rounded-pill px-5" tabindex="-1" role="button" aria-disabled="true">Вернуться на главную</a>
+    </div>
+</div>
+{% endblock %}

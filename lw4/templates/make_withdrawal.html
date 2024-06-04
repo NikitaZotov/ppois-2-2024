@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Снять средства
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div>
+        <form method="post">
+            <input type="number" name="money_amount" id="money_amount" class="form-control" placeholder="Введите сумму, которая будет снята со счета" required>
+            <input type="submit" value="Снять средства">
+        </form>
+    </div>
+    <a href="/" class="btn btn-primary rounded-pill px-5" tabindex="-1" role="button" aria-disabled="true">Вернуться на главную</a>
+</div>
+{% endblock %}

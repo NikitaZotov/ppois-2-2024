@@ -1,0 +1,30 @@
+td {
+  padding: 10px;
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+th {
+  padding: 10px;
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+table {
+  padding: 30px;
+}
+
+input[type=submit] {
+  font-size: 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+label {
+    font-size: 16px;
+}
+
+a {
+  margin-bottom: 20px;
+}

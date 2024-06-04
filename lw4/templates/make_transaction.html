@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Совершить транзакцию
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div>
+        <form method="post">
+            <input type="number" name="transaction_number" id="transaction_number" class="form-control" placeholder="Введите номер выполняемой транзакции" required>
+            <input type="number" name="money_amount" id="money_amount" class="form-control" placeholder="Введите сумму" required>
+            <input type="submit" value="Совершить транзакцию">
+        </form>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Номер</th>
+                    <th>Название транзакции</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                    <tr>
+                        <th> {{ transaction[0] + 1 }} </th>
+                        <td> {{ transaction[1].get_company_or_bank_account_number() }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="/" class="btn btn-primary rounded-pill px-5" tabindex="-1" role="button" aria-disabled="true">Вернуться на главную</a>
+</div>
+{% endblock %}

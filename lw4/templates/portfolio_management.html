@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Управление инвестиционным портфолио
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <form method="post">
+        <input type="number" name="investment_number" id="investment_number" class="form-control" placeholder="Введите номер выбранной инвестиции" required>
+        <input type="number" name="operation_key" id="operation_key" class="form-control" placeholder="Введите номер операции" required>
+        <input type="submit" value="Совершить операцию">
+    </form>
+    <h4>Таблица инвестиций</h4>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Номер</th>
+                    <th>Название инвестиции</th>
+                    <th>Риск инвестиции</th>
+                    <th>Коэффициент прибыли</th>
+                    <th>Вложенная сумма</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for investment in investments %}
+                    <tr>
+                        <th> {{ investment[0] + 1 }} </th>
+                        <td> {{ investment[1].get_scope_of_investment() }} </td>
+                        <td> {{ investment[1].get_risk() }} </td>
+                        <td> {{ investment[1].get_profit_ratio() }} </td>
+                        <td> {{ investment[1].get_price() }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <h4> Таблица операций </h4>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Номер</th>
+                    <th>Название операции</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Распределение активов</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Диверсификация</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Толерантность к риску</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Балансировка</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Окончание инвестиции</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="/" class="btn btn-primary rounded-pill px-5" tabindex="-1" role="button" aria-disabled="true">Вернуться на главную</a>
+</div>
+{% endblock %}
