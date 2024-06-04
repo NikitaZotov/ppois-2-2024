@@ -39,7 +39,7 @@ class App:
         self.toolbar.grid(row=0, column=0, columnspan=2, sticky=tk.EW, padx=2, pady=2)
         
         self.buttons = [ttk.Button(self.toolbar, text="Open XML", command=self.open),
-                        ttk.Button(self.toolbar, text="Create XML", command=self.create),
+                        ttk.Button(self.toolbar, text="Create XML", command=self.save),
                         ttk.Button(self.toolbar, text="Close XML", command=self.close),
                         ttk.Button(self.toolbar, text="Add tournament", command=self.add),
                         ttk.Button(self.toolbar, text="Find tournaments", command=self.find),
@@ -49,7 +49,7 @@ class App:
         for button in self.buttons: button.pack(padx=2, pady=0, side=tk.LEFT)
 
         self.curr_page = 1
-        self.pages_amount = 1
+        self.pages_amount = 0
 
         self.flipping = ttk.Frame(self.tournaments_frame)
         self.flipping.grid(row=1, column=0, sticky=tk.EW)
@@ -62,8 +62,7 @@ class App:
         self.first_page_button = ttk.Button(master=self.flipping, text="First")
         self.first_page_button.pack(padx=3, pady=0, side=tk.RIGHT)
         
-        
-        size = ['3', '5', '10', '20', '50']
+        size = ['3', '5', '10', '20']
 
         self.paging = ttk.Combobox(master=self.flipping, values=size, width=3)
         self.paging.pack(side=tk.RIGHT)
@@ -76,10 +75,10 @@ class App:
         self.delete_filter = Filter()
 
     def update_data(self):
-        if not self.file: return
-
         for tournament in self.tournaments.get_children():
             self.tournaments.delete(tournament)
+
+        if not self.file: return
 
         for tournament in self.file.filter_tournaments(self.search_filter):
             self.tournaments.insert(parent="", index=tk.END, values=[tournament.title, tournament.date, 
@@ -89,9 +88,9 @@ class App:
                                                           tournament.prize, tournament.winner_prize])
         
         tournaments_amount = len(self.file.filter_tournaments(self.search_filter))
-        self.pages_amount = int(tournaments_amount / self.search_filter.page_size)
+        self.pages_amount = int(tournaments_amount / self.search_filter.page_size) + 1
 
-        info = f"Curr. page {self.search_filter.page_number} of {self.pages_amount}"
+        info = f"Curr. page {self.search_filter.page_number} of {self.pages_amount}. "
         info += f"Total writings: {tournaments_amount}. Writings on the page: "
         self.pages_info.configure(text=info)
         self.pages_info.update()
@@ -111,6 +110,7 @@ class App:
         self.curr_page = 1
         self.search_filter.page_number = self.curr_page
         self.search_filter.page_size = int(self.paging.get())
+
         self.update_data()
 
     def next_page(self):
@@ -131,10 +131,7 @@ class App:
         self.search_filter.page_number = self.pages_amount
         self.update_data()
 
-    def create(self):
-        
-        self.close()
-
+    def save(self):
         file = filedialog.asksaveasfile(initialfile='Tournaments.xml', defaultextension='.xml',
                                         filetypes={('XML files', '*.xml')})
 
@@ -145,16 +142,19 @@ class App:
 
     def open(self):
         
-        self.close()
+        if self.file: self.close()
 
         filepath = filedialog.askopenfilename(title='Open XML', filetypes={('XML files', '*.xml')})
 
         if filepath: 
             self.file = XMLParser(filepath)
-            self.file.init_xml()
             self.update_data()
 
     def close(self):
+
+        doc = self.file.parse_xml()
+
+        self.file.save_xml(doc)
         self.file = None
         self.reset_filters()
         self.update_data()

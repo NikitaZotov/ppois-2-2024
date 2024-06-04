@@ -82,6 +82,7 @@ class XMLParser():
                 parent = tournament.parentNode
                 parent.removeChild(tournament)
                 self.save_xml(doc)
+                
 
         showinfo(title="Deleted tournaments", message=f"Amount of deleted tournaments is: {len(handler_by_filter.result)}")
         

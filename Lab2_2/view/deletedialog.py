@@ -2,6 +2,7 @@ from datetime import datetime as dt
 
 import tkinter as tk
 from tkinter import ttk
+from tkinter.messagebox import showerror
 
 from tkcalendar import Calendar
 from ttkthemes import ThemedStyle
@@ -23,9 +24,8 @@ class DeleteDialog(tk.Toplevel):
         self.title_frame.pack(pady=5)
 
         self.datepicker_frame = ttk.LabelFrame(self, text="Tournament date")
-        self.datepicker = Calendar(master=self.datepicker_frame, year=dt.now().year, 
-                                   month=dt.now().month, day=dt.now().day)
-        
+        self.datepicker = Calendar(master=self.datepicker_frame)
+        self.datepicker._remove_selection()
         self.datepicker.pack()
         self.datepicker_frame.pack()
 
@@ -75,15 +75,21 @@ class DeleteDialog(tk.Toplevel):
     def delete(self): 
 
         if self.input_title.get(): self.app.delete_filter.title = self.input_title.get()
-        if self.datepicker.get_date(): self.app.delete_filter.date = dt.strptime(self.datepicker.get_date(), '%m/%d/%y')
+        if self.datepicker.get_date() != "6/4/24": self.app.delete_filter.date = dt.strptime(self.datepicker.get_date(), '%m/%d/%y')
         if self.input_sport.get(): self.app.delete_filter.sport = self.input_sport.get()
         if self.input_name.get(): self.app.delete_filter.winner_name = self.input_name.get()
         if self.input_surname.get(): self.app.delete_filter.winner_surname = self.input_surname.get()
         if self.input_middlename.get(): self.app.delete_filter.winner_middlename = self.input_middlename.get()
-        if self.input_minprize.get(): self.app.delete_filter.prize_range[0] = int(self.input_minprize.get())
-        if self.input_maxprize.get(): self.app.delete_filter.prize_range[1] = int(self.input_maxprize.get())
-        if self.input_minprize_winner.get(): self.app.delete_filter.winner_prize_range[0] = int(self.input_minprize_winner.get())
-        if self.input_maxprize_winner.get(): self.app.delete_filter.winner_prize_range[1] = int(self.input_maxprize_winner.get())
+
+        try:
+            if self.input_minprize.get(): self.app.delete_filter.prize_range[0] = int(self.input_minprize.get())
+            if self.input_maxprize.get(): self.app.delete_filter.prize_range[1] = int(self.input_maxprize.get())
+            if self.input_minprize_winner.get(): self.app.delete_filter.winner_prize_range[0] = int(self.input_minprize_winner.get())
+            if self.input_maxprize_winner.get(): self.app.delete_filter.winner_prize_range[1] = int(self.input_maxprize_winner.get())
+        
+        except ValueError: 
+            showerror(title="NotIntError", message="Prize must be integer") 
+            return
 
         self.destroy()
         

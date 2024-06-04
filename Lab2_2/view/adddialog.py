@@ -2,7 +2,7 @@ from datetime import datetime as dt
 
 
 import tkinter as tk
-from tkinter.messagebox import showwarning
+from tkinter.messagebox import showwarning, showerror
 from tkinter import ttk
 
 from tkcalendar import Calendar
@@ -73,12 +73,16 @@ class AddDialog(tk.Toplevel):
                 self.input_name.get(), self.input_surname.get(), self.input_middlename.get(),
                 self.input_prize.get())):
             
-            self.app.file.add_tournament(self.input_title.get(), dt.strptime(self.datepicker.get_date(), '%m/%d/%y'), self.input_sport.get(), 
-                                         Winner(self.input_name.get(), self.input_surname.get(), self.input_middlename.get()),
-                                         int(self.input_prize.get()))
+            try:
+                self.app.file.add_tournament(self.input_title.get(), dt.strptime(self.datepicker.get_date(), '%m/%d/%y'), self.input_sport.get(), 
+                                             Winner(self.input_name.get(), self.input_surname.get(), self.input_middlename.get()),
+                                             int(self.input_prize.get()))
+                
+            except ValueError: 
+                showerror(title="NotIntError", message="Tournament prize must be integer")
+                return
             
             self.app.update_data()
-            self.destroy()
         
         else: showwarning(title="Warning", message="Not all fields are filled")
 
