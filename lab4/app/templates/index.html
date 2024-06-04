@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="menu-container">
+        <h1>Deep State Manager</h1>
+        <p>
+            <h2>Controlled states</h2>
+            {% if states %}
+                <ul>
+                    {% for state in states %}
+                        <li><a href="{{ url_for('state', name=state) }}">{{ state }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}      
+                No state are controlled now :( 
+            {% endif %}
+        </p>
+        <h2>Add new state</h2>
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.name.label }}<br>
+                {{ form.name(size=32) }}<br>
+                {% for error in form.name.errors %}
+                    <span style="color: red;">[{{ error }}]</span><br>
+                {% endfor %}
+
+                {{ form.head.label }}<br>
+                {{ form.head(size=32) }}<br>
+                {% for error in form.name.errors %}
+                    <span style="color: red;">[{{ error }}]</span><br>
+                {% endfor %}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+        <h2>Remove state</h2>
+        <form action="" method="post">
+            {{ remove_form.hidden_tag() }}
+            <p>
+                {{ remove_form.name.label }}<br>
+                {{ remove_form.name() }}<br>
+                {% for error in remove_form.name.errors %}
+                    <span style="color: red;">[{{ error }}]</span><br>
+                {% endfor %}
+            </p>
+            <p>{{ remove_form.submit() }}</p>
+        </form>
+    </div>
+{% endblock %}
