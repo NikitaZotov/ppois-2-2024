@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<pet_records>
+   <pet_record>
+      <pet>
+         <name>Лев</name>
+         <birth_date>12.06.2006</birth_date>
+         <last_visit_date>12.12.2023</last_visit_date>
+         <diagnosis>Сломан ноготь</diagnosis>
+      </pet>
+      <vet>
+         <fio>Янковский Николай Русланович</fio>
+      </vet>
+   </pet_record>
+</pet_records>
