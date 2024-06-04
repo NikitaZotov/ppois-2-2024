@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="menu-container">
+    <h1>{{ name }}</h1>
+    <p>
+        <ul>
+            {% for request, request_name in requests%}
+                <li><a href="{{ url_for('list', state=name, request=request, name=request_name) }}">{{request_name}}</a></li>
+            {% endfor %}
+        </ul>
+    </p>
+    <h2>Add citizen</h2>
+    <form action="" method="post">
+        {{ citizen_form.hidden_tag() }}
+        <p>
+            {{ citizen_form.name.label }}<br>
+            {{ citizen_form.name(size=32) }}<br>
+            {% for error in citizen_form.name.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+
+            {{ citizen_form.income.label }}<br>
+            {{ citizen_form.income(size=32) }}<br>
+            {% for error in citizen_form.income.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>{{ citizen_form.submit() }}</p>
+    </form>
+    <h2>Remove citizen</h2>
+    <form action="" method="post">
+        {{ remove_form.hidden_tag() }}
+        <p>
+            {{ remove_form.name.label }}<br>
+            {{ remove_form.name() }}<br>
+            {% for error in remove_form.name.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>{{ remove_form.submit() }}</p>
+    </form>
+    <h2>Publish law</h2>
+    <form action="" method="post">
+        {{ law_form.hidden_tag() }}
+        <p>
+            {{ law_form.title.label }}<br>
+            {{ law_form.title(size=32) }}<br>
+            {% for error in law_form.title.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+
+            {{ law_form.text.label }}<br>
+            {{ law_form.text() }}<br>
+            {% for error in law_form.text.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>{{ law_form.submit() }}</p>
+    </form>
+    <h2>Add external relation</h2>
+    <form action="" method="post">
+        {{ rel_form.hidden_tag() }}
+        <p>
+            {{ rel_form.other_state.label }}<br>
+            {{ rel_form.other_state() }}<br>
+            {% for error in rel_form.other_state.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+
+            {{ rel_form.condition.label }}<br>
+            {{ rel_form.condition() }}<br>
+            {% for error in rel_form.condition.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>{{ rel_form.submit() }}</p>
+    </form>
+    <h2>Provide something</h2>
+    <form action="" method="post">
+        {{ action_form.hidden_tag() }}
+        <p>
+            {{ action_form.human.label }}<br>
+            {{ action_form.human() }}<br>
+            {% for error in action_form.human.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+
+            {{ action_form.action.label }}<br>
+            {{ action_form.action() }}<br>
+            {% for error in action_form.action.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>{{ action_form.submit() }}</p>
+    </form>
+    <a href="{{ url_for('command', state=name, command="collect_taxes") }}">Collect taxes</a>
+    <a href="{{ url_for('command', state=name, command="enhance_infrastructure") }}">Enhance infrastructure</a>
+    <a href="{{ url_for('index') }}">Back</a>
+</div>
+{% endblock %}

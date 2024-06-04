@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="menu-container">
+    <h1>{{name}} for {{state}}</h1>
+    {% block form %}{% endblock %}
+    <a href="{{ url_for('state', name=state) }}">{{state}}</a>
+</div>
+{% endblock %}

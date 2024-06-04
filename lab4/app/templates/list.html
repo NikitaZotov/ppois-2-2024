@@ -1,0 +1,11 @@
+{% extends 'base_request.html' %}
+
+{% block form %}
+    {% if answer%}
+        {% for string in answer.split('\n') %}
+            {{string}}<br>
+        {% endfor %}
+    {% else %}
+        <p>There is nothing</p>
+    {% endif %}
+{% endblock %}

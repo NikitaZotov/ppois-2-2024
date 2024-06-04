@@ -1,0 +1,79 @@
+# sizes of tiles
+tile_width: 16
+tile_height: 16
+
+# image size
+image_width: 32
+image_height: 32
+
+#map
+map_background_view: 0x000025
+
+#pacman
+pacman_tile_time: 6
+
+#ghosts
+ghost_tile_time: 12
+ghost_f_tile_time: 18
+m1_aka_scatter_pos: [25, 0]
+m1_machi_scatter_pos: [2, 0]
+m1_ao_scatter_pos: [0, 35]
+m1_guzu_scatter_pos: [27, 35]
+m1_house_exit_pos: [13, 14]
+
+#collider
+show_colliders: 0
+
+#screen
+width: 800
+height: 600
+
+#score
+score_file_path: resource/score.json
+
+#rules
+rules_file_path: resource/rules.txt
+
+#colors
+default_color: '0x9AD1D4'
+collider_color: '0x0000FF'
+text_color: '0xF5B400'
+bg_color: '0x00277A'
+
+button_color: '0xF5B400'
+bt_hover_color: '0xFFD970'
+bt_text_color: '0x000000'
+
+header_color: '0xF5B400'
+hd_text_color: '0x000000'
+
+fps: 30
+
+# score
+cookie_price: 10
+powerup_price: 50
+fruit_price: 100
+ghost_price: 200
+
+fruit_spawn: [70, 170]
+
+lives: 2
+
+haste_time: 300
+
+rules: |
+  1. The objective is to eat all the dots in the maze while
+   avoiding the four colored ghosts
+
+  2. Pac-Man earns points by eating dots and power pellets
+  
+  3. When Pac-Man eats a white powerup, the ghosts turn blue
+     and can be eaten for points. If blue powerup, pacman will be hastened
+  
+  4. Pac-Man also earns bonus points for eating fruit
+     that appears in the maze
+  
+  5. If Pac-Man is touched by a ghost, he loses a life
+  
+  6. The game ends when Pac-Man loses all his lives
+     or clears all the dots in the maze
