@@ -1,0 +1,278 @@
+<?xml version="1.0" ?>
+<pet_records>
+   <pet_record>
+      <pet>
+         <name>Барсик</name>
+         <birth_date>12.05.2005</birth_date>
+         <last_visit_date>10.01.2020</last_visit_date>
+         <diagnosis>Здоров</diagnosis>
+      </pet>
+      <vet>
+         <fio>Харецкий Алексей Дмитриевич</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Мурзик</name>
+         <birth_date>03.09.2018</birth_date>
+         <last_visit_date>25.05.2024</last_visit_date>
+         <diagnosis>Простуда</diagnosis>
+      </pet>
+      <vet>
+         <fio>Иванова Мария Александровна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Рекс</name>
+         <birth_date>15.12.2016</birth_date>
+         <last_visit_date>18.06.2024</last_visit_date>
+         <diagnosis>Ожирение</diagnosis>
+      </pet>
+      <vet>
+         <fio>Петров Александр Викторович</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Кеша</name>
+         <birth_date>20.03.2019</birth_date>
+         <last_visit_date>30.04.2024</last_visit_date>
+         <diagnosis>Зубная боль</diagnosis>
+      </pet>
+      <vet>
+         <fio>Смирнова Екатерина Сергеевна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Буся</name>
+         <birth_date>20.09.2020</birth_date>
+         <last_visit_date>12.05.2024</last_visit_date>
+         <diagnosis>Насморк</diagnosis>
+      </pet>
+      <vet>
+         <fio>Николаева Анна Игоревна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Золушка</name>
+         <birth_date>03.11.2021</birth_date>
+         <last_visit_date>20.06.2024</last_visit_date>
+         <diagnosis>Отеки на плавниках</diagnosis>
+      </pet>
+      <vet>
+         <fio>Козлова Елена Владимировна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Васька</name>
+         <birth_date>10.07.2017</birth_date>
+         <last_visit_date>05.05.2024</last_visit_date>
+         <diagnosis>Аллергия на пыльцу</diagnosis>
+      </pet>
+      <vet>
+         <fio>Михайлов Владислав Николаевич</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Тошка</name>
+         <birth_date>07.10.2017</birth_date>
+         <last_visit_date>08.06.2024</last_visit_date>
+         <diagnosis>Проблемы с зубами</diagnosis>
+      </pet>
+      <vet>
+         <fio>Полякова Елена Викторовна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Шарик</name>
+         <birth_date>30.11.2018</birth_date>
+         <last_visit_date>02.05.2024</last_visit_date>
+         <diagnosis>Аллергия на корм</diagnosis>
+      </pet>
+      <vet>
+         <fio>Сидорова Ольга Александровна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Маркиз</name>
+         <birth_date>15.08.2016</birth_date>
+         <last_visit_date>19.06.2024</last_visit_date>
+         <diagnosis>Проблемы с сердцем</diagnosis>
+      </pet>
+      <vet>
+         <fio>Кузнецов Игорь Сергеевич</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Вероника</name>
+         <birth_date>22.03.2020</birth_date>
+         <last_visit_date>11.05.2024</last_visit_date>
+         <diagnosis>Запор</diagnosis>
+      </pet>
+      <vet>
+         <fio>Белкина Екатерина Александровна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Феликс</name>
+         <birth_date>11.05.2019</birth_date>
+         <last_visit_date>07.06.2024</last_visit_date>
+         <diagnosis>Аллергия на пыльцу</diagnosis>
+      </pet>
+      <vet>
+         <fio>Воронина Анна Владимировна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Тошка</name>
+         <birth_date>18.09.2019</birth_date>
+         <last_visit_date>03.06.2024</last_visit_date>
+         <diagnosis>Ожоги после костра</diagnosis>
+      </pet>
+      <vet>
+         <fio>Григорьев Владимир Павлович</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Семен</name>
+         <birth_date>14.02.2015</birth_date>
+         <last_visit_date>15.07.2024</last_visit_date>
+         <diagnosis>Перелом лапы</diagnosis>
+      </pet>
+      <vet>
+         <fio>Лебедева Анастасия Степановна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Тимоша</name>
+         <birth_date>23.12.2017</birth_date>
+         <last_visit_date>01.04.2024</last_visit_date>
+         <diagnosis>Инфекция ушей</diagnosis>
+      </pet>
+      <vet>
+         <fio>Соколов Денис Викторович</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Люська</name>
+         <birth_date>08.10.2020</birth_date>
+         <last_visit_date>10.06.2024</last_visit_date>
+         <diagnosis>Аллергия на корм</diagnosis>
+      </pet>
+      <vet>
+         <fio>Комарова Анна Павловна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Симба</name>
+         <birth_date>05.09.2016</birth_date>
+         <last_visit_date>07.08.2024</last_visit_date>
+         <diagnosis>Повреждение хвоста</diagnosis>
+      </pet>
+      <vet>
+         <fio>Гаврилов Виктор Александрович</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Борис</name>
+         <birth_date>17.07.2018</birth_date>
+         <last_visit_date>20.05.2024</last_visit_date>
+         <diagnosis>Проблемы с пищеварением</diagnosis>
+      </pet>
+      <vet>
+         <fio>Жукова Ольга Сергеевна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Машка</name>
+         <birth_date>20.04.2019</birth_date>
+         <last_visit_date>12.06.2024</last_visit_date>
+         <diagnosis>Бронхит</diagnosis>
+      </pet>
+      <vet>
+         <fio>Артемьев Артемий Артемович</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Рыжик</name>
+         <birth_date>30.06.2017</birth_date>
+         <last_visit_date>22.05.2024</last_visit_date>
+         <diagnosis>Аллергия на пыльцу</diagnosis>
+      </pet>
+      <vet>
+         <fio>Сазонова Евгения Владимировна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Варежка</name>
+         <birth_date>10.08.2021</birth_date>
+         <last_visit_date>11.07.2024</last_visit_date>
+         <diagnosis>Ожоги лап</diagnosis>
+      </pet>
+      <vet>
+         <fio>Родионова Мария Васильевна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Гарик</name>
+         <birth_date>20.09.2021</birth_date>
+         <last_visit_date>20.10.2023</last_visit_date>
+         <diagnosis>Перелом лапы</diagnosis>
+      </pet>
+      <vet>
+         <fio>Борисов Александр Николаевич</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Зина</name>
+         <birth_date>12.05.2020</birth_date>
+         <last_visit_date>20.06.2023</last_visit_date>
+         <diagnosis>Чума</diagnosis>
+      </pet>
+      <vet>
+         <fio>Хамутовская Елена Павловна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Лев</name>
+         <birth_date>12.12.2023</birth_date>
+         <last_visit_date>12.01.2024</last_visit_date>
+         <diagnosis>Порез на левой лапе</diagnosis>
+      </pet>
+      <vet>
+         <fio>Туча Вероника Сергеевна</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Джек</name>
+         <birth_date>05.10.2015</birth_date>
+         <last_visit_date>05.01.2024</last_visit_date>
+         <diagnosis>Самый лучший пес</diagnosis>
+      </pet>
+      <vet>
+         <fio>Айболит Айболит Айболитович</fio>
+      </vet>
+   </pet_record>
+</pet_records>

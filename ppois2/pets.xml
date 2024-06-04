@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<pet_records>
+   <pet_record>
+      <pet>
+         <name>Барсик</name>
+         <birth_date>12.05.2005</birth_date>
+         <last_visit_date>10.01.2020</last_visit_date>
+         <diagnosis>Здоров</diagnosis>
+      </pet>
+      <vet>
+         <fio>Харецкий Алексей Дмитриевич</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Журка</name>
+         <birth_date>15.07.2010</birth_date>
+         <last_visit_date>20.02.2023</last_visit_date>
+         <diagnosis>Лишай 1го типа</diagnosis>
+      </pet>
+      <vet>
+         <fio>Иванов Иван Иванович</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Заяц</name>
+         <birth_date>12.12.2020</birth_date>
+         <last_visit_date>12.12.2023</last_visit_date>
+         <diagnosis>Рак</diagnosis>
+      </pet>
+      <vet>
+         <fio>Борисов Александр Николаевич</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Жук</name>
+         <birth_date>12.12.2001</birth_date>
+         <last_visit_date>12.12.2023</last_visit_date>
+         <diagnosis>Здоров</diagnosis>
+      </pet>
+      <vet>
+         <fio>Романов Роман Федорович</fio>
+      </vet>
+   </pet_record>
+   <pet_record>
+      <pet>
+         <name>Краб</name>
+         <birth_date>23.04.2022</birth_date>
+         <last_visit_date>23.05.2023</last_visit_date>
+         <diagnosis>Лишай</diagnosis>
+      </pet>
+      <vet>
+         <fio>Сидоров Иван Янович</fio>
+      </vet>
+   </pet_record>
+</pet_records>
