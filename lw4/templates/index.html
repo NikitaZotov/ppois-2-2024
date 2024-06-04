@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Система управления финансами
+{% endblock %}
+
+{% block body %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal text-body-emphasis">Система управления финансами</h1>
+      <div><a href="/make_transaction" class="btn btn-primary rounded-pill px-5" tabindex="-1" role="button" aria-disabled="true">Совершить транзакцию</a></div>
+      <div><a href="/make_investment" class="btn btn-primary rounded-pill px-5" tabindex="-1" role="button" aria-disabled="true">Совершить инвестицию</a></div>
+      <div><a href="/make_withdrawal" class="btn btn-primary rounded-pill px-5" tabindex="-1" role="button" aria-disabled="true">Списать средства со счета</a></div>
+      <div><a href="/make_deposit" class="btn btn-primary rounded-pill px-5" tabindex="-1" role="button" aria-disabled="true">Внести средства на счет</a></div>
+      <div><a href="/get_analysis" class="btn btn-primary rounded-pill px-5" tabindex="-1" role="button" aria-disabled="true">Получить анализ счета</a></div>
+      <div><a href="/get_financial_report" class="btn btn-primary rounded-pill px-5" tabindex="-1" role="button" aria-disabled="true">Получить финансовый отчет счета</a></div>
+      <div><a href="/form_new_budget" class="btn btn-primary rounded-pill px-5" tabindex="-1" role="button" aria-disabled="true">Сформировать новый бюджет</a></div>
+      <div><a href="/portfolio_management" class="btn btn-primary rounded-pill px-5" tabindex="-1" role="button" aria-disabled="true">Управление инвестиционным портфолио</a></div>
+</div>
+{% endblock %}

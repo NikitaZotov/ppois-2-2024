@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Совершить транзакцию
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div>
+        <form method="post">
+            <input type="number" name="investment_number" id="investment_number" class="form-control" placeholder="Введите номер выполняемой инвестиции" required>
+            <input type="number" name="money_amount" id="money_amount" class="form-control" placeholder="Введите сумму" required>
+            <input type="submit" value="Совершить инвестицию">
+        </form>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Номер</th>
+                    <th>Название инвестиции</th>
+                    <th>Риск инвестиции</th>
+                    <th>Коэффициент прибыли</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for investment in investments %}
+                    <tr>
+                        <th> {{ investment[0] + 1 }} </th>
+                        <td> {{ investment[1].get_scope_of_investment() }} </td>
+                        <td> {{ investment[1].get_risk() }} </td>
+                        <td> {{ investment[1].get_profit_ratio() }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="/" class="btn btn-primary rounded-pill px-5" tabindex="-1" role="button" aria-disabled="true">Вернуться на главную</a>
+</div>
+{% endblock %}
