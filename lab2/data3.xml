@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<students>
+    <student> <name>Emma Adams</name> <group>444444</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>8;7;6</exam_grade> </student>
+    <student> <name>William Parker</name> <group>444444</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>9;8;7</exam_grade> </student>
+    <student> <name>Ava Walker</name> <group>454545</group> <exam_title>art;music;literature</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+    <student> <name>Oliver Scott</name> <group>454545</group> <exam_title>art;music;literature</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+    <student> <name>Sophia Harris</name> <group>464646</group> <exam_title>computer science;math;physics</exam_title> <exam_grade>7;6;5</exam_grade> </student>
+    <student> <name>Logan Adams</name> <group>464646</group> <exam_title>computer science;math;physics</exam_title> <exam_grade>9;8;10</exam_grade> </student>
+    <student> <name>Olivia Turner</name> <group>474747</group> <exam_title>history;geography;economics</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+    <student> <name>Elijah Parker</name> <group>474747</group> <exam_title>history;geography;economics</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+    <student> <name>Mia Baker</name> <group>484848</group> <exam_title>psychology;biology;chemistry</exam_title> <exam_grade>4;5;6</exam_grade> </student>
+    <student> <name>James Cooper</name> <group>484848</group> <exam_title>psychology;biology;chemistry</exam_title> <exam_grade>10;9;8</exam_grade> </student>
+    <student> <name>Charlotte Scott</name> <group>494949</group> <exam_title>math;physics;computer science</exam_title> <exam_grade>8;7;6</exam_grade> </student>
+    <student> <name>Henry Adams</name> <group>494949</group> <exam_title>math;physics;computer science</exam_title> <exam_grade>9;8;7</exam_grade> </student>
+    <student> <name>Amelia Harris</name> <group>505050</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+    <student> <name>Lucas Turner</name> <group>505050</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+    <student> <name>Harper Adams</name> <group>515151</group> <exam_title>art;music;literature</exam_title> <exam_grade>5;6;7</exam_grade> </student>
+    <student> <name>Michael Parker</name> <group>515151</group> <exam_title>art;music;literature</exam_title> <exam_grade>8;9;10</exam_grade> </student>
+    <student> <name>Sophia Turner</name> <group>525252</group> <exam_title>history;geography;economics</exam_title> <exam_grade>7;8;9</exam_grade> </student>
+    <student> <name>Jack Scott</name> <group>525252</group> <exam_title>history;geography;economics</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+    <student> <name>Isabella Baker</name> <group>535353</group> <exam_title>computer science;math;physics</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+    <student> <name>Benjamin Adams</name> <group>535353</group> <exam_title>computer science;math;physics</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+    <student> <name>Ava Turner</name> <group>545454</group> <exam_title>psychology;biology;chemistry</exam_title> <exam_grade>5;6;7</exam_grade> </student>
+    <student> <name>William Cooper</name> <group>545454</group> <exam_title>psychology;biology;chemistry</exam_title> <exam_grade>8;9;10</exam_grade> </student>
+    <student> <name>Mia Scott</name> <group>555555</group> <exam_title>art;music;literature</exam_title> <exam_grade>7;8;9</exam_grade> </student>
+    <student> <name>James Turner</name> <group>555555</group> <exam_title>art;music;literature</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+    <student> <name>Charlotte Adams</name> <group>565656</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+    <student> <name>Oliver Parker</name> <group>565656</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+    <student> <name>Emily Harris</name> <group>575757</group> <exam_title>math;physics;computer science</exam_title> <exam_grade>8;7;6</exam_grade> </student>
+    <student> <name>Henry Scott</name> <group>575757</group> <exam_title>math;physics;computer science</exam_title> <exam_grade>9;8;7</exam_grade> </student>
+    <student> <name>Amelia Turner</name> <group>585858</group> <exam_title>history;geography;economics</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+    <student> <name>Lucas Adams</name> <group>585858</group> <exam_title>history;geography;economics</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+    <student> <name>Harper Parker</name> <group>595959</group> <exam_title>computer science;math;physics</exam_title> <exam_grade>5;6;7</exam_grade> </student>
+    <student> <name>Alexander Turner</name> <group>595959</group> <exam_title>computer science;math;physics</exam_title> <exam_grade>8;9;10</exam_grade> </student>
+    <student> <name>Sophie Baker</name> <group>606060</group> <exam_title>psychology;biology;chemistry</exam_title> <exam_grade>7;8;9</exam_grade> </student>
+    <student> <name>Henry Turner</name> <group>606060</group> <exam_title>psychology;biology;chemistry</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+    <student> <name>Grace Adams</name> <group>616161</group> <exam_title>art;music;literature</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+    <student> <name>Joseph Parker</name> <group>616161</group> <exam_title>art;music;literature</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+    <student> <name>Isabella Scott</name> <group>626262</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>5;6;7</exam_grade> </student>
+    <student> <name>William Harris</name> <group>626262</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>8;9;10</exam_grade> </student>
+    <student> <name>Olivia Baker</name> <group>636363</group> <exam_title>computer science;math;physics</exam_title> <exam_grade>7;8;9</exam_grade> </student>
+    <student> <name>Elijah Turner</name> <group>636363</group> <exam_title>computer science;math;physics</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+    <student> <name>Ava Cooper</name> <group>646464</group> <exam_title>history;geography;economics</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+    <student> <name>James Adams</name> <group>646464</group> <exam_title>history;geography;economics</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+    <student> <name>Emily Turner</name> <group>656565</group> <exam_title>math;physics;computer science</exam_title> <exam_grade>8;7;6</exam_grade> </student>
+    <student> <name>Benjamin Harris</name> <group>656565</group> <exam_title>math;physics;computer science</exam_title> <exam_grade>9;8;7</exam_grade> </student>
+    <student> <name>Charlotte Baker</name> <group>666666</group> <exam_title>psychology;biology;chemistry</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+    <student> <name>Lucas Parker</name> <group>666666</group> <exam_title>psychology;biology;chemistry</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+    <student> <name>Mia Scott</name> <group>676767</group> <exam_title>art;music;literature</exam_title> <exam_grade>5;6;7</exam_grade> </student>
+    <student> <name>Alexander Adams</name> <group>676767</group> <exam_title>art;music;literature</exam_title> <exam_grade>8;9;10</exam_grade> </student>
+    <student> <name>Sophia Parker</name> <group>686868</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>7;8;9</exam_grade> </student>
+    <student> <name>Michael Turner</name> <group>686868</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+
+
+</students>
