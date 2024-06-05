@@ -1,0 +1,54 @@
+<?xml version="1.0" ?><students>
+
+<student> <name>David Johnson</name> <group>343434</group> <exam_title>literature;art;music</exam_title> <exam_grade>9;8;7</exam_grade> </student>
+
+<student> <name>Emma Thompson</name> <group>565656</group> <exam_title>history;geography;economics</exam_title> <exam_grade>10;10;9</exam_grade> </student>
+<student> <name>William Davis</name> <group>787878</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>8;9;7</exam_grade> </student>
+<student> <name>Ava Anderson</name> <group>898989</group> <exam_title>physics;math;computer science</exam_title> <exam_grade>7;6;8</exam_grade> </student>
+<student> <name>Benjamin Martinez</name> <group>898989</group> <exam_title>physics;math;computer science</exam_title> <exam_grade>5;4;6</exam_grade> </student>
+
+<student> <name>Henry Thompson</name> <group>111111</group> <exam_title>geography;history;economics</exam_title> <exam_grade>6;7;5</exam_grade> </student>
+
+<student> <name>Thomas Taylor</name> <group>121212</group> <exam_title>art;music;literature</exam_title> <exam_grade>7;8;9</exam_grade> </student>
+<student> <name>Isabella White</name> <group>131313</group> <exam_title>computer science;math;physics</exam_title> <exam_grade>4;5;6</exam_grade> </student>
+
+<student> <name>Mia Robinson</name> <group>141414</group> <exam_title>psychology;biology;chemistry</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+<student> <name>Sebastian Walker</name> <group>141414</group> <exam_title>psychology;biology;chemistry</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+<student> <name>Grace Young</name> <group>151515</group> <exam_title>music;literature;art</exam_title> <exam_grade>5;6;7</exam_grade> </student>
+<student> <name>Andrew Moore</name> <group>161616</group> <exam_title>history;geography;economics</exam_title> <exam_grade>8;7;6</exam_grade> </student>
+<student> <name>Victoria Clark</name> <group>171717</group> <exam_title>math;physics;computer science</exam_title> <exam_grade>9;8;7</exam_grade> </student>
+<student> <name>Christopher Turner</name> <group>171717</group> <exam_title>math;physics;computer science</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+<student> <name>Madison Walker</name> <group>181818</group> <exam_title>art;music;literature</exam_title> <exam_grade>7;6;5</exam_grade> </student>
+
+<student> <name>Abigail Harris</name> <group>191919</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+<student> <name>Samuel Baker</name> <group>191919</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+<student> <name>Elizabeth Turner</name> <group>202020</group> <exam_title>computer science;math;physics</exam_title> <exam_grade>4;5;6</exam_grade> </student>
+
+<student> <name>Grace Adams</name> <group>212121</group> <exam_title>psychology;biology;chemistry</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+<student> <name>John Parker</name> <group>212121</group> <exam_title>psychology;biology;chemistry</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+<student> <name>Chloe Mitchell</name> <group>222222</group> <exam_title>music;literature;art</exam_title> <exam_grade>5;6;7</exam_grade> </student>
+
+<student> <name>Emily Rodriguez</name> <group>232323</group> <exam_title>history;geography;economics</exam_title> <exam_grade>7;8;9</exam_grade> </student>
+<student> <name>William Adams</name> <group>232323</group> <exam_title>history;geography;economics</exam_title> <exam_grade>9;8;7</exam_grade> </student>
+<student> <name>Oliver Turner</name> <group>242424</group> <exam_title>geography;history;economics</exam_title> <exam_grade>8;7;6</exam_grade> </student>
+<student> <name>Sophia Parker</name> <group>242424</group> <exam_title>geography;history;economics</exam_title> <exam_grade>9;8;7</exam_grade> </student>
+<student> <name>Emma Lee</name> <group>252525</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+<student> <name>Ethan Miller</name> <group>252525</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+<student> <name>Ava Turner</name> <group>262626</group> <exam_title>music;literature;art</exam_title> <exam_grade>5;6;7</exam_grade> </student>
+
+<student> <name>Isabella Harris</name> <group>272727</group> <exam_title>computer science;math;physics</exam_title> <exam_grade>4;5;6</exam_grade> </student>
+
+<student> <name>Emily Turner</name> <group>282828</group> <exam_title>psychology;biology;chemistry</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+<student> <name>Michael Parker</name> <group>282828</group> <exam_title>psychology;biology;chemistry</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+
+
+<student> <name>Olivia Walker</name> <group>303030</group> <exam_title>math;physics;computer science</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+<student> <name>Noah Scott</name> <group>303030</group> <exam_title>math;physics;computer science</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+<student> <name>Ava Harris</name> <group>313131</group> <exam_title>art;music;literature</exam_title> <exam_grade>7;6;5</exam_grade> </student>
+
+<student> <name>Isabella Baker</name> <group>323232</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>6;7;8</exam_grade> </student>
+<student> <name>Mason Cooper</name> <group>323232</group> <exam_title>biology;chemistry;psychology</exam_title> <exam_grade>9;10;9</exam_grade> </student>
+<student> <name>Sophia Mitchell</name> <group>333333</group> <exam_title>computer science;math;physics</exam_title> <exam_grade>4;5;6</exam_grade> </student>
+
+
+<student><name>bvhruv</name><group>23</group><exam_title>gtg;fgrfrf;frfrf</exam_title><exam_grade>9;6;5</exam_grade></student><student><name>bvhruv</name><group>23</group><exam_title>gtg;fgrfrf;frfrf</exam_title><exam_grade>9;6;5</exam_grade></student><student><name>bvhruv</name><group>23</group><exam_title>gtg;fgrfrf;frfrf</exam_title><exam_grade>9;6;1</exam_grade></student></students>
